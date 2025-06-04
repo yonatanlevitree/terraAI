@@ -28,13 +28,17 @@ const SimulationForm: React.FC = () => {
 
     const [jobId, setJobId] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [algorithm, setAlgorithm] = useState<string>('greedy');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(null);
         
         try {
-            const response = await axios.post('${API_BASE_URL}/simulation', parameters);
+            const response = await axios.post(`${API_BASE_URL}/simulation`, {
+                ...parameters,
+                algorithm,
+            });
             setJobId(response.data.job_id);
         } catch (err) {
             setError('Failed to create simulation job');
@@ -196,6 +200,20 @@ const SimulationForm: React.FC = () => {
                         onChange={handleChange}
                         className="w-full p-2 border rounded"
                     />
+                </div>
+
+                <div>
+                    <label className="block mb-1">Algorithm</label>
+                    <select
+                        name="algorithm"
+                        value={algorithm}
+                        onChange={e => setAlgorithm(e.target.value)}
+                        className="w-full p-2 border rounded"
+                        required
+                    >
+                        <option value="genetic">Genetic</option>
+                        <option value="greedy">Greedy</option>
+                    </select>
                 </div>
 
                 <button

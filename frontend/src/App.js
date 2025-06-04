@@ -434,13 +434,13 @@ export default function AsyncJobManager() {
   // Terrain simulation inputs
   const [terrainSize, setTerrainSize] = useState('400');
   const [noise, setnoise] = useState('0.5');
-  const [smoothness, setSmoothness] = useState('10');
-  const [maxIterations, setMaxIterations] = useState('100');
+  const [smoothness, setSmoothness] = useState('0.5');
+  const [maxIterations, setMaxIterations] = useState('50');
   const [depthMin, setDepthMin] = useState('5');
   const [depthMax, setDepthMax] = useState('30');
   const [volumeMin, setVolumeMin] = useState('10');
   const [volumeMax, setVolumeMax] = useState('500');
-  const [monetaryLimit, setMonetaryLimit] = useState('50000000');
+  const [monetaryLimit, setMonetaryLimit] = useState('5000000');
   const [timeLimit, setTimeLimit] = useState('500000');
   const [fidelity, setFidelity] = useState('0.5');
   const [algorithm, setAlgorithm] = useState('greedy');
