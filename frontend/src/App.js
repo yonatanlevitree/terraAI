@@ -550,11 +550,8 @@ export default function AsyncJobManager() {
 
   const handleDelete = async (jobId) => {
     try {
-      const job = jobs.find(j => j.id === jobId);
-      if (job) {
-        await api.deleteJob('simulate', jobId);
-        await loadJobs();
-      }
+      await api.deleteJob('simulate', jobId);
+      await loadJobs();
     } catch (error) {
       console.error('Failed to delete job:', error);
     }

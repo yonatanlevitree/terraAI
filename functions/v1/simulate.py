@@ -102,6 +102,7 @@ def get_simulation_status(job_id):
         return jsonify({"error": "Job not found"}), 404
         
     return jsonify(jobs[job_id]), 200
+
 @simulate_bp.route('/simulation', methods=['GET'])
 def list_simulation_jobs():
     """
@@ -124,6 +125,38 @@ def list_simulation_jobs():
                       $ref: '#/components/schemas/SimulationResponse'
     """
     return jsonify({"jobs": list(jobs.values())}), 200
+
+@simulate_bp.route('/simulation/<job_id>', methods=['DELETE'])
+def delete_simulation_job(job_id):
+    """
+    Delete a simulation job
+    ---
+    delete:
+      summary: Delete a simulation job
+      description: Deletes a simulation job by job_id
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Job deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        404:
+          description: Job not found
+    """
+    if job_id not in jobs:
+        return jsonify({"error": "Job not found"}), 404
+    del jobs[job_id]
+    return jsonify({"message": f"Job {job_id} deleted successfully."}), 200
 
 def register_routes(app):
     """Register OpenAPI documentation"""
