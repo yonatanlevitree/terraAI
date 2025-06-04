@@ -1,3 +1,6 @@
+import threading
+from functions.v1.optimizers.genetic import GeneticOptimizer
+from functions.v1.optimizers.greedy import GreedyOptimizer
 from flask import Blueprint, request, jsonify
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
@@ -8,16 +11,16 @@ simulate_bp = Blueprint('simulate', __name__)
 # Define the request schema
 class SimulationParameters(Schema):
     fidelity = fields.Float(required=True, validate=validate.Range(min=0.1, max=1.0))
-    terrain_size = fields.Integer(required=True, validate=validate.Range(min=100, max=1000))
-    depth_bounds = fields.List(fields.Float(), required=True, validate=validate.Length(equal=2))
-    volume_bounds = fields.List(fields.Float(), required=True, validate=validate.Length(equal=2))
+    terrainSize = fields.Integer(required=True, validate=validate.Range(min=100, max=1000))
+    depthBounds = fields.List(fields.Float(), required=True, validate=validate.Length(equal=2))
+    volumeBounds = fields.List(fields.Float(), required=True, validate=validate.Length(equal=2))
     noise = fields.Float(required=True, validate=validate.Range(min=0.0, max=1.0))
     smoothness = fields.Float(required=True, validate=validate.Range(min=0.0, max=1.0))
     name = fields.String(required=False)
     description = fields.String(required=False)
-    max_iterations = fields.Integer(required=True, validate=validate.Range(min=1, max=1000))
-    total_monetary_cost_limit = fields.Integer(required=True, validate=validate.Range(min=1, max=1000000000))
-    total_time_cost_limit = fields.Integer(required=True, validate=validate.Range(min=1, max=1000000))
+    maxIterations = fields.Integer(required=True, validate=validate.Range(min=1, max=1000))
+    monetaryLimit = fields.Integer(required=True, validate=validate.Range(min=1, max=1000000000))
+    timeLimit = fields.Integer(required=True, validate=validate.Range(min=1, max=1000000))
     algorithm = fields.String(required=True, validate=validate.OneOf(["genetic", "greedy"]))
 
 # Define the response schema
@@ -66,6 +69,9 @@ def create_simulation():
             "status": "pending"
         }
         
+        thread = threading.Thread(target=run_simulation, args=(job_id, validated_data))
+        thread.start()
+        
         return jsonify({
             "job_id": job_id,
             "status": "pending",
@@ -74,6 +80,29 @@ def create_simulation():
         
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
+def run_simulation(job_id, parameters):
+    """
+    Run a simulation job
+    """
+    try:
+        # Initialize the optimizer
+        if parameters['algorithm'] == 'genetic':
+            optimizer = GeneticOptimizer(**parameters)
+        else:
+            optimizer = GreedyOptimizer(**parameters)
+        
+        # Run the optimization
+        result = optimizer.optimize()
+        
+        # Update the job status
+        jobs[job_id]['status'] = 'completed'
+        jobs[job_id]['result'] = result
+        
+    except Exception as e:
+        jobs[job_id]['status'] = 'failed'
+        jobs[job_id]['error'] = str(e)
+
 
 @simulate_bp.route('/simulation/<job_id>', methods=['GET'])
 def get_simulation_status(job_id):

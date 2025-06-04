@@ -15,64 +15,64 @@ class GeneticOptimizer(BaseOptimizer):
     """
     
     def __init__(self, 
-                 terrain_size: int,
+                 terrainSize: int,
                  noise: float,
                  smoothness: float,
-                 max_iterations: int,
-                 depth_bounds: Tuple[float, float],
-                 volume_bounds: Tuple[float, float],
-                 monetary_limit: float,
-                 time_limit: float,
-                 target_fidelity: float,
+                 maxIterations: int,
+                 depthBounds: Tuple[float, float],
+                 volumeBounds: Tuple[float, float],
+                 monetaryLimit: float,
+                 timeLimit: float,
+                 fidelity: float,
                  seed: int = None,
-                 population_size: int = 50,
-                 mutation_rate: float = 0.1,
-                 tournament_size: int = 3,
-                 elite_size: int = 2):
+                 populationSize: int = 50,
+                 mutationRate: float = 0.1,
+                 tournamentSize: int = 3,
+                 eliteSize: int = 2):
         """
         Initialize the genetic algorithm optimizer
         
         Args:
-            terrain_size: Size of the terrain grid
+            terrainSize: Size of the terrain grid
             noise: Level of noise in terrain generation
             smoothness: Smoothness factor for terrain
-            max_iterations: Maximum number of iterations allowed
-            depth_bounds: Tuple of (min_depth, max_depth) for wells
-            volume_bounds: Tuple of (min_volume, max_volume) for wells
-            monetary_limit: Maximum monetary cost allowed
-            time_limit: Maximum time cost allowed
-            target_fidelity: Target fidelity level to achieve
+            maxIterations: Maximum number of iterations allowed
+            depthBounds: Tuple of (min_depth, max_depth) for wells
+            volumeBounds: Tuple of (min_volume, max_volume) for wells
+            monetaryLimit: Maximum monetary cost allowed
+            timeLimit: Maximum time cost allowed
+            fidelity: Target fidelity level to achieve
             seed: Random seed for reproducibility
-            population_size: Number of solutions in each generation
-            mutation_rate: Probability of mutation for each well
-            tournament_size: Number of solutions to compare in tournament selection
-            elite_size: Number of best solutions to preserve in each generation
+            populationSize: Number of solutions in each generation
+            mutationRate: Probability of mutation for each well
+            tournamentSize: Number of solutions to compare in tournament selection
+            eliteSize: Number of best solutions to preserve in each generation
         """
         super().__init__(
-            terrain_size=terrain_size,
+            terrainSize=terrainSize,
             noise=noise,
             smoothness=smoothness,
-            max_iterations=max_iterations,
-            depth_bounds=depth_bounds,
-            volume_bounds=volume_bounds,
-            monetary_limit=monetary_limit,
-            time_limit=time_limit,
-            target_fidelity=target_fidelity,
+            maxIterations=maxIterations,
+            depthBounds=depthBounds,
+            volumeBounds=volumeBounds,
+            monetaryLimit=monetaryLimit,
+            timeLimit=timeLimit,
+            fidelity=fidelity,
             seed=seed
         )
-        self.population_size = population_size
-        self.mutation_rate = mutation_rate
-        self.tournament_size = tournament_size
-        self.elite_size = elite_size
+        self.populationSize = populationSize
+        self.mutationRate = mutationRate
+        self.tournamentSize = tournamentSize
+        self.eliteSize = eliteSize
         
     def _initialize_population(self) -> List[Well]:
         """Initialize a population of random wells"""
         population = []
-        for _ in range(self.population_size):
-            x = int(np.random.randint(0, self.terrain_size))
-            y = int(np.random.randint(0, self.terrain_size))
-            depth = float(np.random.uniform(self.depth_bounds[0], self.depth_bounds[1]))
-            volume = float(np.random.uniform(self.volume_bounds[0], self.volume_bounds[1]))
+        for _ in range(self.populationSize):
+            x = int(np.random.randint(0, self.terrainSize))
+            y = int(np.random.randint(0, self.terrainSize))
+            depth = float(np.random.uniform(self.depthBounds[0], self.depthBounds[1]))
+            volume = float(np.random.uniform(self.volumeBounds[0], self.volumeBounds[1]))
             population.append(Well(x, y, depth, volume))
         return population
     
@@ -85,7 +85,7 @@ class GeneticOptimizer(BaseOptimizer):
         mse = float(torch.mean((self.terrain.goal_terrain - modified_terrain) ** 2))
         
         # Add penalty for costs
-        if well.monetary_cost() > self.monetary_limit or well.time_cost() > self.time_limit:
+        if well.monetaryCost() > self.monetaryLimit or well.time_cost() > self.timeLimit:
             mse = float('inf')
             
         return mse
@@ -93,7 +93,7 @@ class GeneticOptimizer(BaseOptimizer):
     def _tournament_selection(self, population: List[Well], 
                             fitnesses: List[float]) -> Well:
         """Select a well using tournament selection"""
-        tournament_indices = np.random.choice(len(population), self.tournament_size, replace=False)
+        tournament_indices = np.random.choice(len(population), self.tournamentSize, replace=False)
         tournament_fitnesses = [fitnesses[i] for i in tournament_indices]
         winner_idx = tournament_indices[np.argmin(tournament_fitnesses)]  # Lower MSE is better
         return population[winner_idx]
@@ -124,29 +124,29 @@ class GeneticOptimizer(BaseOptimizer):
         # Define neighborhood size (can be adjusted)
         neighborhood_size = 5
         
-        if np.random.random() < self.mutation_rate:
+        if np.random.random() < self.mutationRate:
             # Mutate x within neighborhood
             x_min = max(0, well.x0 - neighborhood_size)
-            x_max = min(self.terrain_size - 1, well.x0 + neighborhood_size)
+            x_max = min(self.terrainSize - 1, well.x0 + neighborhood_size)
             x = int(np.random.randint(x_min, x_max + 1))
         else:
             x = well.x0
             
-        if np.random.random() < self.mutation_rate:
+        if np.random.random() < self.mutationRate:
             # Mutate y within neighborhood
             y_min = max(0, well.y0 - neighborhood_size)
-            y_max = min(self.terrain_size - 1, well.y0 + neighborhood_size)
+            y_max = min(self.terrainSize - 1, well.y0 + neighborhood_size)
             y = int(np.random.randint(y_min, y_max + 1))
         else:
             y = well.y0
             
-        if np.random.random() < self.mutation_rate:
-            depth = float(np.random.uniform(self.depth_bounds[0], self.depth_bounds[1]))
+        if np.random.random() < self.mutationRate:
+            depth = float(np.random.uniform(self.depthBounds[0], self.depthBounds[1]))
         else:
             depth = well.depth
             
-        if np.random.random() < self.mutation_rate:
-            volume = float(np.random.uniform(self.volume_bounds[0], self.volume_bounds[1]))
+        if np.random.random() < self.mutationRate:
+            volume = float(np.random.uniform(self.volumeBounds[0], self.volumeBounds[1]))
         else:
             volume = well.volume
             
@@ -161,10 +161,10 @@ class GeneticOptimizer(BaseOptimizer):
         
         wells = []
         iteration = 0
-        monetary_cost = 0.0
+        monetaryCost = 0.0
         time_cost = 0.0
         
-        while iteration < self.max_iterations:
+        while iteration < self.maxIterations:
             # Initialize population for this iteration
             population = self._initialize_population()
             best_well = None
@@ -185,12 +185,12 @@ class GeneticOptimizer(BaseOptimizer):
                 new_population = []
                 
                 # Elitism: keep best solutions
-                elite_indices = np.argsort(fitnesses)[:self.elite_size]
+                elite_indices = np.argsort(fitnesses)[:self.eliteSize]
                 for idx in elite_indices:
                     new_population.append(population[idx])
                 
                 # Fill rest of population with offspring
-                while len(new_population) < self.population_size:
+                while len(new_population) < self.populationSize:
                     # Select parents
                     parent1 = self._tournament_selection(population, fitnesses)
                     parent2 = self._tournament_selection(population, fitnesses)
@@ -207,14 +207,14 @@ class GeneticOptimizer(BaseOptimizer):
             self._optimize_well_parameters([best_well], current_terrain)
             
             # Check if we've exceeded limits
-            if monetary_cost + best_well.monetary_cost() > self.monetary_limit or time_cost + best_well.time_cost() > self.time_limit:
+            if monetaryCost + best_well.monetaryCost() > self.monetaryLimit or time_cost + best_well.time_cost() > self.timeLimit:
                 break
             
             # Add well to list
             wells.append(best_well)
             
             # Update costs
-            monetary_cost += best_well.monetary_cost()
+            monetaryCost += best_well.monetaryCost()
             time_cost += best_well.time_cost()
             
             # Update terrain
@@ -229,13 +229,13 @@ class GeneticOptimizer(BaseOptimizer):
                 iteration=iteration,
                 wells_placed=len(wells),
                 mse=mse,
-                monetary_cost=monetary_cost,
+                monetaryCost=monetaryCost,
                 time_cost=time_cost,
                 fidelity=fidelity
             )
             
             # Check if we've reached target fidelity
-            if fidelity >= self.target_fidelity:
+            if fidelity >= self.fidelity:
                 break
             
             iteration += 1
@@ -260,8 +260,8 @@ class GeneticOptimizer(BaseOptimizer):
     def _optimize_well_parameters(self, wells: List[Well], current_terrain: torch.Tensor):
         """Optimize well parameters using scipy's minimize."""
         initial_params = np.array([param for well in wells for param in (well.depth, well.volume)])
-        bounds = [(self.depth_bounds[0], self.depth_bounds[1]), 
-                 (self.volume_bounds[0], self.volume_bounds[1])] * len(wells)
+        bounds = [(self.depthBounds[0], self.depthBounds[1]), 
+                 (self.volumeBounds[0], self.volumeBounds[1])] * len(wells)
         
         def objective(params):
             for i, well in enumerate(wells):

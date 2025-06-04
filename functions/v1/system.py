@@ -26,7 +26,7 @@ class Well:
         # Apply a Gaussian function to model the influence decay around the well
         return height * torch.exp(-((x - self.x0) ** 2 / (2 * radius ** 2) + (y - self.y0) ** 2 / (2 * radius ** 2)))
     
-    def monetary_cost(self):
+    def monetaryCost(self):
         # Calculate the monetary cost of the well
         return self.a * self.depth + self.b * self.volume
 

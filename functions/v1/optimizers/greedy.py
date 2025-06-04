@@ -26,17 +26,17 @@ class GreedyOptimizer(BaseOptimizer):
         
         wells = []
         iteration = 0
-        monetary_cost = 0.0
+        monetaryCost = 0.0
         time_cost = 0.0
         
-        while iteration < self.max_iterations:
+        while iteration < self.maxIterations:
             # Calculate error between current and target terrain
             discrepancy = goal_terrain - current_terrain
             error = torch.abs(discrepancy)
             
             # Find location with maximum error
             max_error_idx = torch.argmax(error)
-            max_error_pos = (max_error_idx // self.terrain_size, max_error_idx % self.terrain_size)
+            max_error_pos = (max_error_idx // self.terrainSize, max_error_idx % self.terrainSize)
             
             # Create well at the position with maximum error
             well = Well(
@@ -51,14 +51,14 @@ class GreedyOptimizer(BaseOptimizer):
         
     
             # Check if we've exceeded limits
-            if monetary_cost + well.monetary_cost() > self.monetary_limit or time_cost + well.time_cost() > self.time_limit:
+            if monetaryCost + well.monetaryCost() > self.monetaryLimit or time_cost + well.time_cost() > self.timeLimit:
                 break
             
             # Add well to list
             wells.append(well)
             
             # Update costs
-            monetary_cost += well.monetary_cost()
+            monetaryCost += well.monetaryCost()
             time_cost += well.time_cost()
             
             # Update terrain
@@ -73,14 +73,14 @@ class GreedyOptimizer(BaseOptimizer):
                 iteration=iteration,
                 wells_placed=len(wells),
                 mse=mse,
-                monetary_cost=monetary_cost,
+                monetaryCost=monetaryCost,
                 time_cost=time_cost,
                 fidelity=fidelity,
                 wells=wells
             )
             
             # Check if we've reached target fidelity
-            if fidelity >= self.target_fidelity:
+            if fidelity >= self.fidelity:
                 break
                 
             iteration += 1
@@ -105,8 +105,8 @@ class GreedyOptimizer(BaseOptimizer):
     def _optimize_well_parameters(self, wells: List[Well], current_terrain: torch.Tensor):
         """Optimize well parameters using scipy's minimize."""
         initial_params = np.array([param for well in wells for param in (well.depth, well.volume)])
-        bounds = [(self.depth_bounds[0], self.depth_bounds[1]), 
-                 (self.volume_bounds[0], self.volume_bounds[1])] * len(wells)
+        bounds = [(self.depthBounds[0], self.depthBounds[1]), 
+                 (self.volumeBounds[0], self.volumeBounds[1])] * len(wells)
         
         def objective(params):
             for i, well in enumerate(wells):

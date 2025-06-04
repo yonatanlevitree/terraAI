@@ -212,7 +212,7 @@ const SimulationProgress = ({ metrics }) => {
       },
       {
         label: 'Monetary Cost ($)',
-        data: metrics.monetary_cost,
+        data: metrics.monetaryCost,
         borderColor: 'rgb(54, 162, 235)',
         tension: 0.1,
         yAxisID: 'y1'
@@ -356,14 +356,14 @@ const JobCard = ({ job, onDelete }) => {
           <h4 className="text-sm font-medium text-gray-700 mb-2">Input Data</h4>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-sm text-gray-600">Terrain Size: {inputData.terrain_size}</p>
+              <p className="text-sm text-gray-600">Terrain Size: {inputData.terrainSize}</p>
               <p className="text-sm text-gray-600">Noise Level: {inputData.noise}</p>
               <p className="text-sm text-gray-600">Smoothness: {inputData.smoothness}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600">Max Iterations: {inputData.max_iterations}</p>
-              <p className="text-sm text-gray-600">Depth Bounds: [{inputData.depth_bounds[0]}, {inputData.depth_bounds[1]}]</p>
-              <p className="text-sm text-gray-600">Volume Bounds: [{inputData.volume_bounds[0]}, {inputData.volume_bounds[1]}]</p>
+              <p className="text-sm text-gray-600">Max Iterations: {inputData.maxIterations}</p>
+              <p className="text-sm text-gray-600">Depth Bounds: [{inputData.depthBounds[0]}, {inputData.depthBounds[1]}]</p>
+              <p className="text-sm text-gray-600">Volume Bounds: [{inputData.volumeBounds[0]}, {inputData.volumeBounds[1]}]</p>
             </div>
           </div>
         </div>
@@ -508,14 +508,14 @@ export default function AsyncJobManager() {
       
       const inputData = {
         fidelity: parsedInputs.fidelity,
-        terrain_size: parsedInputs.terrainSize,
+        terrainSize: parsedInputs.terrainSize,
         noise: parsedInputs.noise,
         smoothness: parsedInputs.smoothness,
-        max_iterations: parsedInputs.maxIterations,
-        depth_bounds: parsedInputs.depthBounds,
-        volume_bounds: parsedInputs.volumeBounds,
-        total_monetary_cost_limit: parsedInputs.monetaryLimit,
-        total_time_cost_limit: parsedInputs.timeLimit,
+        maxIterations: parsedInputs.maxIterations,
+        depthBounds: parsedInputs.depthBounds,
+        volumeBounds: parsedInputs.volumeBounds,
+        monetaryLimit: parsedInputs.monetaryLimit,
+        timeLimit: parsedInputs.timeLimit,
         algorithm: parsedInputs.algorithm
       };
       

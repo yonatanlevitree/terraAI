@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 interface SimulationParameters {
-    fidelity: number;
-    terrain_size: number;
-    depth_bounds: [number, number];
-    volume_bounds: [number, number];
+    terrainSize: number;
     noise: number;
     smoothness: number;
+    maxIterations: number;
+    depthBounds: [number, number];
+    volumeBounds: [number, number];
+    monetaryLimit: number;
+    timeLimit: number;
+    fidelity: number;
     name?: string;
     description?: string;
 }
@@ -16,12 +19,15 @@ const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 const SimulationForm: React.FC = () => {
     const [parameters, setParameters] = useState<SimulationParameters>({
-        fidelity: 0.5,
-        terrain_size: 500,
-        depth_bounds: [0, 100],
-        volume_bounds: [0, 1000],
+        terrainSize: 500,
         noise: 0.5,
         smoothness: 0.5,
+        maxIterations: 100,
+        depthBounds: [0, 100],
+        volumeBounds: [0, 1000],
+        monetaryLimit: 1000000,
+        timeLimit: 100000,
+        fidelity: 0.5,
         name: '',
         description: ''
     });
@@ -51,10 +57,10 @@ const SimulationForm: React.FC = () => {
         setParameters(prev => ({
             ...prev,
             [name]: name.includes('bounds') ? 
-                name === 'depth_bounds' ? 
-                    [parseFloat(value), prev.depth_bounds[1]] :
-                    [parseFloat(value), prev.volume_bounds[1]] :
-                name === 'terrain_size' ? 
+                name === 'depthBounds' ? 
+                    [parseFloat(value), prev.depthBounds[1]] :
+                    [parseFloat(value), prev.volumeBounds[1]] :
+                name === 'terrainSize' ? 
                     parseInt(value) : 
                     parseFloat(value)
         }));
@@ -96,8 +102,8 @@ const SimulationForm: React.FC = () => {
                     <label className="block mb-1">Terrain Size (100-1000)</label>
                     <input
                         type="number"
-                        name="terrain_size"
-                        value={parameters.terrain_size}
+                        name="terrainSize"
+                        value={parameters.terrainSize}
                         onChange={handleChange}
                         min="100"
                         max="1000"
@@ -111,16 +117,16 @@ const SimulationForm: React.FC = () => {
                     <div className="flex space-x-2">
                         <input
                             type="number"
-                            name="depth_bounds"
-                            value={parameters.depth_bounds[0]}
+                            name="depthBounds"
+                            value={parameters.depthBounds[0]}
                             onChange={handleChange}
                             className="w-full p-2 border rounded"
                             required
                         />
                         <input
                             type="number"
-                            name="depth_bounds"
-                            value={parameters.depth_bounds[1]}
+                            name="depthBounds"
+                            value={parameters.depthBounds[1]}
                             onChange={handleChange}
                             className="w-full p-2 border rounded"
                             required
@@ -133,16 +139,16 @@ const SimulationForm: React.FC = () => {
                     <div className="flex space-x-2">
                         <input
                             type="number"
-                            name="volume_bounds"
-                            value={parameters.volume_bounds[0]}
+                            name="volumeBounds"
+                            value={parameters.volumeBounds[0]}
                             onChange={handleChange}
                             className="w-full p-2 border rounded"
                             required
                         />
                         <input
                             type="number"
-                            name="volume_bounds"
-                            value={parameters.volume_bounds[1]}
+                            name="volumeBounds"
+                            value={parameters.volumeBounds[1]}
                             onChange={handleChange}
                             className="w-full p-2 border rounded"
                             required
