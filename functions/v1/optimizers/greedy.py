@@ -27,7 +27,7 @@ class GreedyOptimizer(BaseOptimizer):
         wells = []
         iteration = 0
         monetaryCost = 0.0
-        time_cost = 0.0
+        timeCost = 0.0
         
         while iteration < self.maxIterations:
             # Calculate error between current and target terrain
@@ -51,7 +51,7 @@ class GreedyOptimizer(BaseOptimizer):
         
     
             # Check if we've exceeded limits
-            if monetaryCost + well.monetaryCost() > self.monetaryLimit or time_cost + well.time_cost() > self.timeLimit:
+            if monetaryCost + well.monetaryCost() > self.monetaryLimit or timeCost + well.time_cost() > self.timeLimit:
                 break
             
             # Add well to list
@@ -59,7 +59,7 @@ class GreedyOptimizer(BaseOptimizer):
             
             # Update costs
             monetaryCost += well.monetaryCost()
-            time_cost += well.time_cost()
+            timeCost += well.time_cost()
             
             # Update terrain
             current_terrain = self.terrain.apply_wells(wells)
@@ -71,10 +71,10 @@ class GreedyOptimizer(BaseOptimizer):
             # Update metrics
             self.update_metrics(
                 iteration=iteration,
-                wells_placed=len(wells),
+                wellsPlaced=len(wells),
                 mse=mse,
                 monetaryCost=monetaryCost,
-                time_cost=time_cost,
+                timeCost=timeCost,
                 fidelity=fidelity,
                 wells=wells
             )

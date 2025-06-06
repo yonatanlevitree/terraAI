@@ -162,7 +162,7 @@ class GeneticOptimizer(BaseOptimizer):
         wells = []
         iteration = 0
         monetaryCost = 0.0
-        time_cost = 0.0
+        timeCost = 0.0
         
         while iteration < self.maxIterations:
             # Initialize population for this iteration
@@ -207,7 +207,7 @@ class GeneticOptimizer(BaseOptimizer):
             self._optimize_well_parameters([best_well], current_terrain)
             
             # Check if we've exceeded limits
-            if monetaryCost + best_well.monetaryCost() > self.monetaryLimit or time_cost + best_well.time_cost() > self.timeLimit:
+            if monetaryCost + best_well.monetaryCost() > self.monetaryLimit or timeCost + best_well.time_cost() > self.timeLimit:
                 break
             
             # Add well to list
@@ -215,7 +215,7 @@ class GeneticOptimizer(BaseOptimizer):
             
             # Update costs
             monetaryCost += best_well.monetaryCost()
-            time_cost += best_well.time_cost()
+            timeCost += best_well.time_cost()
             
             # Update terrain
             current_terrain = self.terrain.apply_wells(wells)
@@ -227,10 +227,10 @@ class GeneticOptimizer(BaseOptimizer):
             # Update metrics
             self.update_metrics(
                 iteration=iteration,
-                wells_placed=len(wells),
+                wellsPlaced=len(wells),
                 mse=mse,
                 monetaryCost=monetaryCost,
-                time_cost=time_cost,
+                timeCost=timeCost,
                 fidelity=fidelity
             )
             

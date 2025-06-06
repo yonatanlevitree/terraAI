@@ -71,16 +71,18 @@ class BaseOptimizer(ABC):
             terrainSize=terrainSize,
             noise=noise,
             smoothness=smoothness,
-            seed=seed
+            epsilon=1e-3,
+            device='cpu',
+            regenerate=False
         )
         
         # Initialize metrics tracking
         self.metrics = {
             'iterations': [],
-            'wells_placed': [],
-            'mean_squared_error': [],
+            'wellsPlaced': [],
+            'meanSquaredError': [],
             'monetaryCost': [],
-            'time_cost': [],
+            'timeCost': [],
             'fidelity': []
         }
     
@@ -115,7 +117,7 @@ class BaseOptimizer(ABC):
         if not isinstance(monetaryCost, (int, float)):
             raise TypeError(f"monetaryCost must be numeric, got {type(monetaryCost)}")
         if not isinstance(timeCost, (int, float)):
-            raise TypeError(f"time_cost must be numeric, got {type(time_cost)}")
+            raise TypeError(f"timeCost must be numeric, got {type(timeCost)}")
         if not isinstance(fidelity, (int, float)):
             raise TypeError(f"fidelity must be numeric, got {type(fidelity)}")
         
@@ -153,14 +155,12 @@ class BaseOptimizer(ABC):
         return self.metrics
     
     def get_summary(self) -> Dict:
-        # Ensure all values are of correct type
         summary = {
-            'totalIterations': int(len(self.metrics['iterations'])),
-            'totalWells': int(self.metrics['wellsPlaced'][-1] if self.metrics['wellsPlaced'] else 0),
-            'finalMSE': float(self.metrics['meanSquaredError'][-1] if self.metrics['meanSquaredError'] else float('inf')),
-            'monetaryCost': float(self.metrics['monetaryCost'][-1] if self.metrics['monetaryCost'] else 0),
-            'timeCost': float(self.metrics['timeCost'][-1] if self.metrics['timeCost'] else 0),
-            'finalFidelity': float(self.metrics['fidelity'][-1] if self.metrics['fidelity'] else 0)
+            'totalIterations': int(len(self.metrics.get('iterations', []))),
+            'totalWells': int(self.metrics.get('wellsPlaced', [0])[-1] if self.metrics.get('wellsPlaced') else 0),
+            'finalMSE': float(self.metrics.get('meanSquaredError', [float('inf')])[-1] if self.metrics.get('meanSquaredError') else float('inf')),
+            'monetaryCost': float(self.metrics.get('monetaryCost', [0])[-1] if self.metrics.get('monetaryCost') else 0),
+            'timeCost': float(self.metrics.get('timeCost', [0])[-1] if self.metrics.get('timeCost') else 0),
+            'finalFidelity': float(self.metrics.get('fidelity', [0])[-1] if self.metrics.get('fidelity') else 0)
         }
-    
         return summary 

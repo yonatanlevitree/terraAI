@@ -197,22 +197,22 @@ const SimulationProgress = ({ metrics }) => {
 
   console.log('Received metrics:', metrics);
 
-  // Create x-axis labels from wells_placed array
-  const xLabels = metrics.wells_placed.map((_, index) => `Well ${index + 1}`);
+  // Create x-axis labels from wellsPlaced array
+  const xLabels = Array.isArray(metrics.wellsPlaced) ? metrics.wellsPlaced.map((_, index) => `Well ${index + 1}`) : [];
 
   const chartData = {
     labels: xLabels,
     datasets: [
       {
         label: 'Progress MSE',
-        data: metrics.mean_squared_error,
+        data: Array.isArray(metrics.meanSquaredError) ? metrics.meanSquaredError : [],
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1,
         yAxisID: 'y'
       },
       {
         label: 'Monetary Cost ($)',
-        data: metrics.monetaryCost,
+        data: Array.isArray(metrics.monetaryCost) ? metrics.monetaryCost : [],
         borderColor: 'rgb(54, 162, 235)',
         tension: 0.1,
         yAxisID: 'y1'
@@ -243,7 +243,7 @@ const SimulationProgress = ({ metrics }) => {
         },
         ticks: {
           callback: function(value, index) {
-            return metrics.wells_placed[index];
+            return Array.isArray(metrics.wellsPlaced) ? metrics.wellsPlaced[index] : '';
           }
         }
       },
@@ -372,10 +372,10 @@ const JobCard = ({ job, onDelete }) => {
       {progressMetrics && (
         <div className="mb-4">
           <h4 className="text-sm font-medium text-gray-700 mb-2">Progress</h4>
-          {job.status === 'completed' && progressMetrics.mean_squared_error && (
+          {job.status === 'completed' && Array.isArray(progressMetrics.meanSquaredError) && progressMetrics.meanSquaredError.length > 0 && (
             <div className="mb-2">
               <p className="text-sm text-gray-600">
-                Final Error: {progressMetrics.mean_squared_error[progressMetrics.mean_squared_error.length - 1].toFixed(4)}
+                Final Error: {progressMetrics.meanSquaredError[progressMetrics.meanSquaredError.length - 1].toFixed(4)}
               </p>
             </div>
           )}
@@ -388,11 +388,11 @@ const JobCard = ({ job, onDelete }) => {
           <h4 className="text-sm font-medium text-gray-700 mb-2">Results</h4>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-sm text-gray-600">Wells Placed: {results.terrain_summary.wells.length}</p>
+              <p className="text-sm text-gray-600">Wells Placed: {Array.isArray(results.terrain_summary.wells) ? results.terrain_summary.wells.length : 0}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600">Total Cost: ${results.terrain_summary.cost_monetary.toFixed(2)}</p>
-              <p className="text-sm text-gray-600">Total Time: {results.terrain_summary.cost_time.toFixed(2)} units</p>
+              <p className="text-sm text-gray-600">Total Cost: ${results.terrain_summary.cost_monetary?.toFixed(2) ?? 'N/A'}</p>
+              <p className="text-sm text-gray-600">Total Time: {results.terrain_summary.cost_time?.toFixed(2) ?? 'N/A'} units</p>
             </div>
           </div>
         </div>

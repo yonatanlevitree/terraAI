@@ -36,8 +36,8 @@ class Well:
 
 
 class Terrain:
-    def __init__(self, size, noise, smoothness, epsilon, device='cpu', regenerate=False):
-        self.size = size
+    def __init__(self, terrainSize, noise, smoothness, epsilon, device='cpu', regenerate=False):
+        self.terrainSize = terrainSize
         self.noise = noise
         self.smoothness = smoothness
         self.epsilon = epsilon
@@ -49,20 +49,20 @@ class Terrain:
     def regenerate_terrain(self, regenerate):
         if regenerate or not (os.path.exists(self.initial_terrain_path) and os.path.exists(self.goal_terrain_path)):
             self.initial_terrain, self.goal_terrain = self.generate_terrains(
-                self.size, self.noise, self.smoothness, self.device)
+                self.terrainSize, self.noise, self.smoothness, self.device)
             np.save(self.initial_terrain_path, self.initial_terrain.cpu().numpy())
             np.save(self.goal_terrain_path, self.goal_terrain.cpu().numpy())
         else:
             self.initial_terrain = torch.tensor(np.load(self.initial_terrain_path), device=self.device)
             self.goal_terrain = torch.tensor(np.load(self.goal_terrain_path), device=self.device)
 
-    def generate_terrains(self, size, noise, smoothness, device):
-        initial_terrain = np.random.rand(size, size) * noise
+    def generate_terrains(self, terrainSize, noise, smoothness, device):
+        initial_terrain = np.random.rand(terrainSize, terrainSize) * noise
         smoothed_initial_terrain = gaussian_filter(initial_terrain, smoothness)
 
         additional_height = .25
         goal_terrain = smoothed_initial_terrain + np.abs(
-            np.random.rand(size, size) * (noise / 2)) + additional_height
+            np.random.rand(terrainSize, terrainSize) * (noise / 2)) + additional_height
         smoothed_goal_terrain = gaussian_filter(goal_terrain, smoothness)
 
         return (torch.tensor(smoothed_initial_terrain, dtype=torch.float32, device=device),
@@ -77,12 +77,12 @@ class Terrain:
 
         Additionally, return the maximum patch norm encountered for logging.
         """
-        size = self.size
+        terrainSize = self.terrainSize
         discrepancy = current_terrain - self.goal_terrain
 
         max_patch_norm = 0.0
-        for i in range(size - window_size + 1):
-            for j in range(size - window_size + 1):
+        for i in range(terrainSize - window_size + 1):
+            for j in range(terrainSize - window_size + 1):
                 patch = discrepancy[i:i+window_size, j:j+window_size]
                 patch_norm = torch.norm(patch).item()
                 if patch_norm > max_patch_norm:
@@ -94,13 +94,13 @@ class Terrain:
 
     def scale_terrains(self, fidelity):
         scale_factor = {'low': 0.1, 'medium': .5}.get(fidelity, 1)
-        scaled_size = int(self.size * scale_factor)
+        scaled_terrainSize = int(self.terrainSize * scale_factor)
         self.initial_terrain = torch.nn.functional.interpolate(self.initial_terrain.unsqueeze(0).unsqueeze(0),
-                                                               size=(scaled_size, scaled_size),
+                                                               size=(scaled_terrainSize, scaled_terrainSize),
                                                                mode='bilinear', align_corners=False).squeeze(0).squeeze(
             0)
         self.goal_terrain = torch.nn.functional.interpolate(self.goal_terrain.unsqueeze(0).unsqueeze(0),
-                                                            size=(scaled_size, scaled_size),
+                                                            size=(scaled_terrainSize, scaled_terrainSize),
                                                             mode='bilinear', align_corners=False).squeeze(0).squeeze(0)
 
     def plot_terrains(self, original_terrain, goal_terrain, optimized_terrain, all_wells, max_points, title):
@@ -129,17 +129,17 @@ class Terrain:
 
     def plot_well_effects(self, ax, wells, title):
         # Create an empty terrain to accumulate well effects
-        effects = torch.zeros((self.size, self.size), device=self.device)
-        x = torch.arange(self.size, device=self.device).view(-1, 1).repeat(1, self.size)
-        y = torch.arange(self.size, device=self.device).repeat(self.size, 1)
+        effects = torch.zeros((self.terrainSize, self.terrainSize), device=self.device)
+        x = torch.arange(self.terrainSize, device=self.device).view(-1, 1).repeat(1, self.terrainSize)
+        y = torch.arange(self.terrainSize, device=self.device).repeat(self.terrainSize, 1)
         for well in wells:  # This now includes all wells from all iterations
             effects += well.height_at(x, y)
-        im = ax.imshow(effects.cpu().numpy(), cmap='coolwarm', origin='lower', extent=[0, self.size, 0, self.size])
+        im = ax.imshow(effects.cpu().numpy(), cmap='coolwarm', origin='lower', extent=[0, self.terrainSize, 0, self.terrainSize])
         ax.set_title(title)
         plt.colorbar(im, ax=ax, orientation='vertical')
 
     def plot_single_terrain(self, ax, terrain, title):
-        im = ax.imshow(terrain.cpu().numpy(), cmap='viridis', origin='lower', extent=[0, self.size, 0, self.size])
+        im = ax.imshow(terrain.cpu().numpy(), cmap='viridis', origin='lower', extent=[0, self.terrainSize, 0, self.terrainSize])
         ax.set_title(title)
         plt.colorbar(im, ax=ax, orientation='vertical')
 
@@ -158,14 +158,14 @@ class Terrain:
 
     def plot_discrepancy_map(self, ax, original_terrain, goal_terrain, title):
         discrepancy = goal_terrain - original_terrain
-        im = ax.imshow(discrepancy.cpu().numpy(), cmap='coolwarm', origin='lower', extent=[0, self.size, 0, self.size])
+        im = ax.imshow(discrepancy.cpu().numpy(), cmap='coolwarm', origin='lower', extent=[0, self.terrainSize, 0, self.terrainSize])
         ax.set_title(title)
         plt.colorbar(im, ax=ax, orientation='vertical')
 
     def apply_wells(self, wells):
         # Apply the effects of all wells to the terrain
-        x = torch.arange(self.size, device=self.device).view(-1, 1).repeat(1, self.size)
-        y = torch.arange(self.size, device=self.device).repeat(self.size, 1)
+        x = torch.arange(self.terrainSize, device=self.device).view(-1, 1).repeat(1, self.terrainSize)
+        y = torch.arange(self.terrainSize, device=self.device).repeat(self.terrainSize, 1)
         new_terrain = self.initial_terrain.clone()
         for well in wells:
             new_terrain += well.height_at(x, y)
