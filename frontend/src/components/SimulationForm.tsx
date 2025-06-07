@@ -27,7 +27,7 @@ const SimulationForm: React.FC = () => {
         volumeBounds: [0, 1000],
         monetaryLimit: 1000000,
         timeLimit: 100000,
-        fidelity: 0.5,
+        fidelity: 0.95,
         name: '',
         description: ''
     });
@@ -92,7 +92,7 @@ const SimulationForm: React.FC = () => {
                         onChange={handleChange}
                         min="0.1"
                         max="1.0"
-                        step="0.1"
+                        step="any"
                         className="w-full p-2 border rounded"
                         required
                     />

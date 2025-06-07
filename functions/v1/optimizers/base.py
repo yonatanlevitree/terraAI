@@ -21,7 +21,8 @@ class BaseOptimizer(ABC):
         seed: int = 42,
         initialTerrainParams: Dict = None,
         targetTerrainParams: Dict = None,
-        algorithm: str = 'greedy'
+        algorithm: str = 'greedy',
+        progress_callback=None
     ):
         """
         Initialize the optimizer with simulation parameters.
@@ -40,6 +41,7 @@ class BaseOptimizer(ABC):
             initial_terrain_params: Initial terrain parameters
             target_terrain_params: Target terrain parameters
             algorithm: Optimization algorithm to use
+            progress_callback: Callback function for progress updates
         """
       
         # Rest of initialization
@@ -52,17 +54,14 @@ class BaseOptimizer(ABC):
         self.monetaryLimit = monetaryLimit
         self.timeLimit = timeLimit
         self.fidelity = fidelity
-        self.seed = seed
-        self.initialTerrainParams = initialTerrainParams or {}
-        self.targetTerrainParams = targetTerrainParams or {}
+        self.seed = seed if seed is not None else 42
+        self.progress_callback = progress_callback
         self.algorithm = algorithm
-        
-        # Set random seed for reproducibility
-        np.random.seed(seed)
-        torch.manual_seed(seed)
+        np.random.seed(self.seed)
+        torch.manual_seed(self.seed)
         if torch.cuda.is_available():
-            torch.cuda.manual_seed(seed)
-            torch.cuda.manual_seed_all(seed)
+            torch.cuda.manual_seed(self.seed)
+            torch.cuda.manual_seed_all(self.seed)
             torch.backends.cudnn.deterministic = True
             torch.backends.cudnn.benchmark = False
         
@@ -148,7 +147,9 @@ class BaseOptimizer(ABC):
                 for well in wells
             ]
         
-       
+        # Call progress callback
+        if self.progress_callback:
+            self.progress_callback(self.get_metrics())
     
     def get_metrics(self) -> Dict:
         """Get the current metrics."""

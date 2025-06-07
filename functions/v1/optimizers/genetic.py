@@ -28,7 +28,9 @@ class GeneticOptimizer(BaseOptimizer):
                  populationSize: int = 50,
                  mutationRate: float = 0.1,
                  tournamentSize: int = 3,
-                 eliteSize: int = 2):
+                 eliteSize: int = 2,
+                 algorithm=None,
+                 progress_callback=None):
         """
         Initialize the genetic algorithm optimizer
         
@@ -47,6 +49,8 @@ class GeneticOptimizer(BaseOptimizer):
             mutationRate: Probability of mutation for each well
             tournamentSize: Number of solutions to compare in tournament selection
             eliteSize: Number of best solutions to preserve in each generation
+            algorithm: Algorithm name for consistency
+            progress_callback: Callback function for progress updates
         """
         super().__init__(
             terrainSize=terrainSize,
@@ -58,12 +62,16 @@ class GeneticOptimizer(BaseOptimizer):
             monetaryLimit=monetaryLimit,
             timeLimit=timeLimit,
             fidelity=fidelity,
-            seed=seed
+            seed=seed,
+            algorithm=algorithm,
+            progress_callback=progress_callback
         )
         self.populationSize = populationSize
         self.mutationRate = mutationRate
         self.tournamentSize = tournamentSize
         self.eliteSize = eliteSize
+        self.algorithm = algorithm
+        self.progress_callback = progress_callback
         
     def _initialize_population(self) -> List[Well]:
         """Initialize a population of random wells"""
@@ -233,6 +241,8 @@ class GeneticOptimizer(BaseOptimizer):
                 timeCost=timeCost,
                 fidelity=fidelity
             )
+            if self.progress_callback:
+                self.progress_callback(self.get_metrics())
             
             # Check if we've reached target fidelity
             if fidelity >= self.fidelity:

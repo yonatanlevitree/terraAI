@@ -282,21 +282,58 @@ const JobCard = ({ job, onDelete }) => {
   const [progressMetrics, setProgressMetrics] = useState(null);
   const [inputData, setInputData] = useState(null);
   const [results, setResults] = useState(null);
+  const [currentJob, setCurrentJob] = useState(job);
 
   useEffect(() => {
-    if (job) {
-      console.log('Job data:', job);
-      if (job.progress) {
-        setProgressMetrics(job.progress);
+    setCurrentJob(job);
+  }, [job]);
+
+  useEffect(() => {
+    let interval;
+    let finished = false;
+    const fetchJob = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/simulation/${currentJob.id}`);
+        if (response.ok) {
+          const updatedJob = await response.json();
+          setCurrentJob(updatedJob);
+          if (updatedJob.progress) {
+            setProgressMetrics(updatedJob.progress);
+          }
+          if (updatedJob.result) {
+            setResults(updatedJob.result);
+          }
+          if ((updatedJob.status === 'completed' || updatedJob.status === 'failed') && !finished) {
+            finished = true;
+            clearInterval(interval);
+            // Fetch one last time to ensure final state
+            setTimeout(fetchJob, 0);
+          }
+        }
+      } catch (err) {
+        // Optionally handle error
       }
-      if (job.input_data) {
-        setInputData(job.input_data);
+    };
+    if (currentJob && currentJob.status === 'running') {
+      fetchJob(); // Fetch immediately
+      interval = setInterval(fetchJob, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [currentJob]);
+
+  useEffect(() => {
+    if (currentJob) {
+      if (currentJob.progress) {
+        setProgressMetrics(currentJob.progress);
       }
-      if (job.result) {
-        setResults(job.result);
+      if (currentJob.input_data) {
+        setInputData(currentJob.input_data);
+      }
+      if (currentJob.result) {
+        setResults(currentJob.result);
       }
     }
-  }, [job]);
+  }, [currentJob]);
 
   const getRuntime = () => {
     if (!job.started_at || !job.completed_at) return 'N/A';
@@ -320,8 +357,13 @@ const JobCard = ({ job, onDelete }) => {
           <h3 className="text-lg font-semibold text-gray-900">
             Simulation Job {job.id}
           </h3>
+          {job.parameters && job.parameters.algorithm && (
+            <span className="inline-block mt-1 px-2 py-1 text-xs font-semibold rounded bg-blue-100 text-blue-800">
+              Algorithm: {job.parameters.algorithm.charAt(0).toUpperCase() + job.parameters.algorithm.slice(1)}
+            </span>
+          )}
           <p className="text-sm text-gray-500">
-            Created: {formatDate(job.created_at)}
+            Created: {job.created_at ? formatDate(job.created_at) : 'N/A'}
           </p>
         </div>
         <div className="flex items-center space-x-2">
@@ -388,11 +430,11 @@ const JobCard = ({ job, onDelete }) => {
           <h4 className="text-sm font-medium text-gray-700 mb-2">Results</h4>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-sm text-gray-600">Wells Placed: {Array.isArray(results.terrain_summary.wells) ? results.terrain_summary.wells.length : 0}</p>
+              <p className="text-sm text-gray-600">Wells Placed: {results.terrain_summary && typeof results.terrain_summary.totalWells === 'number' ? results.terrain_summary.totalWells : 'N/A'}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600">Total Cost: ${results.terrain_summary.cost_monetary?.toFixed(2) ?? 'N/A'}</p>
-              <p className="text-sm text-gray-600">Total Time: {results.terrain_summary.cost_time?.toFixed(2) ?? 'N/A'} units</p>
+              <p className="text-sm text-gray-600">Total Cost: {results.terrain_summary && typeof results.terrain_summary.monetaryCost === 'number' ? `$${results.terrain_summary.monetaryCost.toFixed(2)}` : 'N/A'}</p>
+              <p className="text-sm text-gray-600">Total Time: {results.terrain_summary && typeof results.terrain_summary.timeCost === 'number' ? `${results.terrain_summary.timeCost.toFixed(2)} units` : 'N/A'}</p>
             </div>
           </div>
         </div>
@@ -444,6 +486,7 @@ export default function AsyncJobManager() {
   const [timeLimit, setTimeLimit] = useState('500000');
   const [fidelity, setFidelity] = useState('0.5');
   const [algorithm, setAlgorithm] = useState('greedy');
+  const [seed, setSeed] = useState('');
   
   const [jobs, setJobs] = useState([]);
   const [errors, setErrors] = useState({});
@@ -483,7 +526,8 @@ export default function AsyncJobManager() {
         volumeBounds: [parseFloat(volumeMin), parseFloat(volumeMax)],
         monetaryLimit: parseFloat(monetaryLimit),
         timeLimit: parseFloat(timeLimit),
-        algorithm: algorithm
+        algorithm: algorithm,
+        seed: seed === '' ? undefined : parseInt(seed)
       };
       
       // Validate all inputs
@@ -516,7 +560,8 @@ export default function AsyncJobManager() {
         volumeBounds: parsedInputs.volumeBounds,
         monetaryLimit: parsedInputs.monetaryLimit,
         timeLimit: parsedInputs.timeLimit,
-        algorithm: parsedInputs.algorithm
+        algorithm: parsedInputs.algorithm,
+        seed: parsedInputs.seed
       };
       
       console.log('Submitting job with data:', inputData);
@@ -536,6 +581,7 @@ export default function AsyncJobManager() {
       setMonetaryLimit('50000000');
       setTimeLimit('500000');
       setAlgorithm('greedy');
+      setSeed('');
       
       // Refresh job list
       await loadJobs();
@@ -934,6 +980,18 @@ export default function AsyncJobManager() {
                   <option value="genetic">Genetic</option>
                   <option value="greedy">Greedy</option>
                 </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Seed (optional)
+                </label>
+                <input
+                  type="number"
+                  value={seed}
+                  onChange={e => setSeed(e.target.value)}
+                  className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  placeholder="Random if left blank"
+                />
               </div>
             </div>
             

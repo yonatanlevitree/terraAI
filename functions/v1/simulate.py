@@ -5,6 +5,7 @@ from flask import Blueprint, request, jsonify
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
 from marshmallow import Schema, fields, validate
+from datetime import datetime
 
 simulate_bp = Blueprint('simulate', __name__)
 
@@ -22,6 +23,7 @@ class SimulationParameters(Schema):
     monetaryLimit = fields.Integer(required=True, validate=validate.Range(min=1, max=1000000000))
     timeLimit = fields.Integer(required=True, validate=validate.Range(min=1, max=1000000))
     algorithm = fields.String(required=True, validate=validate.OneOf(["genetic", "greedy"]))
+    seed = fields.Integer(required=False, allow_none=True)
 
 # Define the response schema
 class SimulationResponse(Schema):
@@ -86,22 +88,22 @@ def run_simulation(job_id, parameters):
     Run a simulation job
     """
     try:
-        # Initialize the optimizer
+        jobs[job_id]['status'] = 'running'
+        jobs[job_id]['started_at'] = datetime.utcnow().isoformat()
+        def progress_callback(metrics):
+            jobs[job_id]['progress'] = metrics
         if parameters['algorithm'] == 'genetic':
-            optimizer = GeneticOptimizer(**parameters)
+            optimizer = GeneticOptimizer(**parameters, progress_callback=progress_callback)
         else:
-            optimizer = GreedyOptimizer(**parameters)
-        
-        # Run the optimization
+            optimizer = GreedyOptimizer(**parameters, progress_callback=progress_callback)
         result = optimizer.optimize()
-        
-        # Update the job status
         jobs[job_id]['status'] = 'completed'
         jobs[job_id]['result'] = result
-        
+        jobs[job_id]['completed_at'] = datetime.utcnow().isoformat()
     except Exception as e:
         jobs[job_id]['status'] = 'failed'
         jobs[job_id]['error'] = str(e)
+        jobs[job_id]['completed_at'] = datetime.utcnow().isoformat()
 
 
 @simulate_bp.route('/simulation/<job_id>', methods=['GET'])

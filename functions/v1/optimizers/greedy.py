@@ -12,6 +12,36 @@ class GreedyOptimizer(BaseOptimizer):
     It iteratively places wells at locations with the highest discrepancy between current and goal terrain.
     """
     
+    def __init__(self, 
+                 terrainSize: int,
+                 noise: float,
+                 smoothness: float,
+                 maxIterations: int,
+                 depthBounds: Tuple[float, float],
+                 volumeBounds: Tuple[float, float],
+                 monetaryLimit: float,
+                 timeLimit: float,
+                 fidelity: float,
+                 seed: int = None,
+                 algorithm=None,
+                 progress_callback=None):
+        super().__init__(
+            terrainSize=terrainSize,
+            noise=noise,
+            smoothness=smoothness,
+            maxIterations=maxIterations,
+            depthBounds=depthBounds,
+            volumeBounds=volumeBounds,
+            monetaryLimit=monetaryLimit,
+            timeLimit=timeLimit,
+            fidelity=fidelity,
+            seed=seed,
+            algorithm=algorithm,
+            progress_callback=progress_callback
+        )
+        self.algorithm = algorithm
+        self.progress_callback = progress_callback
+    
     def optimize(self) -> Dict:
         """
         Run the greedy optimization algorithm.
@@ -78,6 +108,8 @@ class GreedyOptimizer(BaseOptimizer):
                 fidelity=fidelity,
                 wells=wells
             )
+            if self.progress_callback:
+                self.progress_callback(self.get_metrics())
             
             # Check if we've reached target fidelity
             if fidelity >= self.fidelity:
