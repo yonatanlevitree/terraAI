@@ -4,6 +4,7 @@ from typing import Dict, List, Tuple
 from .base import BaseOptimizer
 from ..system import Terrain, Well
 from scipy.optimize import minimize
+import wandb
 
 class GreedyOptimizer(BaseOptimizer):
     """
@@ -49,90 +50,95 @@ class GreedyOptimizer(BaseOptimizer):
         Returns:
             Dict containing optimization results
         """
-        # Get initial and goal terrains
-        initial_terrain = self.terrain.initial_terrain
-        goal_terrain = self.terrain.goal_terrain
-        current_terrain = initial_terrain.clone()
-        
-        wells = []
-        iteration = 0
-        monetaryCost = 0.0
-        timeCost = 0.0
-        
-        while iteration < self.maxIterations:
-            # Calculate error between current and target terrain
-            discrepancy = goal_terrain - current_terrain
-            error = torch.abs(discrepancy)
+        try:
+            # Get initial and goal terrains
+            initial_terrain = self.terrain.initial_terrain
+            goal_terrain = self.terrain.goal_terrain
+            current_terrain = initial_terrain.clone()
             
-            # Find location with maximum error
-            max_error_idx = torch.argmax(error)
-            max_error_pos = (max_error_idx // self.terrainSize, max_error_idx % self.terrainSize)
+            wells = []
+            iteration = 0
+            monetaryCost = 0.0
+            timeCost = 0.0
             
-            # Create well at the position with maximum error
-            well = Well(
-                x0=max_error_pos[0],
-                y0=max_error_pos[1],
-                depth=0,  # Will be optimized
-                volume=0  # Will be optimized
-            )
-            
-            # Optimize well parameters
-            self._optimize_well_parameters([well], current_terrain)
-        
-    
-            # Check if we've exceeded limits
-            if monetaryCost + well.monetaryCost() > self.monetaryLimit or timeCost + well.time_cost() > self.timeLimit:
-                break
-            
-            # Add well to list
-            wells.append(well)
-            
-            # Update costs
-            monetaryCost += well.monetaryCost()
-            timeCost += well.time_cost()
-            
-            # Update terrain
-            current_terrain = self.terrain.apply_wells(wells)
-            
-            # Calculate metrics
-            mse = float(torch.mean((goal_terrain - current_terrain) ** 2))
-            fidelity = 1.0 - mse
-            
-            # Update metrics
-            self.update_metrics(
-                iteration=iteration,
-                wellsPlaced=len(wells),
-                mse=mse,
-                monetaryCost=monetaryCost,
-                timeCost=timeCost,
-                fidelity=fidelity,
-                wells=wells
-            )
-            if self.progress_callback:
-                self.progress_callback(self.get_metrics())
-            
-            # Check if we've reached target fidelity
-            if fidelity >= self.fidelity:
-                break
+            while iteration < self.maxIterations:
+                # Calculate error between current and target terrain
+                discrepancy = goal_terrain - current_terrain
+                error = torch.abs(discrepancy)
                 
-            iteration += 1
-        
-        # Convert wells to dictionary format
-        wells_dict = [
-            {
-                'x': int(well.x0),
-                'y': int(well.y0),
-                'depth': float(well.depth),
-                'volume': float(well.volume)
+                # Find location with maximum error
+                max_error_idx = torch.argmax(error)
+                max_error_pos = (max_error_idx // self.terrainSize, max_error_idx % self.terrainSize)
+                
+                # Create well at the position with maximum error
+                well = Well(
+                    x0=max_error_pos[0],
+                    y0=max_error_pos[1],
+                    depth=0,  # Will be optimized
+                    volume=0  # Will be optimized
+                )
+                
+                # Optimize well parameters
+                self._optimize_well_parameters([well], current_terrain)
+            
+                # Check if we've exceeded limits
+                if monetaryCost + well.monetaryCost() > self.monetaryLimit or timeCost + well.time_cost() > self.timeLimit:
+                    break
+                
+                # Add well to list
+                wells.append(well)
+                
+                # Update costs
+                monetaryCost += well.monetaryCost()
+                timeCost += well.time_cost()
+                
+                # Update terrain
+                current_terrain = self.terrain.apply_wells(wells)
+                
+                # Calculate metrics
+                mse = float(torch.mean((goal_terrain - current_terrain) ** 2))
+                fidelity = 1.0 - mse
+                
+                # Update metrics
+                self.update_metrics(
+                    iteration=iteration,
+                    wellsPlaced=len(wells),
+                    mse=mse,
+                    monetaryCost=monetaryCost,
+                    timeCost=timeCost,
+                    fidelity=fidelity,
+                    wells=wells
+                )
+                
+                if self.progress_callback:
+                    self.progress_callback(self.get_metrics())
+                
+                # Check if we've reached target fidelity
+                if fidelity >= self.fidelity:
+                    break
+                    
+                iteration += 1
+            
+            # Convert wells to dictionary format
+            wells_dict = [
+                {
+                    'x': int(well.x0),
+                    'y': int(well.y0),
+                    'depth': float(well.depth),
+                    'volume': float(well.volume)
+                }
+                for well in wells
+            ]
+            
+           
+            return {
+                'wells': wells_dict,
+                'metrics': self.get_metrics(),
+                'terrain_summary': self.get_summary()
             }
-            for well in wells
-        ]
-        
-        return {
-            'wells': wells_dict,
-            'metrics': self.get_metrics(),
-            'terrain_summary': self.get_summary()
-        }
+        except Exception as e:
+            print(f"Error in greedy optimization: {str(e)}")
+            raise
     
     def _optimize_well_parameters(self, wells: List[Well], current_terrain: torch.Tensor):
         """Optimize well parameters using scipy's minimize."""

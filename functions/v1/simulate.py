@@ -24,6 +24,12 @@ class SimulationParameters(Schema):
     timeLimit = fields.Integer(required=True, validate=validate.Range(min=1, max=1000000))
     algorithm = fields.String(required=True, validate=validate.OneOf(["genetic", "greedy"]))
     seed = fields.Integer(required=False, allow_none=True)
+    # Genetic-only parameters
+    populationSize = fields.Integer(required=False, allow_none=True)
+    mutationRate = fields.Float(required=False, allow_none=True)
+    tournamentSize = fields.Integer(required=False, allow_none=True)
+    eliteSize = fields.Integer(required=False, allow_none=True)
+    numGenerations = fields.Integer(required=False, allow_none=True)
 
 # Define the response schema
 class SimulationResponse(Schema):
@@ -33,6 +39,17 @@ class SimulationResponse(Schema):
 
 # In-memory storage for jobs (replace with database later)
 jobs = {}
+
+# Define allowed parameters for each optimizer for easy maintenance
+GENETIC_PARAMS = {
+    "terrainSize", "noise", "smoothness", "maxIterations", "depthBounds", "volumeBounds",
+    "monetaryLimit", "timeLimit", "fidelity", "seed", "populationSize", "mutationRate",
+    "tournamentSize", "eliteSize", "numGenerations", "algorithm", "name", "description"
+}
+GREEDY_PARAMS = {
+    "terrainSize", "noise", "smoothness", "maxIterations", "depthBounds", "volumeBounds",
+    "monetaryLimit", "timeLimit", "fidelity", "seed", "algorithm", "name", "description"
+}
 
 @simulate_bp.route('/simulation', methods=['POST'])
 def create_simulation():
@@ -58,6 +75,7 @@ def create_simulation():
     """
     try:
         data = request.get_json()
+        print("INCOMING DATA: ", data)
         schema = SimulationParameters()
         validated_data = schema.load(data)
         
@@ -81,6 +99,7 @@ def create_simulation():
         }), 200
         
     except Exception as e:
+        print("SIMULATION ERROR:", str(e))
         return jsonify({"error": str(e)}), 400
 
 def run_simulation(job_id, parameters):
@@ -93,9 +112,11 @@ def run_simulation(job_id, parameters):
         def progress_callback(metrics):
             jobs[job_id]['progress'] = metrics
         if parameters['algorithm'] == 'genetic':
-            optimizer = GeneticOptimizer(**parameters, progress_callback=progress_callback)
+            optimizer_args = {k: v for k, v in parameters.items() if k in GENETIC_PARAMS}
+            optimizer = GeneticOptimizer(**optimizer_args, progress_callback=progress_callback)
         else:
-            optimizer = GreedyOptimizer(**parameters, progress_callback=progress_callback)
+            optimizer_args = {k: v for k, v in parameters.items() if k in GREEDY_PARAMS}
+            optimizer = GreedyOptimizer(**optimizer_args, progress_callback=progress_callback)
         result = optimizer.optimize()
         jobs[job_id]['status'] = 'completed'
         jobs[job_id]['result'] = result

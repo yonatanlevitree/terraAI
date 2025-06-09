@@ -1,0 +1,7 @@
+{"time":"2025-06-09T16:13:16.2251801-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_161315-g0dzwref\\logs\\debug-core.log"}
+{"time":"2025-06-09T16:13:16.6908908-07:00","level":"INFO","msg":"stream: created new stream","id":"g0dzwref"}
+{"time":"2025-06-09T16:13:16.6908908-07:00","level":"INFO","msg":"stream: started","id":"g0dzwref"}
+{"time":"2025-06-09T16:13:16.6908908-07:00","level":"INFO","msg":"handler: started","stream_id":"g0dzwref"}
+{"time":"2025-06-09T16:13:16.6908908-07:00","level":"INFO","msg":"sender: started","stream_id":"g0dzwref"}
+{"time":"2025-06-09T16:13:16.6920025-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"g0dzwref"}
+{"time":"2025-06-09T16:13:16.8031095-07:00","level":"INFO","msg":"Starting system monitor"}

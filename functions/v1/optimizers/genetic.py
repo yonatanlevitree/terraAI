@@ -4,6 +4,7 @@ from typing import List, Tuple, Dict, Any
 from .base import BaseOptimizer
 from ..system import Terrain, Well
 from scipy.optimize import minimize
+import wandb
 
 class GeneticOptimizer(BaseOptimizer):
     """
@@ -27,8 +28,9 @@ class GeneticOptimizer(BaseOptimizer):
                  seed: int = None,
                  populationSize: int = 50,
                  mutationRate: float = 0.1,
-                 tournamentSize: int = 3,
-                 eliteSize: int = 2,
+                 tournamentSize: int = 6,
+                 eliteSize: int = 3,
+                 numGenerations: int = 150,
                  algorithm=None,
                  progress_callback=None):
         """
@@ -49,6 +51,7 @@ class GeneticOptimizer(BaseOptimizer):
             mutationRate: Probability of mutation for each well
             tournamentSize: Number of solutions to compare in tournament selection
             eliteSize: Number of best solutions to preserve in each generation
+            numGenerations: Number of generations per well placement
             algorithm: Algorithm name for consistency
             progress_callback: Callback function for progress updates
         """
@@ -70,6 +73,7 @@ class GeneticOptimizer(BaseOptimizer):
         self.mutationRate = mutationRate
         self.tournamentSize = tournamentSize
         self.eliteSize = eliteSize
+        self.numGenerations = numGenerations
         self.algorithm = algorithm
         self.progress_callback = progress_callback
         
@@ -85,17 +89,22 @@ class GeneticOptimizer(BaseOptimizer):
         return population
     
     def _calculate_fitness(self, well: Well, current_terrain: torch.Tensor) -> float:
-        """Calculate fitness (MSE) for a well placement"""
-        # Apply the well to the current terrain
+        """Calculate asymmetric fitness loss (penalize overshoot more than undershoot)"""
         modified_terrain = self.terrain.apply_wells([well])
-        
-        # Calculate MSE between modified terrain and goal terrain
-        mse = float(torch.mean((self.terrain.goal_terrain - modified_terrain) ** 2))
-        
-        # Add penalty for costs
+
+        discrepancy = modified_terrain - self.terrain.goal_terrain
+        overshoot_weight = 5
+        undershoot_weight = 1
+
+        loss = torch.where(discrepancy > 0,
+                        overshoot_weight * discrepancy ** 2,
+                        undershoot_weight * discrepancy ** 2)
+
+        mse = float(torch.mean(loss))
+
         if well.monetaryCost() > self.monetaryLimit or well.time_cost() > self.timeLimit:
             mse = float('inf')
-            
+
         return mse
     
     def _tournament_selection(self, population: List[Well], 
@@ -162,110 +171,117 @@ class GeneticOptimizer(BaseOptimizer):
     
     def optimize(self) -> Dict:
         """Run the genetic optimization algorithm."""
-        # Get initial and goal terrains
-        initial_terrain = self.terrain.initial_terrain
-        goal_terrain = self.terrain.goal_terrain
-        current_terrain = initial_terrain.clone()
-        
-        wells = []
-        iteration = 0
-        monetaryCost = 0.0
-        timeCost = 0.0
-        
-        while iteration < self.maxIterations:
-            # Initialize population for this iteration
-            population = self._initialize_population()
-            best_well = None
-            best_fitness = float('inf')
+        try:
+            # Get initial and goal terrains
+            initial_terrain = self.terrain.initial_terrain
+            goal_terrain = self.terrain.goal_terrain
+            current_terrain = initial_terrain.clone()
             
-            # Evolve population for this well placement
-            for generation in range(50):  # Evolve for 50 generations per well
-                # Calculate fitness for all wells
-                fitnesses = [self._calculate_fitness(well, current_terrain) for well in population]
+            wells = []
+            iteration = 0
+            monetaryCost = 0.0
+            timeCost = 0.0
+            
+            while iteration < self.maxIterations:
+                # Initialize population for this iteration
+                population = self._initialize_population()
+                best_well = None
+                best_fitness = float('inf')
                 
-                # Update best well
-                min_fitness_idx = np.argmin(fitnesses)
-                if fitnesses[min_fitness_idx] < best_fitness:
-                    best_fitness = fitnesses[min_fitness_idx]
-                    best_well = population[min_fitness_idx]
-                
-                # Create new population
-                new_population = []
-                
-                # Elitism: keep best solutions
-                elite_indices = np.argsort(fitnesses)[:self.eliteSize]
-                for idx in elite_indices:
-                    new_population.append(population[idx])
-                
-                # Fill rest of population with offspring
-                while len(new_population) < self.populationSize:
-                    # Select parents
-                    parent1 = self._tournament_selection(population, fitnesses)
-                    parent2 = self._tournament_selection(population, fitnesses)
+                # Evolve population for this well placement
+                for generation in range(self.numGenerations):  # Evolve for numGenerations generations per well
+                    # Calculate fitness for all wells
+                    fitnesses = [self._calculate_fitness(well, current_terrain) for well in population]
                     
-                    # Create offspring
-                    child = self._crossover(parent1, parent2)
-                    child = self._mutate(child)
+                    # Update best well
+                    min_fitness_idx = np.argmin(fitnesses)
+                    if fitnesses[min_fitness_idx] < best_fitness:
+                        best_fitness = fitnesses[min_fitness_idx]
+                        best_well = population[min_fitness_idx]
                     
-                    new_population.append(child)
+                    # Create new population
+                    new_population = []
+                    
+                    # Elitism: keep best solutions
+                    elite_indices = np.argsort(fitnesses)[:self.eliteSize]
+                    for idx in elite_indices:
+                        new_population.append(population[idx])
+                    
+                    # Fill rest of population with offspring
+                    while len(new_population) < self.populationSize:
+                        # Select parents
+                        parent1 = self._tournament_selection(population, fitnesses)
+                        parent2 = self._tournament_selection(population, fitnesses)
+                        
+                        # Create offspring
+                        child = self._crossover(parent1, parent2)
+                        child = self._mutate(child)
+                        
+                        new_population.append(child)
+                    
+                    population = new_population
                 
-                population = new_population
+                # Calculate current MSE before adding the new well
+                current_mse = float(torch.mean((goal_terrain - current_terrain) ** 2))
+                # Simulate adding the new well
+                temp_wells = wells + [best_well]
+                temp_terrain = self.terrain.apply_wells(temp_wells)
+                new_mse = float(torch.mean((goal_terrain - temp_terrain) ** 2))
+                # Only add the well if it improves MSE
+                if new_mse < current_mse:
+                    wells.append(best_well)
+                    monetaryCost += best_well.monetaryCost()
+                    timeCost += best_well.time_cost()
+                    current_terrain = temp_terrain
+                else:
+                    break
+                
+                # Update terrain
+                current_terrain = self.terrain.apply_wells(wells)
+                
+                # Calculate metrics
+                mse = float(torch.mean((goal_terrain - current_terrain) ** 2))
+                fidelity = 1.0 - mse
+                
+                # Update metrics
+                self.update_metrics(
+                    iteration=iteration,
+                    wellsPlaced=len(wells),
+                    mse=mse,
+                    monetaryCost=monetaryCost,
+                    timeCost=timeCost,
+                    fidelity=fidelity
+                )
+               
+                if self.progress_callback:
+                    self.progress_callback(self.get_metrics())
+                
+                # Check if we've reached target fidelity
+                if fidelity >= self.fidelity:
+                    break
+                
+                iteration += 1
             
-            # Optimize the best well's parameters
-            self._optimize_well_parameters([best_well], current_terrain)
+            # Convert wells to dictionary format
+            wells_dict = [
+                {
+                    'x': int(well.x0),
+                    'y': int(well.y0),
+                    'depth': float(well.depth),
+                    'volume': float(well.volume)
+                }
+                for well in wells
+            ]
             
-            # Check if we've exceeded limits
-            if monetaryCost + best_well.monetaryCost() > self.monetaryLimit or timeCost + best_well.time_cost() > self.timeLimit:
-                break
-            
-            # Add well to list
-            wells.append(best_well)
-            
-            # Update costs
-            monetaryCost += best_well.monetaryCost()
-            timeCost += best_well.time_cost()
-            
-            # Update terrain
-            current_terrain = self.terrain.apply_wells(wells)
-            
-            # Calculate metrics
-            mse = float(torch.mean((goal_terrain - current_terrain) ** 2))
-            fidelity = 1.0 - mse
-            
-            # Update metrics
-            self.update_metrics(
-                iteration=iteration,
-                wellsPlaced=len(wells),
-                mse=mse,
-                monetaryCost=monetaryCost,
-                timeCost=timeCost,
-                fidelity=fidelity
-            )
-            if self.progress_callback:
-                self.progress_callback(self.get_metrics())
-            
-            # Check if we've reached target fidelity
-            if fidelity >= self.fidelity:
-                break
-            
-            iteration += 1
-        
-        # Convert wells to dictionary format
-        wells_dict = [
-            {
-                'x': int(well.x0),
-                'y': int(well.y0),
-                'depth': float(well.depth),
-                'volume': float(well.volume)
+           
+            return {
+                'wells': wells_dict,
+                'metrics': self.get_metrics(),
+                'terrain_summary': self.get_summary()
             }
-            for well in wells
-        ]
-        
-        return {
-            'wells': wells_dict,
-            'metrics': self.get_metrics(),
-            'terrain_summary': self.get_summary()
-        }
+        except Exception as e:
+            print(f"Error in genetic optimization: {str(e)}")
+            raise
     
     def _optimize_well_parameters(self, wells: List[Well], current_terrain: torch.Tensor):
         """Optimize well parameters using scipy's minimize."""
@@ -280,7 +296,7 @@ class GeneticOptimizer(BaseOptimizer):
             discrepancy = modified_terrain - self.terrain.goal_terrain
             
             # Define weights for the loss function
-            overshoot_weight = 20  # Higher weight for overshooting
+            overshoot_weight = 5  # Higher weight for overshooting
             undershoot_weight = 1  # Lower weight for undershooting
             
             # Compute the asymmetric loss

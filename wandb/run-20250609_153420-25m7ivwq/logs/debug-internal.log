@@ -1,0 +1,17 @@
+{"time":"2025-06-09T15:34:20.5070388-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_153420-25m7ivwq\\logs\\debug-core.log"}
+{"time":"2025-06-09T15:34:20.9034825-07:00","level":"INFO","msg":"stream: created new stream","id":"25m7ivwq"}
+{"time":"2025-06-09T15:34:20.9034825-07:00","level":"INFO","msg":"stream: started","id":"25m7ivwq"}
+{"time":"2025-06-09T15:34:20.9034825-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"25m7ivwq"}
+{"time":"2025-06-09T15:34:20.9034825-07:00","level":"INFO","msg":"sender: started","stream_id":"25m7ivwq"}
+{"time":"2025-06-09T15:34:20.9034825-07:00","level":"INFO","msg":"handler: started","stream_id":"25m7ivwq"}
+{"time":"2025-06-09T15:34:21.0034029-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T15:34:21.1017723-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T15:34:21.1017723-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T15:34:21.4545511-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-09T15:34:22.1061892-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-metadata.json","runtime_seconds":0.435201,"progress":"868B/868B"}],"total_operations":1}}
+{"time":"2025-06-09T15:34:22.5952197-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T15:34:22.811152-07:00","level":"INFO","msg":"stream: closing","id":"25m7ivwq"}
+{"time":"2025-06-09T15:34:22.811152-07:00","level":"INFO","msg":"handler: closed","stream_id":"25m7ivwq"}
+{"time":"2025-06-09T15:34:22.811152-07:00","level":"INFO","msg":"sender: closed","stream_id":"25m7ivwq"}
+{"time":"2025-06-09T15:34:22.811152-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"25m7ivwq"}
+{"time":"2025-06-09T15:34:22.8116714-07:00","level":"INFO","msg":"stream: closed","id":"25m7ivwq"}

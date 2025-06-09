@@ -1,0 +1,17 @@
+{"time":"2025-06-09T15:20:52.44346-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_152052-jvnbjkfh\\logs\\debug-core.log"}
+{"time":"2025-06-09T15:20:52.697806-07:00","level":"INFO","msg":"stream: created new stream","id":"jvnbjkfh"}
+{"time":"2025-06-09T15:20:52.697806-07:00","level":"INFO","msg":"stream: started","id":"jvnbjkfh"}
+{"time":"2025-06-09T15:20:52.697806-07:00","level":"INFO","msg":"handler: started","stream_id":"jvnbjkfh"}
+{"time":"2025-06-09T15:20:52.697806-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"jvnbjkfh"}
+{"time":"2025-06-09T15:20:52.697806-07:00","level":"INFO","msg":"sender: started","stream_id":"jvnbjkfh"}
+{"time":"2025-06-09T15:20:52.9766836-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T15:20:53.0774663-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T15:20:53.0774663-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T15:20:53.2162076-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-09T15:20:54.0958654-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-metadata.json","runtime_seconds":0.682846,"progress":"868B/868B"},{"desc":"uploading output.log","runtime_seconds":0.6817526},{"desc":"uploading wandb-summary.json","runtime_seconds":0.6817526,"progress":"24B/24B"},{"desc":"uploading config.yaml","runtime_seconds":0.4740164,"progress":"814B/814B"}],"total_operations":4}}
+{"time":"2025-06-09T15:20:54.0969719-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T15:20:54.3112127-07:00","level":"INFO","msg":"stream: closing","id":"jvnbjkfh"}
+{"time":"2025-06-09T15:20:54.3112127-07:00","level":"INFO","msg":"handler: closed","stream_id":"jvnbjkfh"}
+{"time":"2025-06-09T15:20:54.3112127-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"jvnbjkfh"}
+{"time":"2025-06-09T15:20:54.3112127-07:00","level":"INFO","msg":"sender: closed","stream_id":"jvnbjkfh"}
+{"time":"2025-06-09T15:20:54.3112127-07:00","level":"INFO","msg":"stream: closed","id":"jvnbjkfh"}

@@ -1,0 +1,18 @@
+{"time":"2025-06-09T16:05:16.3276597-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_160515-iznkuaod\\logs\\debug-core.log"}
+{"time":"2025-06-09T16:05:16.6867371-07:00","level":"INFO","msg":"stream: created new stream","id":"iznkuaod"}
+{"time":"2025-06-09T16:05:16.6867371-07:00","level":"INFO","msg":"stream: started","id":"iznkuaod"}
+{"time":"2025-06-09T16:05:16.6872695-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"iznkuaod"}
+{"time":"2025-06-09T16:05:16.6877776-07:00","level":"INFO","msg":"sender: started","stream_id":"iznkuaod"}
+{"time":"2025-06-09T16:05:16.6884827-07:00","level":"INFO","msg":"handler: started","stream_id":"iznkuaod"}
+{"time":"2025-06-09T16:05:16.8057622-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T16:06:44.0668834-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/iznkuaod/file_stream\": read tcp 192.168.4.91:63332->35.186.228.49:443: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"time":"2025-06-09T16:08:51.9881302-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T16:08:51.9881302-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T16:08:52.1688119-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-09T16:08:52.6809717-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T16:08:52.8492648-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-09T16:08:52.8634911-07:00","level":"INFO","msg":"stream: closing","id":"iznkuaod"}
+{"time":"2025-06-09T16:08:52.8634911-07:00","level":"INFO","msg":"handler: closed","stream_id":"iznkuaod"}
+{"time":"2025-06-09T16:08:52.8634911-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"iznkuaod"}
+{"time":"2025-06-09T16:08:52.8634911-07:00","level":"INFO","msg":"sender: closed","stream_id":"iznkuaod"}
+{"time":"2025-06-09T16:08:52.8645449-07:00","level":"INFO","msg":"stream: closed","id":"iznkuaod"}

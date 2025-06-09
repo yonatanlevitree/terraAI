@@ -393,6 +393,20 @@ const JobCard = ({ job, onDelete }) => {
         </div>
       )}
 
+      {job.status === 'running' && job.parameters && (
+        <div className="mb-4">
+          <h4 className="text-sm font-medium text-gray-700 mb-2">Input Parameters</h4>
+          <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
+            {Object.entries(job.parameters).map(([key, value]) => (
+              <div key={key} className="flex">
+                <span className="font-semibold mr-2">{key}:</span>
+                <span>{Array.isArray(value) ? `[${value.join(', ')}]` : String(value)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {inputData && (
         <div className="mb-4">
           <h4 className="text-sm font-medium text-gray-700 mb-2">Input Data</h4>

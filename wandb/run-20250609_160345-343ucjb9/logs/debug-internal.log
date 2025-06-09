@@ -1,0 +1,18 @@
+{"time":"2025-06-09T16:03:46.2127293-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_160345-343ucjb9\\logs\\debug-core.log"}
+{"time":"2025-06-09T16:03:46.5286128-07:00","level":"INFO","msg":"stream: created new stream","id":"343ucjb9"}
+{"time":"2025-06-09T16:03:46.5286128-07:00","level":"INFO","msg":"stream: started","id":"343ucjb9"}
+{"time":"2025-06-09T16:03:46.5286128-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"343ucjb9"}
+{"time":"2025-06-09T16:03:46.5286128-07:00","level":"INFO","msg":"handler: started","stream_id":"343ucjb9"}
+{"time":"2025-06-09T16:03:46.5286128-07:00","level":"INFO","msg":"sender: started","stream_id":"343ucjb9"}
+{"time":"2025-06-09T16:03:46.6440056-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T16:06:44.1091358-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/343ucjb9/file_stream\": unexpected EOF"}
+{"time":"2025-06-09T16:08:51.9914366-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T16:08:51.9919426-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T16:08:52.2975503-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-09T16:08:52.7750229-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T16:08:52.9116215-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-09T16:08:52.9235733-07:00","level":"INFO","msg":"stream: closing","id":"343ucjb9"}
+{"time":"2025-06-09T16:08:52.9235733-07:00","level":"INFO","msg":"handler: closed","stream_id":"343ucjb9"}
+{"time":"2025-06-09T16:08:52.9235733-07:00","level":"INFO","msg":"sender: closed","stream_id":"343ucjb9"}
+{"time":"2025-06-09T16:08:52.9235733-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"343ucjb9"}
+{"time":"2025-06-09T16:08:52.9242132-07:00","level":"INFO","msg":"stream: closed","id":"343ucjb9"}
