@@ -1,0 +1,18 @@
+{"time":"2025-06-10T06:59:14.3506858-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_065913-o44g44p2\\logs\\debug-core.log"}
+{"time":"2025-06-10T06:59:14.679195-07:00","level":"INFO","msg":"stream: created new stream","id":"o44g44p2"}
+{"time":"2025-06-10T06:59:14.6797679-07:00","level":"INFO","msg":"stream: started","id":"o44g44p2"}
+{"time":"2025-06-10T06:59:14.6803495-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"o44g44p2"}
+{"time":"2025-06-10T06:59:14.6809349-07:00","level":"INFO","msg":"handler: started","stream_id":"o44g44p2"}
+{"time":"2025-06-10T06:59:14.6825571-07:00","level":"INFO","msg":"sender: started","stream_id":"o44g44p2"}
+{"time":"2025-06-10T06:59:14.8623564-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T07:06:27.810488-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/o44g44p2/file_stream\": unexpected EOF"}
+{"time":"2025-06-10T07:06:51.6452926-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/o44g44p2/file_stream\": EOF"}
+{"time":"2025-06-10T07:15:02.9792354-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T07:15:02.9792354-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T07:15:03.411537-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T07:15:03.5613919-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T07:15:03.5670852-07:00","level":"INFO","msg":"stream: closing","id":"o44g44p2"}
+{"time":"2025-06-10T07:15:03.5670852-07:00","level":"INFO","msg":"handler: closed","stream_id":"o44g44p2"}
+{"time":"2025-06-10T07:15:03.5670852-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"o44g44p2"}
+{"time":"2025-06-10T07:15:03.5670852-07:00","level":"INFO","msg":"sender: closed","stream_id":"o44g44p2"}
+{"time":"2025-06-10T07:15:03.5670852-07:00","level":"INFO","msg":"stream: closed","id":"o44g44p2"}

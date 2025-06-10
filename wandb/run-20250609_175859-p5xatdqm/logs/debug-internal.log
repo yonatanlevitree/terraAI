@@ -1,0 +1,17 @@
+{"time":"2025-06-09T17:58:59.6007339-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_175859-p5xatdqm\\logs\\debug-core.log"}
+{"time":"2025-06-09T17:58:59.9241035-07:00","level":"INFO","msg":"stream: created new stream","id":"p5xatdqm"}
+{"time":"2025-06-09T17:58:59.9241035-07:00","level":"INFO","msg":"stream: started","id":"p5xatdqm"}
+{"time":"2025-06-09T17:58:59.9246456-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"p5xatdqm"}
+{"time":"2025-06-09T17:58:59.9246456-07:00","level":"INFO","msg":"handler: started","stream_id":"p5xatdqm"}
+{"time":"2025-06-09T17:58:59.9246456-07:00","level":"INFO","msg":"sender: started","stream_id":"p5xatdqm"}
+{"time":"2025-06-09T17:59:00.0618817-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T18:06:13.0577413-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/p5xatdqm/file_stream\": unexpected EOF"}
+{"time":"2025-06-09T18:12:20.0052815-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T18:12:20.0058193-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T18:12:21.0179413-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"updating run metadata","runtime_seconds":1.0126598}],"total_operations":1}}
+{"time":"2025-06-09T18:12:23.0074662-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T18:12:23.3168894-07:00","level":"INFO","msg":"stream: closing","id":"p5xatdqm"}
+{"time":"2025-06-09T18:12:23.3168894-07:00","level":"INFO","msg":"handler: closed","stream_id":"p5xatdqm"}
+{"time":"2025-06-09T18:12:23.3168894-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"p5xatdqm"}
+{"time":"2025-06-09T18:12:23.3174014-07:00","level":"INFO","msg":"sender: closed","stream_id":"p5xatdqm"}
+{"time":"2025-06-09T18:12:23.3174014-07:00","level":"INFO","msg":"stream: closed","id":"p5xatdqm"}

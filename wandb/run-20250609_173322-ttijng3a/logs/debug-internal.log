@@ -1,0 +1,18 @@
+{"time":"2025-06-09T17:33:23.290263-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_173322-ttijng3a\\logs\\debug-core.log"}
+{"time":"2025-06-09T17:33:23.6211465-07:00","level":"INFO","msg":"stream: created new stream","id":"ttijng3a"}
+{"time":"2025-06-09T17:33:23.6211465-07:00","level":"INFO","msg":"stream: started","id":"ttijng3a"}
+{"time":"2025-06-09T17:33:23.6216825-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"ttijng3a"}
+{"time":"2025-06-09T17:33:23.6216825-07:00","level":"INFO","msg":"handler: started","stream_id":"ttijng3a"}
+{"time":"2025-06-09T17:33:23.6216825-07:00","level":"INFO","msg":"sender: started","stream_id":"ttijng3a"}
+{"time":"2025-06-09T17:33:23.7701366-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T17:36:39.0196801-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-06-09T17:36:46.6020399-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/ttijng3a/file_stream\": read tcp 192.168.4.91:57091->35.186.228.49:443: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"time":"2025-06-09T17:42:20.7331421-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T17:42:20.7331421-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T17:42:21.1806923-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T17:42:21.333086-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-09T17:42:21.3437834-07:00","level":"INFO","msg":"stream: closing","id":"ttijng3a"}
+{"time":"2025-06-09T17:42:21.3437834-07:00","level":"INFO","msg":"handler: closed","stream_id":"ttijng3a"}
+{"time":"2025-06-09T17:42:21.3437834-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ttijng3a"}
+{"time":"2025-06-09T17:42:21.3437834-07:00","level":"INFO","msg":"sender: closed","stream_id":"ttijng3a"}
+{"time":"2025-06-09T17:42:21.3437834-07:00","level":"INFO","msg":"stream: closed","id":"ttijng3a"}

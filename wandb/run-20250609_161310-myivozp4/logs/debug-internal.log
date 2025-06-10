@@ -5,3 +5,12 @@
 {"time":"2025-06-09T16:13:11.5777052-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"myivozp4"}
 {"time":"2025-06-09T16:13:11.578244-07:00","level":"INFO","msg":"handler: started","stream_id":"myivozp4"}
 {"time":"2025-06-09T16:13:11.6893312-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T16:25:19.5213689-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T16:25:19.5213689-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T16:25:20.0196728-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T16:25:20.5022315-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-09T16:25:20.5109039-07:00","level":"INFO","msg":"stream: closing","id":"myivozp4"}
+{"time":"2025-06-09T16:25:20.5109039-07:00","level":"INFO","msg":"handler: closed","stream_id":"myivozp4"}
+{"time":"2025-06-09T16:25:20.5109039-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"myivozp4"}
+{"time":"2025-06-09T16:25:20.5109039-07:00","level":"INFO","msg":"sender: closed","stream_id":"myivozp4"}
+{"time":"2025-06-09T16:25:20.5114151-07:00","level":"INFO","msg":"stream: closed","id":"myivozp4"}

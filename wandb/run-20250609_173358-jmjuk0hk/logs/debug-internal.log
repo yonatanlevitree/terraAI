@@ -1,0 +1,18 @@
+{"time":"2025-06-09T17:33:59.1013853-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_173358-jmjuk0hk\\logs\\debug-core.log"}
+{"time":"2025-06-09T17:33:59.4661209-07:00","level":"INFO","msg":"stream: created new stream","id":"jmjuk0hk"}
+{"time":"2025-06-09T17:33:59.4661209-07:00","level":"INFO","msg":"stream: started","id":"jmjuk0hk"}
+{"time":"2025-06-09T17:33:59.4684541-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"jmjuk0hk"}
+{"time":"2025-06-09T17:33:59.4695271-07:00","level":"INFO","msg":"handler: started","stream_id":"jmjuk0hk"}
+{"time":"2025-06-09T17:33:59.4684541-07:00","level":"INFO","msg":"sender: started","stream_id":"jmjuk0hk"}
+{"time":"2025-06-09T17:33:59.607461-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T17:36:29.8193136-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-06-09T17:36:46.594619-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/jmjuk0hk/file_stream\": EOF"}
+{"time":"2025-06-09T17:43:03.8248493-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T17:43:03.8248493-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T17:43:04.3339677-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T17:43:04.4865575-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-09T17:43:04.4944148-07:00","level":"INFO","msg":"stream: closing","id":"jmjuk0hk"}
+{"time":"2025-06-09T17:43:04.4944148-07:00","level":"INFO","msg":"handler: closed","stream_id":"jmjuk0hk"}
+{"time":"2025-06-09T17:43:04.4944148-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"jmjuk0hk"}
+{"time":"2025-06-09T17:43:04.4944148-07:00","level":"INFO","msg":"sender: closed","stream_id":"jmjuk0hk"}
+{"time":"2025-06-09T17:43:04.4959068-07:00","level":"INFO","msg":"stream: closed","id":"jmjuk0hk"}

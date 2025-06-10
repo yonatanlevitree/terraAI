@@ -460,6 +460,19 @@ const JobCard = ({ job, onDelete }) => {
           <p className="text-sm text-red-800">{job.error}</p>
         </div>
       )}
+
+      {job.parameters && (job.parameters.algorithm === 'genetic' || job.parameters.algorithm === 'geneticSingle') && (
+        <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <h4 className="text-sm font-medium text-blue-700 mb-2">Genetic Algorithm Parameters</h4>
+          <div className="grid grid-cols-2 gap-2 text-sm text-blue-900">
+            <div><span className="font-semibold mr-2">Num Generations:</span>{job.parameters.numGenerations}</div>
+            <div><span className="font-semibold mr-2">Mutation Rate:</span>{job.parameters.mutationRate}</div>
+            <div><span className="font-semibold mr-2">Tournament Size:</span>{job.parameters.tournamentSize}</div>
+            <div><span className="font-semibold mr-2">Elite Size:</span>{job.parameters.eliteSize}</div>
+            <div><span className="font-semibold mr-2">Population Size:</span>{job.parameters.populationSize}</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -502,6 +515,13 @@ export default function AsyncJobManager() {
   const [algorithm, setAlgorithm] = useState('greedy');
   const [seed, setSeed] = useState('');
   
+  // Genetic/GeneticSingle-specific fields
+  const [numGenerations, setNumGenerations] = useState('100');
+  const [mutationRate, setMutationRate] = useState('0.1');
+  const [tournamentSize, setTournamentSize] = useState('6');
+  const [eliteSize, setEliteSize] = useState('3');
+  const [populationSize, setPopulationSize] = useState('50');
+  
   const [jobs, setJobs] = useState([]);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -543,6 +563,14 @@ export default function AsyncJobManager() {
         algorithm: algorithm,
         seed: seed === '' ? undefined : parseInt(seed)
       };
+      // Add genetic/geneticSingle fields if relevant
+      if (algorithm === 'genetic' || algorithm === 'geneticSingle') {
+        parsedInputs.numGenerations = parseInt(numGenerations);
+        parsedInputs.mutationRate = parseFloat(mutationRate);
+        parsedInputs.tournamentSize = parseInt(tournamentSize);
+        parsedInputs.eliteSize = parseInt(eliteSize);
+        parsedInputs.populationSize = parseInt(populationSize);
+      }
       
       // Validate all inputs
       const validation = validateSimulateInputs(
@@ -704,6 +732,22 @@ export default function AsyncJobManager() {
             e.preventDefault();
             handleSubmit();
           }} className="space-y-6">
+            {/* Algorithm selection at the top, full row */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Algorithm <span className="text-red-500">*</span>
+              </label>
+              <select
+                value={algorithm}
+                onChange={e => setAlgorithm(e.target.value)}
+                className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                required
+              >
+                <option value="genetic">Genetic (Full Solution)</option>
+                <option value="geneticSingle">Genetic (Single Well)</option>
+                <option value="greedy">Greedy</option>
+              </select>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -983,20 +1027,6 @@ export default function AsyncJobManager() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Algorithm <span className="text-red-500">*</span>
-                </label>
-                <select
-                  value={algorithm}
-                  onChange={e => setAlgorithm(e.target.value)}
-                  className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  required
-                >
-                  <option value="genetic">Genetic</option>
-                  <option value="greedy">Greedy</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Seed (optional)
                 </label>
                 <input
@@ -1008,6 +1038,88 @@ export default function AsyncJobManager() {
                 />
               </div>
             </div>
+            
+            {/* Genetic/GeneticSingle-specific fields */}
+            {(algorithm === 'genetic' || algorithm === 'geneticSingle') && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Number of Generations
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="1000"
+                    value={numGenerations}
+                    onChange={e => setNumGenerations(e.target.value)}
+                    className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    placeholder="e.g. 100"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Mutation Rate
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={mutationRate}
+                    onChange={e => setMutationRate(e.target.value)}
+                    className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    placeholder="e.g. 0.1"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Tournament Size
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="20"
+                    value={tournamentSize}
+                    onChange={e => setTournamentSize(e.target.value)}
+                    className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    placeholder="e.g. 6"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Elite Size
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="20"
+                    value={eliteSize}
+                    onChange={e => setEliteSize(e.target.value)}
+                    className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    placeholder="e.g. 3"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Population Size
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="1000"
+                    value={populationSize}
+                    onChange={e => setPopulationSize(e.target.value)}
+                    className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    placeholder="e.g. 50"
+                    required
+                  />
+                </div>
+              </div>
+            )}
             
             <div className="mt-6">
               <button

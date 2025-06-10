@@ -77,192 +77,146 @@ class GeneticOptimizer(BaseOptimizer):
         self.algorithm = algorithm
         self.progress_callback = progress_callback
         
-    def _initialize_population(self) -> List[Well]:
-        """Initialize a population of random wells"""
+    def _initialize_population(self) -> List[List[Well]]:
+        """Initialize a population of individuals, where each individual is a list of 1-20 random wells."""
         population = []
         for _ in range(self.populationSize):
-            x = int(np.random.randint(0, self.terrainSize))
-            y = int(np.random.randint(0, self.terrainSize))
-            depth = float(np.random.uniform(self.depthBounds[0], self.depthBounds[1]))
-            volume = float(np.random.uniform(self.volumeBounds[0], self.volumeBounds[1]))
-            population.append(Well(x, y, depth, volume))
+            num_wells = np.random.randint(1, 21)  # Each individual has 1 to 20 wells
+            individual = []
+            for _ in range(num_wells):
+                x = int(np.random.randint(0, self.terrainSize))
+                y = int(np.random.randint(0, self.terrainSize))
+                depth = float(np.random.randint(self.depthBounds[0], self.depthBounds[1]))
+                volume = float(np.random.randint(self.volumeBounds[0], self.volumeBounds[1]))
+                individual.append(Well(x, y, depth, volume))
+            population.append(individual)
         return population
     
-    def _calculate_fitness(self, well: Well, current_terrain: torch.Tensor) -> float:
-        """Calculate asymmetric fitness loss (penalize overshoot more than undershoot)"""
-        modified_terrain = self.terrain.apply_wells([well])
-
+    def _calculate_fitness(self, individual: list, current_terrain: torch.Tensor, penalty_weight: float = 0.01) -> float:
+        """Calculate fitness as error + penalty_weight * number of wells."""
+        # Apply all wells in the individual's genome to the terrain
+        modified_terrain = self.terrain.apply_wells(individual)
         discrepancy = modified_terrain - self.terrain.goal_terrain
-        overshoot_weight = 5
+        overshoot_weight = 3
         undershoot_weight = 1
 
         loss = torch.where(discrepancy > 0,
                         overshoot_weight * discrepancy ** 2,
                         undershoot_weight * discrepancy ** 2)
-
         mse = float(torch.mean(loss))
-
-        if well.monetaryCost() > self.monetaryLimit or well.time_cost() > self.timeLimit:
-            mse = float('inf')
-
-        return mse
+        # Add penalty for number of wells
+        num_wells = len(individual)
+        fitness = mse + penalty_weight * num_wells
+        # Optionally, add constraints (e.g., cost/time limits)
+        # if ...: fitness = float('inf')
+        return fitness
     
-    def _tournament_selection(self, population: List[Well], 
-                            fitnesses: List[float]) -> Well:
-        """Select a well using tournament selection"""
+    def _tournament_selection(self, population: list, fitnesses: list) -> list:
+        """Select an individual using tournament selection."""
         tournament_indices = np.random.choice(len(population), self.tournamentSize, replace=False)
         tournament_fitnesses = [fitnesses[i] for i in tournament_indices]
-        winner_idx = tournament_indices[np.argmin(tournament_fitnesses)]  # Lower MSE is better
-        return population[winner_idx]
+        winner_idx = tournament_indices[np.argmin(tournament_fitnesses)]  # Lower fitness is better
+        # Deep copy to avoid mutation side effects
+        return [Well(w.x0, w.y0, w.depth, w.volume) for w in population[winner_idx]]
     
-    def _crossover(self, parent1: Well, parent2: Well) -> Well:
-        """Perform crossover between two parent wells"""
-        # Create a new well with parameters from either parent
-        if np.random.random() < 0.5:
-            x, y = parent1.x0, parent1.y0
-        else:
-            x, y = parent2.x0, parent2.y0
-            
-        if np.random.random() < 0.5:
-            depth = parent1.depth
-        else:
-            depth = parent2.depth
-            
-        if np.random.random() < 0.5:
-            volume = parent1.volume
-        else:
-            volume = parent2.volume
-            
-        return Well(x, y, depth, volume)
-    
-    def _mutate(self, well: Well) -> Well:
-        """Mutate a well by randomly modifying its parameters.
-        For x,y coordinates, changes are restricted to a neighborhood around the original position."""
-        # Define neighborhood size (can be adjusted)
-        neighborhood_size = 5
-        
-        if np.random.random() < self.mutationRate:
-            # Mutate x within neighborhood
-            x_min = max(0, well.x0 - neighborhood_size)
-            x_max = min(self.terrainSize - 1, well.x0 + neighborhood_size)
-            x = int(np.random.randint(x_min, x_max + 1))
-        else:
-            x = well.x0
-            
-        if np.random.random() < self.mutationRate:
-            # Mutate y within neighborhood
-            y_min = max(0, well.y0 - neighborhood_size)
-            y_max = min(self.terrainSize - 1, well.y0 + neighborhood_size)
-            y = int(np.random.randint(y_min, y_max + 1))
-        else:
-            y = well.y0
-            
-        if np.random.random() < self.mutationRate:
-            depth = float(np.random.uniform(self.depthBounds[0], self.depthBounds[1]))
-        else:
-            depth = well.depth
-            
-        if np.random.random() < self.mutationRate:
-            volume = float(np.random.uniform(self.volumeBounds[0], self.volumeBounds[1]))
-        else:
-            volume = well.volume
-            
-        return Well(x, y, depth, volume)
+    def _crossover(self, parent1: list, parent2: list) -> list:
+        """One-point crossover for lists of wells."""
+        if len(parent1) == 0 or len(parent2) == 0:
+            # If either parent is empty, return a copy of the other
+            return parent1.copy() if len(parent2) == 0 else parent2.copy()
+        # Choose crossover points
+        point1 = np.random.randint(1, len(parent1)+1)
+        point2 = np.random.randint(1, len(parent2)+1)
+        # Combine segments from both parents
+        child = parent1[:point1] + parent2[point2:]
+        # Enforce max length
+        if len(child) > 20:
+            child = child[:20]
+        return [Well(w.x0, w.y0, w.depth, w.volume) for w in child]  # Deep copy
+
+    def _mutate(self, individual: list) -> list:
+        """Mutate an individual by mutating wells, adding, or removing wells."""
+        # Mutate well parameters
+        for i in range(len(individual)):
+            well = individual[i]
+            if np.random.random() < self.mutationRate:
+                # Mutate x
+                x_min = max(0, well.x0 - 5)
+                x_max = min(self.terrainSize - 1, well.x0 + 5)
+                well.x0 = int(np.random.randint(x_min, x_max + 1))
+            if np.random.random() < self.mutationRate:
+                # Mutate y
+                y_min = max(0, well.y0 - 5)
+                y_max = min(self.terrainSize - 1, well.y0 + 5)
+                well.y0 = int(np.random.randint(y_min, y_max + 1))
+            if np.random.random() < self.mutationRate:
+                well.depth = float(np.random.randint(self.depthBounds[0], self.depthBounds[1]))
+            if np.random.random() < self.mutationRate:
+                well.volume = float(np.random.randint(self.volumeBounds[0], self.volumeBounds[1]))
+        # Possibly add a new well
+        if len(individual) < 20 and np.random.random() < self.mutationRate:
+            x = int(np.random.randint(0, self.terrainSize))
+            y = int(np.random.randint(0, self.terrainSize))
+            depth = float(np.random.randint(self.depthBounds[0], self.depthBounds[1]))
+            volume = float(np.random.randint(self.volumeBounds[0], self.volumeBounds[1]))
+            individual.append(Well(x, y, depth, volume))
+        # Possibly remove a well
+        if len(individual) > 1 and np.random.random() < self.mutationRate:
+            idx = np.random.randint(0, len(individual))
+            individual.pop(idx)
+        return individual
     
     def optimize(self) -> Dict:
-        """Run the genetic optimization algorithm."""
+        """Run the genetic optimization algorithm for a population of individuals (each a list of wells)."""
         try:
-            # Get initial and goal terrains
             initial_terrain = self.terrain.initial_terrain
             goal_terrain = self.terrain.goal_terrain
-            current_terrain = initial_terrain.clone()
-            
-            wells = []
-            iteration = 0
-            monetaryCost = 0.0
-            timeCost = 0.0
-            
-            while iteration < self.maxIterations:
-                # Initialize population for this iteration
-                population = self._initialize_population()
-                best_well = None
-                best_fitness = float('inf')
-                
-                # Evolve population for this well placement
-                for generation in range(self.numGenerations):  # Evolve for numGenerations generations per well
-                    # Calculate fitness for all wells
-                    fitnesses = [self._calculate_fitness(well, current_terrain) for well in population]
-                    
-                    # Update best well
-                    min_fitness_idx = np.argmin(fitnesses)
-                    if fitnesses[min_fitness_idx] < best_fitness:
-                        best_fitness = fitnesses[min_fitness_idx]
-                        best_well = population[min_fitness_idx]
-                    
-                    # Create new population
-                    new_population = []
-                    
-                    # Elitism: keep best solutions
-                    elite_indices = np.argsort(fitnesses)[:self.eliteSize]
-                    for idx in elite_indices:
-                        new_population.append(population[idx])
-                    
-                    # Fill rest of population with offspring
-                    while len(new_population) < self.populationSize:
-                        # Select parents
-                        parent1 = self._tournament_selection(population, fitnesses)
-                        parent2 = self._tournament_selection(population, fitnesses)
-                        
-                        # Create offspring
-                        child = self._crossover(parent1, parent2)
-                        child = self._mutate(child)
-                        
-                        new_population.append(child)
-                    
-                    population = new_population
-                
-                # Calculate current MSE before adding the new well
-                current_mse = float(torch.mean((goal_terrain - current_terrain) ** 2))
-                # Simulate adding the new well
-                temp_wells = wells + [best_well]
-                temp_terrain = self.terrain.apply_wells(temp_wells)
-                new_mse = float(torch.mean((goal_terrain - temp_terrain) ** 2))
-                # Only add the well if it improves MSE
-                if new_mse < current_mse:
-                    wells.append(best_well)
-                    monetaryCost += best_well.monetaryCost()
-                    timeCost += best_well.time_cost()
-                    current_terrain = temp_terrain
-                else:
-                    break
-                
-                # Update terrain
-                current_terrain = self.terrain.apply_wells(wells)
-                
-                # Calculate metrics
-                mse = float(torch.mean((goal_terrain - current_terrain) ** 2))
-                fidelity = 1.0 - mse
-                
-                # Update metrics
-                self.update_metrics(
-                    iteration=iteration,
-                    wellsPlaced=len(wells),
-                    mse=mse,
-                    monetaryCost=monetaryCost,
-                    timeCost=timeCost,
-                    fidelity=fidelity
-                )
-               
-                if self.progress_callback:
-                    self.progress_callback(self.get_metrics())
-                
-                # Check if we've reached target fidelity
-                if fidelity >= self.fidelity:
-                    break
-                
-                iteration += 1
-            
-            # Convert wells to dictionary format
+            best_individual = None
+            best_fitness = float('inf')
+            best_metrics = None
+            best_summary = None
+            population = self._initialize_population()
+            for generation in range(self.numGenerations):
+                # Evaluate fitness for all individuals
+                fitnesses = [self._calculate_fitness(individual, initial_terrain) for individual in population]
+                # Find best in this generation
+                min_fitness_idx = np.argmin(fitnesses)
+                if fitnesses[min_fitness_idx] < best_fitness:
+                    best_fitness = fitnesses[min_fitness_idx]
+                    best_individual = [Well(w.x0, w.y0, w.depth, w.volume) for w in population[min_fitness_idx]]
+                    # Calculate metrics for the best individual
+                    modified_terrain = self.terrain.apply_wells(best_individual)
+                    mse = float(torch.mean((goal_terrain - modified_terrain) ** 2))
+                    fidelity = 1.0 - mse
+                    best_metrics = {
+                        'generation': generation,
+                        'wellsPlaced': len(best_individual),
+                        'mse': mse,
+                        'fidelity': fidelity
+                    }
+                    best_summary = {
+                        'finalMSE': mse,
+                        'finalFidelity': fidelity,
+                        'totalWells': len(best_individual)
+                    }
+                    # Update progress callback for live progress
+                    if self.progress_callback:
+                        self.progress_callback(best_metrics)
+                # Elitism: keep best solutions
+                new_population = []
+                elite_indices = np.argsort(fitnesses)[:self.eliteSize]
+                for idx in elite_indices:
+                    elite = [Well(w.x0, w.y0, w.depth, w.volume) for w in population[idx]]
+                    new_population.append(elite)
+                # Fill rest of population with offspring
+                while len(new_population) < self.populationSize:
+                    parent1 = self._tournament_selection(population, fitnesses)
+                    parent2 = self._tournament_selection(population, fitnesses)
+                    child = self._crossover(parent1, parent2)
+                    child = self._mutate(child)
+                    new_population.append(child)
+                population = new_population
+            # Prepare output
             wells_dict = [
                 {
                     'x': int(well.x0),
@@ -270,14 +224,12 @@ class GeneticOptimizer(BaseOptimizer):
                     'depth': float(well.depth),
                     'volume': float(well.volume)
                 }
-                for well in wells
+                for well in best_individual
             ]
-            
-           
             return {
                 'wells': wells_dict,
-                'metrics': self.get_metrics(),
-                'terrain_summary': self.get_summary()
+                'metrics': best_metrics,
+                'terrain_summary': best_summary
             }
         except Exception as e:
             print(f"Error in genetic optimization: {str(e)}")

@@ -20,3 +20,10 @@ config: {'_wandb': {}}
 2025-06-09 16:13:17,037 INFO    MainThread:10748 [wandb_run.py:_redirect():2370] Wrapping output streams.
 2025-06-09 16:13:17,038 INFO    MainThread:10748 [wandb_run.py:_redirect():2393] Redirects installed.
 2025-06-09 16:13:17,042 INFO    MainThread:10748 [wandb_init.py:init():1078] run started, returning control to user process
+2025-06-09 16:25:42,679 INFO    MainThread:10748 [wandb_run.py:_finish():2219] finishing run yonatanlevitree-levitree/terraAI-venv_Scripts/g0dzwref
+2025-06-09 16:25:42,680 INFO    MainThread:10748 [wandb_run.py:_atexit_cleanup():2418] got exitcode: 0
+2025-06-09 16:25:42,680 INFO    MainThread:10748 [wandb_run.py:_restore():2400] restore
+2025-06-09 16:25:42,681 INFO    MainThread:10748 [wandb_run.py:_restore():2406] restore done
+2025-06-09 16:25:43,323 INFO    MainThread:10748 [wandb_run.py:_footer_history_summary_info():4000] rendering history
+2025-06-09 16:25:43,323 INFO    MainThread:10748 [wandb_run.py:_footer_history_summary_info():4032] rendering summary
+2025-06-09 16:25:43,325 INFO    MainThread:10748 [wandb_run.py:_footer_sync_info():3961] logging synced files

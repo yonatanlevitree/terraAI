@@ -1,0 +1,17 @@
+{"time":"2025-06-10T07:02:27.4682951-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_070227-vgdqyw6p\\logs\\debug-core.log"}
+{"time":"2025-06-10T07:02:27.8149286-07:00","level":"INFO","msg":"stream: created new stream","id":"vgdqyw6p"}
+{"time":"2025-06-10T07:02:27.8156734-07:00","level":"INFO","msg":"stream: started","id":"vgdqyw6p"}
+{"time":"2025-06-10T07:02:27.8156734-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"vgdqyw6p"}
+{"time":"2025-06-10T07:02:27.8156734-07:00","level":"INFO","msg":"handler: started","stream_id":"vgdqyw6p"}
+{"time":"2025-06-10T07:02:27.8156734-07:00","level":"INFO","msg":"sender: started","stream_id":"vgdqyw6p"}
+{"time":"2025-06-10T07:02:27.940903-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T07:06:51.63991-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/vgdqyw6p/file_stream\": read tcp 192.168.4.91:56059->35.186.228.49:443: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"time":"2025-06-10T07:22:55.3816044-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T07:22:55.3822581-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T07:22:55.8472492-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T07:22:56.0220166-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T07:22:56.0289966-07:00","level":"INFO","msg":"stream: closing","id":"vgdqyw6p"}
+{"time":"2025-06-10T07:22:56.0289966-07:00","level":"INFO","msg":"handler: closed","stream_id":"vgdqyw6p"}
+{"time":"2025-06-10T07:22:56.0289966-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"vgdqyw6p"}
+{"time":"2025-06-10T07:22:56.0289966-07:00","level":"INFO","msg":"sender: closed","stream_id":"vgdqyw6p"}
+{"time":"2025-06-10T07:22:56.0289966-07:00","level":"INFO","msg":"stream: closed","id":"vgdqyw6p"}

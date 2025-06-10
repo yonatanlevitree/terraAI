@@ -1,0 +1,18 @@
+{"time":"2025-06-09T21:07:33.7682305-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_210733-bnnk8odi\\logs\\debug-core.log"}
+{"time":"2025-06-09T21:07:34.1090826-07:00","level":"INFO","msg":"stream: created new stream","id":"bnnk8odi"}
+{"time":"2025-06-09T21:07:34.1096227-07:00","level":"INFO","msg":"stream: started","id":"bnnk8odi"}
+{"time":"2025-06-09T21:07:34.1096227-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"bnnk8odi"}
+{"time":"2025-06-09T21:07:34.1101726-07:00","level":"INFO","msg":"handler: started","stream_id":"bnnk8odi"}
+{"time":"2025-06-09T21:07:34.1111622-07:00","level":"INFO","msg":"sender: started","stream_id":"bnnk8odi"}
+{"time":"2025-06-09T21:07:34.2246439-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T21:37:05.2390075-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-06-09T21:37:05.8780204-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/bnnk8odi/file_stream\": read tcp 192.168.4.91:58350->35.186.228.49:443: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"time":"2025-06-09T21:41:51.0574693-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T21:41:51.0574693-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T21:41:51.5063094-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T21:41:51.6596989-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-09T21:41:51.6664089-07:00","level":"INFO","msg":"stream: closing","id":"bnnk8odi"}
+{"time":"2025-06-09T21:41:51.6664089-07:00","level":"INFO","msg":"handler: closed","stream_id":"bnnk8odi"}
+{"time":"2025-06-09T21:41:51.6664089-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"bnnk8odi"}
+{"time":"2025-06-09T21:41:51.6664089-07:00","level":"INFO","msg":"sender: closed","stream_id":"bnnk8odi"}
+{"time":"2025-06-09T21:41:51.6664089-07:00","level":"INFO","msg":"stream: closed","id":"bnnk8odi"}

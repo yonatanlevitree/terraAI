@@ -1,0 +1,34 @@
+{"time":"2025-06-10T07:51:13.2000404-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_075112-8fgnckfj\\logs\\debug-core.log"}
+{"time":"2025-06-10T07:51:13.5388302-07:00","level":"INFO","msg":"stream: created new stream","id":"8fgnckfj"}
+{"time":"2025-06-10T07:51:13.540838-07:00","level":"INFO","msg":"stream: started","id":"8fgnckfj"}
+{"time":"2025-06-10T07:51:13.5412393-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"8fgnckfj"}
+{"time":"2025-06-10T07:51:13.5412393-07:00","level":"INFO","msg":"handler: started","stream_id":"8fgnckfj"}
+{"time":"2025-06-10T07:51:13.5412393-07:00","level":"INFO","msg":"sender: started","stream_id":"8fgnckfj"}
+{"time":"2025-06-10T07:51:13.6973847-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T09:22:51.474116-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": write tcp 192.168.4.91:63110->35.186.228.49:443: wsasend: An existing connection was forcibly closed by the remote host."}
+{"time":"2025-06-10T09:22:51.474116-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T09:22:51.474116-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T09:22:51.935728-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:22:52.4817843-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading data","runtime_seconds":1.0066608,"error_status":"retrying: Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}],"total_operations":1}}
+{"time":"2025-06-10T09:22:53.8636193-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:22:54.2551239-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:22:58.3035109-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:22:58.5675718-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:23:06.6868824-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:23:07.3794684-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:23:23.2686813-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:23:24.8139002-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:23:52.9618006-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading data","runtime_seconds":61.4876846,"error_status":"retrying: Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}],"total_operations":1}}
+{"time":"2025-06-10T09:23:57.7774157-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:23:58.967183-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:24:53.2714375-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading data","runtime_seconds":121.7973215,"error_status":"retrying: Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}],"total_operations":1}}
+{"time":"2025-06-10T09:24:57.8047274-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:24:58.9689534-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-06-10T09:25:54.0336129-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading data","runtime_seconds":182.5594969,"error_status":"retrying: Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/8fgnckfj/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}],"total_operations":1}}
+{"time":"2025-06-10T09:25:58.3477053-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T09:25:58.8201181-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T09:25:59.2771288-07:00","level":"INFO","msg":"stream: closing","id":"8fgnckfj"}
+{"time":"2025-06-10T09:25:59.2771288-07:00","level":"INFO","msg":"handler: closed","stream_id":"8fgnckfj"}
+{"time":"2025-06-10T09:25:59.2771288-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"8fgnckfj"}
+{"time":"2025-06-10T09:25:59.2782346-07:00","level":"INFO","msg":"sender: closed","stream_id":"8fgnckfj"}
+{"time":"2025-06-10T09:25:59.2787412-07:00","level":"INFO","msg":"stream: closed","id":"8fgnckfj"}

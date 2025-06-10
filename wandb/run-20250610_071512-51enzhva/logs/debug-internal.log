@@ -1,0 +1,17 @@
+{"time":"2025-06-10T07:15:12.8945811-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_071512-51enzhva\\logs\\debug-core.log"}
+{"time":"2025-06-10T07:15:13.2013248-07:00","level":"INFO","msg":"stream: created new stream","id":"51enzhva"}
+{"time":"2025-06-10T07:15:13.2013248-07:00","level":"INFO","msg":"stream: started","id":"51enzhva"}
+{"time":"2025-06-10T07:15:13.202456-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"51enzhva"}
+{"time":"2025-06-10T07:15:13.2070069-07:00","level":"INFO","msg":"sender: started","stream_id":"51enzhva"}
+{"time":"2025-06-10T07:15:13.2075334-07:00","level":"INFO","msg":"handler: started","stream_id":"51enzhva"}
+{"time":"2025-06-10T07:15:13.3289761-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T07:17:13.8369991-07:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/51enzhva/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-06-10T07:38:24.6734475-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T07:38:24.6734475-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T07:38:25.1904861-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T07:38:25.4152851-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T07:38:25.4247959-07:00","level":"INFO","msg":"stream: closing","id":"51enzhva"}
+{"time":"2025-06-10T07:38:25.4247959-07:00","level":"INFO","msg":"handler: closed","stream_id":"51enzhva"}
+{"time":"2025-06-10T07:38:25.4247959-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"51enzhva"}
+{"time":"2025-06-10T07:38:25.4253025-07:00","level":"INFO","msg":"sender: closed","stream_id":"51enzhva"}
+{"time":"2025-06-10T07:38:25.4253025-07:00","level":"INFO","msg":"stream: closed","id":"51enzhva"}

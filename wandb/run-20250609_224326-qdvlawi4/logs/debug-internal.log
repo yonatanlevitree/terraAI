@@ -1,0 +1,19 @@
+{"time":"2025-06-09T22:43:27.3631935-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_224326-qdvlawi4\\logs\\debug-core.log"}
+{"time":"2025-06-09T22:43:27.9532989-07:00","level":"INFO","msg":"stream: created new stream","id":"qdvlawi4"}
+{"time":"2025-06-09T22:43:27.9538327-07:00","level":"INFO","msg":"stream: started","id":"qdvlawi4"}
+{"time":"2025-06-09T22:43:27.9543709-07:00","level":"INFO","msg":"handler: started","stream_id":"qdvlawi4"}
+{"time":"2025-06-09T22:43:27.9543709-07:00","level":"INFO","msg":"sender: started","stream_id":"qdvlawi4"}
+{"time":"2025-06-09T22:43:27.9584991-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"qdvlawi4"}
+{"time":"2025-06-09T22:43:28.0801836-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T23:06:43.9147823-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-06-09T23:06:47.7256163-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/qdvlawi4/file_stream\": read tcp 192.168.4.91:54088->35.186.228.49:443: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"time":"2025-06-09T23:08:08.9892173-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/qdvlawi4/file_stream\": read tcp 192.168.4.91:55348->35.186.228.49:443: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"time":"2025-06-09T23:25:02.4638508-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T23:25:02.4638508-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T23:25:02.9108048-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T23:25:03.0377266-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-09T23:25:03.0454041-07:00","level":"INFO","msg":"stream: closing","id":"qdvlawi4"}
+{"time":"2025-06-09T23:25:03.0454041-07:00","level":"INFO","msg":"handler: closed","stream_id":"qdvlawi4"}
+{"time":"2025-06-09T23:25:03.0454041-07:00","level":"INFO","msg":"sender: closed","stream_id":"qdvlawi4"}
+{"time":"2025-06-09T23:25:03.0454041-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"qdvlawi4"}
+{"time":"2025-06-09T23:25:03.0459124-07:00","level":"INFO","msg":"stream: closed","id":"qdvlawi4"}

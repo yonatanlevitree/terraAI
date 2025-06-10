@@ -1,0 +1,17 @@
+{"time":"2025-06-09T16:25:31.1046504-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_162530-v16blwqc\\logs\\debug-core.log"}
+{"time":"2025-06-09T16:25:31.5378147-07:00","level":"INFO","msg":"stream: created new stream","id":"v16blwqc"}
+{"time":"2025-06-09T16:25:31.5378147-07:00","level":"INFO","msg":"stream: started","id":"v16blwqc"}
+{"time":"2025-06-09T16:25:31.5383534-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"v16blwqc"}
+{"time":"2025-06-09T16:25:31.5383534-07:00","level":"INFO","msg":"sender: started","stream_id":"v16blwqc"}
+{"time":"2025-06-09T16:25:31.5383534-07:00","level":"INFO","msg":"handler: started","stream_id":"v16blwqc"}
+{"time":"2025-06-09T16:25:31.7616347-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T16:26:47.3756326-07:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/v16blwqc/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-06-09T16:42:49.2235594-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T16:42:49.2235594-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T16:42:49.7177056-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T16:42:49.8454562-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-09T16:42:49.8533004-07:00","level":"INFO","msg":"stream: closing","id":"v16blwqc"}
+{"time":"2025-06-09T16:42:49.8533004-07:00","level":"INFO","msg":"handler: closed","stream_id":"v16blwqc"}
+{"time":"2025-06-09T16:42:49.8533004-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"v16blwqc"}
+{"time":"2025-06-09T16:42:49.8533004-07:00","level":"INFO","msg":"sender: closed","stream_id":"v16blwqc"}
+{"time":"2025-06-09T16:42:49.8533004-07:00","level":"INFO","msg":"stream: closed","id":"v16blwqc"}

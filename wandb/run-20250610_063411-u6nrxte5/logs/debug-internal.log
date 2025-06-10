@@ -1,0 +1,17 @@
+{"time":"2025-06-10T06:34:12.2082786-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_063411-u6nrxte5\\logs\\debug-core.log"}
+{"time":"2025-06-10T06:34:12.4823977-07:00","level":"INFO","msg":"stream: created new stream","id":"u6nrxte5"}
+{"time":"2025-06-10T06:34:12.4823977-07:00","level":"INFO","msg":"stream: started","id":"u6nrxte5"}
+{"time":"2025-06-10T06:34:12.4829324-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"u6nrxte5"}
+{"time":"2025-06-10T06:34:12.4835209-07:00","level":"INFO","msg":"sender: started","stream_id":"u6nrxte5"}
+{"time":"2025-06-10T06:34:12.4835209-07:00","level":"INFO","msg":"handler: started","stream_id":"u6nrxte5"}
+{"time":"2025-06-10T06:34:12.7140814-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T06:36:34.7017481-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/u6nrxte5/file_stream\": EOF"}
+{"time":"2025-06-10T06:43:08.5212396-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T06:43:08.5212396-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T06:43:09.0222-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T06:43:09.147506-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T06:43:09.1572558-07:00","level":"INFO","msg":"stream: closing","id":"u6nrxte5"}
+{"time":"2025-06-10T06:43:09.1572558-07:00","level":"INFO","msg":"handler: closed","stream_id":"u6nrxte5"}
+{"time":"2025-06-10T06:43:09.1572558-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"u6nrxte5"}
+{"time":"2025-06-10T06:43:09.1577618-07:00","level":"INFO","msg":"sender: closed","stream_id":"u6nrxte5"}
+{"time":"2025-06-10T06:43:09.1577618-07:00","level":"INFO","msg":"stream: closed","id":"u6nrxte5"}

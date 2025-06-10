@@ -1,0 +1,17 @@
+{"time":"2025-06-10T10:12:40.0729451-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_101239-y14y68z8\\logs\\debug-core.log"}
+{"time":"2025-06-10T10:12:40.3294824-07:00","level":"INFO","msg":"stream: created new stream","id":"y14y68z8"}
+{"time":"2025-06-10T10:12:40.3294824-07:00","level":"INFO","msg":"stream: started","id":"y14y68z8"}
+{"time":"2025-06-10T10:12:40.330004-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"y14y68z8"}
+{"time":"2025-06-10T10:12:40.330004-07:00","level":"INFO","msg":"handler: started","stream_id":"y14y68z8"}
+{"time":"2025-06-10T10:12:40.330004-07:00","level":"INFO","msg":"sender: started","stream_id":"y14y68z8"}
+{"time":"2025-06-10T10:12:40.4318939-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T10:13:01.577931-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T10:13:01.577931-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T10:13:02.0885548-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T10:13:02.5717955-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T10:13:02.5936776-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary","runtime_seconds":0.0213692}],"total_operations":1}}
+{"time":"2025-06-10T10:13:02.739464-07:00","level":"INFO","msg":"stream: closing","id":"y14y68z8"}
+{"time":"2025-06-10T10:13:02.739464-07:00","level":"INFO","msg":"handler: closed","stream_id":"y14y68z8"}
+{"time":"2025-06-10T10:13:02.739464-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"y14y68z8"}
+{"time":"2025-06-10T10:13:02.739464-07:00","level":"INFO","msg":"sender: closed","stream_id":"y14y68z8"}
+{"time":"2025-06-10T10:13:02.7399879-07:00","level":"INFO","msg":"stream: closed","id":"y14y68z8"}

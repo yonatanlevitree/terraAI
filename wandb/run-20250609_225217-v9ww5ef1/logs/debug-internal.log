@@ -1,0 +1,18 @@
+{"time":"2025-06-09T22:52:18.2165162-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250609_225217-v9ww5ef1\\logs\\debug-core.log"}
+{"time":"2025-06-09T22:52:18.5683673-07:00","level":"INFO","msg":"stream: created new stream","id":"v9ww5ef1"}
+{"time":"2025-06-09T22:52:18.5683673-07:00","level":"INFO","msg":"stream: started","id":"v9ww5ef1"}
+{"time":"2025-06-09T22:52:18.5683673-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"v9ww5ef1"}
+{"time":"2025-06-09T22:52:18.5698678-07:00","level":"INFO","msg":"handler: started","stream_id":"v9ww5ef1"}
+{"time":"2025-06-09T22:52:18.5698678-07:00","level":"INFO","msg":"sender: started","stream_id":"v9ww5ef1"}
+{"time":"2025-06-09T22:52:18.6906554-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T23:06:47.5450147-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/v9ww5ef1/file_stream\": read tcp 192.168.4.91:53973->35.186.228.49:443: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"time":"2025-06-09T23:08:08.9905134-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/yonatanlevitree-levitree/terraAI-venv_Scripts/v9ww5ef1/file_stream\": read tcp 192.168.4.91:55350->35.186.228.49:443: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"time":"2025-06-09T23:11:54.0393442-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T23:11:54.0399255-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T23:11:54.5530407-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-09T23:11:54.7149156-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-09T23:11:54.7270067-07:00","level":"INFO","msg":"stream: closing","id":"v9ww5ef1"}
+{"time":"2025-06-09T23:11:54.7270067-07:00","level":"INFO","msg":"handler: closed","stream_id":"v9ww5ef1"}
+{"time":"2025-06-09T23:11:54.7270067-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"v9ww5ef1"}
+{"time":"2025-06-09T23:11:54.7276899-07:00","level":"INFO","msg":"sender: closed","stream_id":"v9ww5ef1"}
+{"time":"2025-06-09T23:11:54.7306066-07:00","level":"INFO","msg":"stream: closed","id":"v9ww5ef1"}

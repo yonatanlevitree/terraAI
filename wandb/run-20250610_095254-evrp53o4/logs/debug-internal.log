@@ -1,0 +1,17 @@
+{"time":"2025-06-10T09:52:54.8390023-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_095254-evrp53o4\\logs\\debug-core.log"}
+{"time":"2025-06-10T09:52:55.0938478-07:00","level":"INFO","msg":"stream: created new stream","id":"evrp53o4"}
+{"time":"2025-06-10T09:52:55.0938478-07:00","level":"INFO","msg":"stream: started","id":"evrp53o4"}
+{"time":"2025-06-10T09:52:55.0938478-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"evrp53o4"}
+{"time":"2025-06-10T09:52:55.0938478-07:00","level":"INFO","msg":"handler: started","stream_id":"evrp53o4"}
+{"time":"2025-06-10T09:52:55.0938478-07:00","level":"INFO","msg":"sender: started","stream_id":"evrp53o4"}
+{"time":"2025-06-10T09:52:55.286134-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T09:53:16.4274525-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T09:53:16.4274525-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T09:53:16.5681417-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T09:53:17.4459554-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-summary.json","runtime_seconds":0.1475593,"progress":"25B/25B"},{"desc":"uploading output.log","runtime_seconds":0.1475593}],"total_operations":2}}
+{"time":"2025-06-10T09:53:17.5259772-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T09:53:17.6912154-07:00","level":"INFO","msg":"stream: closing","id":"evrp53o4"}
+{"time":"2025-06-10T09:53:17.6912154-07:00","level":"INFO","msg":"handler: closed","stream_id":"evrp53o4"}
+{"time":"2025-06-10T09:53:17.6912154-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"evrp53o4"}
+{"time":"2025-06-10T09:53:17.6912154-07:00","level":"INFO","msg":"sender: closed","stream_id":"evrp53o4"}
+{"time":"2025-06-10T09:53:17.6912154-07:00","level":"INFO","msg":"stream: closed","id":"evrp53o4"}
