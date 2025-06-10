@@ -1,6 +1,7 @@
 import threading
 from functions.v1.optimizers.genetic import GeneticOptimizer
 from functions.v1.optimizers.greedy import GreedyOptimizer
+from functions.v1.optimizers.geneticSingle import GeneticSingleOptimizer
 from flask import Blueprint, request, jsonify
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
@@ -22,7 +23,7 @@ class SimulationParameters(Schema):
     maxIterations = fields.Integer(required=True, validate=validate.Range(min=1, max=1000))
     monetaryLimit = fields.Integer(required=True, validate=validate.Range(min=1, max=1000000000))
     timeLimit = fields.Integer(required=True, validate=validate.Range(min=1, max=1000000))
-    algorithm = fields.String(required=True, validate=validate.OneOf(["genetic", "greedy"]))
+    algorithm = fields.String(required=True, validate=validate.OneOf(["genetic", "geneticSingle", "greedy"]))
     seed = fields.Integer(required=False, allow_none=True)
     # Genetic-only parameters
     populationSize = fields.Integer(required=False, allow_none=True)
@@ -114,6 +115,9 @@ def run_simulation(job_id, parameters):
         if parameters['algorithm'] == 'genetic':
             optimizer_args = {k: v for k, v in parameters.items() if k in GENETIC_PARAMS}
             optimizer = GeneticOptimizer(**optimizer_args, progress_callback=progress_callback)
+        elif parameters['algorithm'] == 'geneticSingle':
+            optimizer_args = {k: v for k, v in parameters.items() if k in GENETIC_PARAMS}
+            optimizer = GeneticSingleOptimizer(**optimizer_args, progress_callback=progress_callback)
         else:
             optimizer_args = {k: v for k, v in parameters.items() if k in GREEDY_PARAMS}
             optimizer = GreedyOptimizer(**optimizer_args, progress_callback=progress_callback)

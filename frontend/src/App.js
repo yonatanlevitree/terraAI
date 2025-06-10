@@ -393,7 +393,8 @@ const JobCard = ({ job, onDelete }) => {
         </div>
       )}
 
-      {job.status === 'running' && job.parameters && (
+      {/* Always show input parameters for the job, regardless of status */}
+      {job.parameters && (
         <div className="mb-4">
           <h4 className="text-sm font-medium text-gray-700 mb-2">Input Parameters</h4>
           <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
@@ -461,15 +462,16 @@ const JobCard = ({ job, onDelete }) => {
         </div>
       )}
 
+      {/* Always show genetic parameters for genetic/geneticSingle jobs, with N/A fallback */}
       {job.parameters && (job.parameters.algorithm === 'genetic' || job.parameters.algorithm === 'geneticSingle') && (
         <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
           <h4 className="text-sm font-medium text-blue-700 mb-2">Genetic Algorithm Parameters</h4>
           <div className="grid grid-cols-2 gap-2 text-sm text-blue-900">
-            <div><span className="font-semibold mr-2">Num Generations:</span>{job.parameters.numGenerations}</div>
-            <div><span className="font-semibold mr-2">Mutation Rate:</span>{job.parameters.mutationRate}</div>
-            <div><span className="font-semibold mr-2">Tournament Size:</span>{job.parameters.tournamentSize}</div>
-            <div><span className="font-semibold mr-2">Elite Size:</span>{job.parameters.eliteSize}</div>
-            <div><span className="font-semibold mr-2">Population Size:</span>{job.parameters.populationSize}</div>
+            <div><span className="font-semibold mr-2">Num Generations:</span>{job.parameters.numGenerations ?? 'N/A'}</div>
+            <div><span className="font-semibold mr-2">Mutation Rate:</span>{job.parameters.mutationRate ?? 'N/A'}</div>
+            <div><span className="font-semibold mr-2">Tournament Size:</span>{job.parameters.tournamentSize ?? 'N/A'}</div>
+            <div><span className="font-semibold mr-2">Elite Size:</span>{job.parameters.eliteSize ?? 'N/A'}</div>
+            <div><span className="font-semibold mr-2">Population Size:</span>{job.parameters.populationSize ?? 'N/A'}</div>
           </div>
         </div>
       )}

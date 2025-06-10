@@ -5,7 +5,7 @@ from .base import BaseOptimizer
 from ..system import Terrain, Well
 from scipy.optimize import minimize
 
-class GeneticOptimizer(BaseOptimizer):
+class GeneticSingleOptimizer(BaseOptimizer):
     """
     A genetic algorithm optimizer for well placement that uses evolutionary strategies.
     This optimizer maintains a population of wells and evolves them through
@@ -29,6 +29,7 @@ class GeneticOptimizer(BaseOptimizer):
                  mutationRate: float = 0.1,
                  tournamentSize: int = 6,
                  eliteSize: int = 3,
+                 numGenerations: int = 150,
                  algorithm=None,
                  progress_callback=None):
         """
@@ -49,6 +50,7 @@ class GeneticOptimizer(BaseOptimizer):
             mutationRate: Probability of mutation for each well
             tournamentSize: Number of solutions to compare in tournament selection
             eliteSize: Number of best solutions to preserve in each generation
+            numGenerations: Number of generations to evolve
             algorithm: Algorithm name for consistency
             progress_callback: Callback function for progress updates
         """
@@ -70,6 +72,7 @@ class GeneticOptimizer(BaseOptimizer):
         self.mutationRate = mutationRate
         self.tournamentSize = tournamentSize
         self.eliteSize = eliteSize
+        self.numGenerations = numGenerations
         self.algorithm = algorithm
         self.progress_callback = progress_callback
         
@@ -177,7 +180,7 @@ class GeneticOptimizer(BaseOptimizer):
         monetaryCost = 0.0
         timeCost = 0.0
         
-        while iteration < self.maxIterations:
+        while iteration < self.numGenerations:
             # Initialize population for this iteration
             population = self._initialize_population()
             best_well = None

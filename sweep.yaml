@@ -8,7 +8,7 @@ metric:
   goal: minimize
 parameters:
   algorithm:
-    values: ["genetic", "greedy"]
+    values: ["genetic", geneticSingle]
   terrainSize:
     values: [400]
   noise:
