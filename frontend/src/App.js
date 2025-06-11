@@ -111,46 +111,30 @@ const validateJob2Inputs = (url, maxRetries, timeout) => {
   };
 };
 
-const validateSimulateInputs = (terrainSize, noise, smoothness, maxIterations, 
-                              depthBounds, volumeBounds, monetaryLimit, timeLimit) => {
+const validateSimulateInputs = (terrainSize, maxIterations, depthBounds, volumeBounds, monetaryLimit, timeLimit) => {
   const errors = {};
-  
   if (!terrainSize || terrainSize < 100 || terrainSize > 1000) {
     errors.terrainSize = 'Terrain size must be between 100 and 1000';
   }
-  
-  if (noise === '' || noise === null || noise === undefined) {
-    errors.noise = 'Noise level is required';
-  } else if (noise < 0 || noise > 1) {
-    errors.noise = 'Noise level must be between 0 and 1';
-  }
-  
-  if (smoothness === '' || smoothness === null || smoothness === undefined) {
-    errors.smoothness = 'Smoothness is required';
-  } else if (smoothness <= 0) {
-    errors.smoothness = 'Smoothness must be greater than 0';
-  }
-  
   if (maxIterations && (maxIterations < 1 || maxIterations > 1000)) {
     errors.maxIterations = 'Max iterations must be between 1 and 1000';
   }
-  
-  if (depthBounds && (depthBounds[0] >= depthBounds[1] || depthBounds[0] < 0)) {
-    errors.depthBounds = 'Invalid depth bounds: min must be less than max and non-negative';
+  if (depthBounds) {
+    if (depthBounds[0] >= depthBounds[1] || depthBounds[0] < 0) {
+      errors.depthBounds = 'Invalid depth bounds: min must be less than max and non-negative';
+    } else if (depthBounds[1] < 10 || depthBounds[1] > 300) {
+      errors.depthBounds = 'Max depth must be between 10 and 300 feet';
+    }
   }
-  
   if (volumeBounds && (volumeBounds[0] >= volumeBounds[1] || volumeBounds[0] < 0)) {
     errors.volumeBounds = 'Invalid volume bounds: min must be less than max and non-negative';
   }
-  
   if (monetaryLimit && monetaryLimit <= 0) {
     errors.monetaryLimit = 'Monetary limit must be greater than 0';
   }
-  
   if (timeLimit && timeLimit <= 0) {
     errors.timeLimit = 'Time limit must be greater than 0';
   }
-  
   return {
     isValid: Object.keys(errors).length === 0,
     errors
@@ -414,8 +398,7 @@ const JobCard = ({ job, onDelete }) => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="text-sm text-gray-600">Terrain Size: {inputData.terrainSize}</p>
-              <p className="text-sm text-gray-600">Noise Level: {inputData.noise}</p>
-              <p className="text-sm text-gray-600">Smoothness: {inputData.smoothness}</p>
+
             </div>
             <div>
               <p className="text-sm text-gray-600">Max Iterations: {inputData.maxIterations}</p>
@@ -508,12 +491,12 @@ export default function AsyncJobManager() {
   const [smoothness, setSmoothness] = useState('0.5');
   const [maxIterations, setMaxIterations] = useState('50');
   const [depthMin, setDepthMin] = useState('5');
-  const [depthMax, setDepthMax] = useState('30');
+  const [depthMax, setDepthMax] = useState('300');
   const [volumeMin, setVolumeMin] = useState('10');
   const [volumeMax, setVolumeMax] = useState('500');
   const [monetaryLimit, setMonetaryLimit] = useState('5000000');
   const [timeLimit, setTimeLimit] = useState('500000');
-  const [fidelity, setFidelity] = useState('0.5');
+  const [fidelity, setFidelity] = useState('0.9');
   const [algorithm, setAlgorithm] = useState('greedy');
   const [seed, setSeed] = useState('');
   
@@ -555,8 +538,6 @@ export default function AsyncJobManager() {
       const parsedInputs = {
         fidelity: parseFloat(fidelity),
         terrainSize: parseInt(terrainSize),
-        noise: parseFloat(noise),
-        smoothness: parseFloat(smoothness),
         maxIterations: parseInt(maxIterations),
         depthBounds: [parseFloat(depthMin), parseFloat(depthMax)],
         volumeBounds: [parseFloat(volumeMin), parseFloat(volumeMax)],
@@ -573,32 +554,24 @@ export default function AsyncJobManager() {
         parsedInputs.eliteSize = parseInt(eliteSize);
         parsedInputs.populationSize = parseInt(populationSize);
       }
-      
       // Validate all inputs
       const validation = validateSimulateInputs(
         parsedInputs.terrainSize,
-        parsedInputs.noise,
-        parsedInputs.smoothness,
         parsedInputs.maxIterations,
         parsedInputs.depthBounds,
         parsedInputs.volumeBounds,
         parsedInputs.monetaryLimit,
         parsedInputs.timeLimit
       );
-      
       if (!validation.isValid) {
         setErrors(validation.errors);
         return;
       }
-      
       setIsSubmitting(true);
       setErrors({});
-      
       const inputData = {
         fidelity: parsedInputs.fidelity,
         terrainSize: parsedInputs.terrainSize,
-        noise: parsedInputs.noise,
-        smoothness: parsedInputs.smoothness,
         maxIterations: parsedInputs.maxIterations,
         depthBounds: parsedInputs.depthBounds,
         volumeBounds: parsedInputs.volumeBounds,
@@ -607,29 +580,31 @@ export default function AsyncJobManager() {
         algorithm: parsedInputs.algorithm,
         seed: parsedInputs.seed
       };
-      
       console.log('Submitting job with data:', inputData);
-      
+
+      // Add genetic/geneticSingle fields if relevant
+      if (algorithm === 'genetic' || algorithm === 'geneticSingle') {
+        inputData.numGenerations = parsedInputs.numGenerations;
+        inputData.mutationRate = parsedInputs.mutationRate;
+        inputData.tournamentSize = parsedInputs.tournamentSize;
+        inputData.eliteSize = parsedInputs.eliteSize;
+        inputData.populationSize = parsedInputs.populationSize;
+      }
       await api.createJob('simulate', inputData);
-      
       // Clear form
-      setFidelity('0.5');
+      setFidelity('0.9');
       setTerrainSize('400');
-      setnoise('0.5');
-      setSmoothness('0.5');
       setMaxIterations('100');
       setDepthMin('5');
-      setDepthMax('30');
+      setDepthMax('300');
       setVolumeMin('10');
-      setVolumeMax('500');
+      setVolumeMax('5000');
       setMonetaryLimit('50000000');
       setTimeLimit('500000');
       setAlgorithm('greedy');
-      setSeed('');
-      
+      setSeed('rw');
       // Refresh job list
       await loadJobs();
-      
     } catch (error) {
       console.error('Error creating job:', error);
       setErrors({ submit: error.message || 'Failed to create job. Please try again.' });
@@ -781,62 +756,6 @@ export default function AsyncJobManager() {
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Noise Level <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="number"
-                  min="0"
-                  max="1"
-                  step="0.1"
-                  value={noise}
-                  onChange={(e) => {
-                    setnoise(e.target.value);
-                    if (errors.noise) {
-                      setErrors(prev => ({ ...prev, noise: null }));
-                    }
-                  }}
-                  className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                    errors.noise ? 'border-red-300 bg-red-50' : 'border-gray-200'
-                  }`}
-                  placeholder="0-1"
-                />
-                {errors.noise && (
-                  <p className="text-red-500 text-sm mt-2 flex items-center">
-                    <AlertTriangle className="w-4 h-4 mr-1" />
-                    {errors.noise}
-                  </p>
-                )}
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Smoothness <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="number"
-                  min="0.1"
-                  step="0.1"
-                  value={smoothness}
-                  onChange={(e) => {
-                    setSmoothness(e.target.value);
-                    if (errors.smoothness) {
-                      setErrors(prev => ({ ...prev, smoothness: null }));
-                    }
-                  }}
-                  className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                    errors.smoothness ? 'border-red-300 bg-red-50' : 'border-gray-200'
-                  }`}
-                />
-                {errors.smoothness && (
-                  <p className="text-red-500 text-sm mt-2 flex items-center">
-                    <AlertTriangle className="w-4 h-4 mr-1" />
-                    {errors.smoothness}
-                  </p>
-                )}
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Max Iterations <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -896,7 +815,7 @@ export default function AsyncJobManager() {
                 <input
                   type="number"
                   min="0"
-                  max="100"
+                  max="500"
                   value={depthMax}
                   onChange={(e) => {
                     setDepthMax(e.target.value);
@@ -1017,7 +936,7 @@ export default function AsyncJobManager() {
                   type="number"
                   min="0.1"
                   max="1.0"
-                  step="0.1"
+                  step="0.01"
                   value={fidelity}
                   onChange={(e) => {
                     setFidelity(e.target.value);

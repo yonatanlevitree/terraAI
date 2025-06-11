@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:25:46.2541091-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_182545-lix4ha09\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:25:46.5782817-07:00","level":"INFO","msg":"stream: created new stream","id":"lix4ha09"}
+{"time":"2025-06-10T18:25:46.5782817-07:00","level":"INFO","msg":"stream: started","id":"lix4ha09"}
+{"time":"2025-06-10T18:25:46.5782817-07:00","level":"INFO","msg":"handler: started","stream_id":"lix4ha09"}
+{"time":"2025-06-10T18:25:46.5782817-07:00","level":"INFO","msg":"sender: started","stream_id":"lix4ha09"}
+{"time":"2025-06-10T18:25:46.5782817-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"lix4ha09"}
+{"time":"2025-06-10T18:25:46.7089801-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:25:46.9427081-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:25:46.9432398-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:25:47.182264-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:25:47.9599504-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:25:47.9624262-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary","runtime_seconds":0.0024758}],"total_operations":1}}
+{"time":"2025-06-10T18:25:48.101982-07:00","level":"INFO","msg":"stream: closing","id":"lix4ha09"}
+{"time":"2025-06-10T18:25:48.101982-07:00","level":"INFO","msg":"handler: closed","stream_id":"lix4ha09"}
+{"time":"2025-06-10T18:25:48.1029655-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"lix4ha09"}
+{"time":"2025-06-10T18:25:48.1029655-07:00","level":"INFO","msg":"sender: closed","stream_id":"lix4ha09"}
+{"time":"2025-06-10T18:25:48.1029655-07:00","level":"INFO","msg":"stream: closed","id":"lix4ha09"}

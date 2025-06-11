@@ -16,8 +16,6 @@ class SimulationParameters(Schema):
     terrainSize = fields.Integer(required=True, validate=validate.Range(min=100, max=1000))
     depthBounds = fields.List(fields.Float(), required=True, validate=validate.Length(equal=2))
     volumeBounds = fields.List(fields.Float(), required=True, validate=validate.Length(equal=2))
-    noise = fields.Float(required=True, validate=validate.Range(min=0.0, max=1.0))
-    smoothness = fields.Float(required=True, validate=validate.Range(min=0.0, max=1.0))
     name = fields.String(required=False)
     description = fields.String(required=False)
     maxIterations = fields.Integer(required=True, validate=validate.Range(min=1, max=1000))
@@ -43,12 +41,12 @@ jobs = {}
 
 # Define allowed parameters for each optimizer for easy maintenance
 GENETIC_PARAMS = {
-    "terrainSize", "noise", "smoothness", "maxIterations", "depthBounds", "volumeBounds",
+    "terrainSize", "maxIterations", "depthBounds", "volumeBounds",
     "monetaryLimit", "timeLimit", "fidelity", "seed", "populationSize", "mutationRate",
     "tournamentSize", "eliteSize", "numGenerations", "algorithm", "name", "description"
 }
 GREEDY_PARAMS = {
-    "terrainSize", "noise", "smoothness", "maxIterations", "depthBounds", "volumeBounds",
+    "terrainSize", "maxIterations", "depthBounds", "volumeBounds",
     "monetaryLimit", "timeLimit", "fidelity", "seed", "algorithm", "name", "description"
 }
 

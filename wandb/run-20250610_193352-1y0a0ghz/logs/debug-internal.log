@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:33:52.8157028-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_193352-1y0a0ghz\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:33:53.1373583-07:00","level":"INFO","msg":"stream: created new stream","id":"1y0a0ghz"}
+{"time":"2025-06-10T19:33:53.1373583-07:00","level":"INFO","msg":"stream: started","id":"1y0a0ghz"}
+{"time":"2025-06-10T19:33:53.1373583-07:00","level":"INFO","msg":"sender: started","stream_id":"1y0a0ghz"}
+{"time":"2025-06-10T19:33:53.138358-07:00","level":"INFO","msg":"handler: started","stream_id":"1y0a0ghz"}
+{"time":"2025-06-10T19:33:53.1373583-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"1y0a0ghz"}
+{"time":"2025-06-10T19:33:53.2696579-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:33:53.603049-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:33:53.603049-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:33:53.8706109-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:33:54.5893742-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:33:54.6159322-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary","runtime_seconds":0.026558}],"total_operations":1}}
+{"time":"2025-06-10T19:33:54.7952125-07:00","level":"INFO","msg":"stream: closing","id":"1y0a0ghz"}
+{"time":"2025-06-10T19:33:54.7955522-07:00","level":"INFO","msg":"handler: closed","stream_id":"1y0a0ghz"}
+{"time":"2025-06-10T19:33:54.7955522-07:00","level":"INFO","msg":"sender: closed","stream_id":"1y0a0ghz"}
+{"time":"2025-06-10T19:33:54.7955522-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"1y0a0ghz"}
+{"time":"2025-06-10T19:33:54.795855-07:00","level":"INFO","msg":"stream: closed","id":"1y0a0ghz"}

@@ -1,0 +1,52 @@
+_wandb:
+    value:
+        cli_version: 0.20.1
+        m: []
+        python_version: 3.13.3
+        t:
+            "3":
+                - 2
+                - 14
+                - 55
+            "4": 3.13.3
+            "5": 0.20.1
+            "8":
+                - 3
+            "12": 0.20.1
+            "13": windows-amd64
+algorithm:
+    value: geneticSingle
+depthBounds:
+    value:
+        - 5
+        - 300
+eliteSize:
+    value: 4
+fidelity:
+    value: 0.95
+maxIterations:
+    value: 50
+monetaryLimit:
+    value: 5000000
+mutationRate:
+    value: 0.12125678038098082
+noise:
+    value: 0.5
+numGenerations:
+    value: 191
+populationSize:
+    value: 51
+seed:
+    value: 42
+smoothness:
+    value: 0.5
+terrainSize:
+    value: 400
+timeLimit:
+    value: 500000
+tournamentSize:
+    value: 7
+volumeBounds:
+    value:
+        - 10
+        - 500000

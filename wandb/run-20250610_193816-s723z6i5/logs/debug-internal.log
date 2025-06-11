@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:38:16.5584176-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_193816-s723z6i5\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:38:16.8728207-07:00","level":"INFO","msg":"stream: created new stream","id":"s723z6i5"}
+{"time":"2025-06-10T19:38:16.8728207-07:00","level":"INFO","msg":"stream: started","id":"s723z6i5"}
+{"time":"2025-06-10T19:38:16.8733631-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"s723z6i5"}
+{"time":"2025-06-10T19:38:16.8733631-07:00","level":"INFO","msg":"handler: started","stream_id":"s723z6i5"}
+{"time":"2025-06-10T19:38:16.8733631-07:00","level":"INFO","msg":"sender: started","stream_id":"s723z6i5"}
+{"time":"2025-06-10T19:38:17.1653606-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:38:17.6132736-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:38:17.6132736-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:38:17.8477885-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:38:18.6217809-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.4035755,"progress":"839B/839B"}],"total_operations":1}}
+{"time":"2025-06-10T19:38:21.3366779-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:38:27.2216276-07:00","level":"INFO","msg":"stream: closing","id":"s723z6i5"}
+{"time":"2025-06-10T19:38:27.2216276-07:00","level":"INFO","msg":"handler: closed","stream_id":"s723z6i5"}
+{"time":"2025-06-10T19:38:27.2216276-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"s723z6i5"}
+{"time":"2025-06-10T19:38:27.2222046-07:00","level":"INFO","msg":"sender: closed","stream_id":"s723z6i5"}
+{"time":"2025-06-10T19:38:27.2222046-07:00","level":"INFO","msg":"stream: closed","id":"s723z6i5"}

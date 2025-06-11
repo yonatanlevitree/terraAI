@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:39:07.7839702-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_193906-lip5479i\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:39:08.8210309-07:00","level":"INFO","msg":"stream: created new stream","id":"lip5479i"}
+{"time":"2025-06-10T19:39:08.8210309-07:00","level":"INFO","msg":"stream: started","id":"lip5479i"}
+{"time":"2025-06-10T19:39:08.8220312-07:00","level":"INFO","msg":"handler: started","stream_id":"lip5479i"}
+{"time":"2025-06-10T19:39:08.8220312-07:00","level":"INFO","msg":"sender: started","stream_id":"lip5479i"}
+{"time":"2025-06-10T19:39:08.8220312-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"lip5479i"}
+{"time":"2025-06-10T19:39:08.9767372-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:39:09.9521587-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:39:09.9521587-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:39:10.2599783-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:39:10.9032548-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:39:10.9996064-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary","runtime_seconds":0.0963516}],"total_operations":1}}
+{"time":"2025-06-10T19:39:11.0835853-07:00","level":"INFO","msg":"stream: closing","id":"lip5479i"}
+{"time":"2025-06-10T19:39:11.0835853-07:00","level":"INFO","msg":"handler: closed","stream_id":"lip5479i"}
+{"time":"2025-06-10T19:39:11.0835853-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"lip5479i"}
+{"time":"2025-06-10T19:39:11.0843834-07:00","level":"INFO","msg":"sender: closed","stream_id":"lip5479i"}
+{"time":"2025-06-10T19:39:11.0843834-07:00","level":"INFO","msg":"stream: closed","id":"lip5479i"}

@@ -10,8 +10,6 @@ class BaseOptimizer(ABC):
     def __init__(
         self,
         terrainSize: int,
-        noise: float,
-        smoothness: float,
         maxIterations: int,
         depthBounds: Tuple[float, float],
         volumeBounds: Tuple[float, float],
@@ -29,8 +27,6 @@ class BaseOptimizer(ABC):
         
         Args:
             terrainSize: Size of the terrain grid
-            noise: Level of noise in terrain generation
-            smoothness: Smoothness factor for terrain
             maxIterations: Maximum number of iterations allowed
             depthBounds: Tuple of (min_depth, max_depth) for wells
             volumeBounds: Tuple of (min_volume, max_volume) for wells
@@ -46,8 +42,6 @@ class BaseOptimizer(ABC):
       
         # Rest of initialization
         self.terrainSize = terrainSize
-        self.noise = noise
-        self.smoothness = smoothness
         self.maxIterations = maxIterations
         self.depthBounds = depthBounds
         self.volumeBounds = volumeBounds
@@ -68,8 +62,8 @@ class BaseOptimizer(ABC):
         # Create terrain instance
         self.terrain = Terrain(
             terrainSize=terrainSize,
-            noise=noise,
-            smoothness=smoothness,
+            noise=0.5,
+            smoothness=0.5,
             epsilon=1e-3,
             device='cpu',
             regenerate=False

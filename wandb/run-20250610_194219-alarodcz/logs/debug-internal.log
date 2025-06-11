@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:42:19.8058988-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_194219-alarodcz\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:42:20.1125544-07:00","level":"INFO","msg":"stream: created new stream","id":"alarodcz"}
+{"time":"2025-06-10T19:42:20.1125544-07:00","level":"INFO","msg":"stream: started","id":"alarodcz"}
+{"time":"2025-06-10T19:42:20.1130612-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"alarodcz"}
+{"time":"2025-06-10T19:42:20.1134176-07:00","level":"INFO","msg":"handler: started","stream_id":"alarodcz"}
+{"time":"2025-06-10T19:42:20.1144593-07:00","level":"INFO","msg":"sender: started","stream_id":"alarodcz"}
+{"time":"2025-06-10T19:42:20.2982694-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:42:20.5984058-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:42:20.5984058-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:42:20.8562863-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:42:21.4594595-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:42:21.6084644-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T19:42:21.6239519-07:00","level":"INFO","msg":"stream: closing","id":"alarodcz"}
+{"time":"2025-06-10T19:42:21.6239519-07:00","level":"INFO","msg":"handler: closed","stream_id":"alarodcz"}
+{"time":"2025-06-10T19:42:21.6239519-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"alarodcz"}
+{"time":"2025-06-10T19:42:21.6244604-07:00","level":"INFO","msg":"sender: closed","stream_id":"alarodcz"}
+{"time":"2025-06-10T19:42:21.6244604-07:00","level":"INFO","msg":"stream: closed","id":"alarodcz"}

@@ -16,8 +16,6 @@ class GeneticSingleOptimizer(BaseOptimizer):
     
     def __init__(self, 
                  terrainSize: int,
-                 noise: float,
-                 smoothness: float,
                  maxIterations: int,
                  depthBounds: Tuple[float, float],
                  volumeBounds: Tuple[float, float],
@@ -37,8 +35,6 @@ class GeneticSingleOptimizer(BaseOptimizer):
         
         Args:
             terrainSize: Size of the terrain grid
-            noise: Level of noise in terrain generation
-            smoothness: Smoothness factor for terrain
             maxIterations: Maximum number of iterations allowed
             depthBounds: Tuple of (min_depth, max_depth) for wells
             volumeBounds: Tuple of (min_volume, max_volume) for wells
@@ -56,8 +52,6 @@ class GeneticSingleOptimizer(BaseOptimizer):
         """
         super().__init__(
             terrainSize=terrainSize,
-            noise=noise,
-            smoothness=smoothness,
             maxIterations=maxIterations,
             depthBounds=depthBounds,
             volumeBounds=volumeBounds,
@@ -100,9 +94,6 @@ class GeneticSingleOptimizer(BaseOptimizer):
                         undershoot_weight * discrepancy ** 2)
 
         mse = float(torch.mean(loss))
-
-        if well.monetaryCost() > self.monetaryLimit or well.time_cost() > self.timeLimit:
-            mse = float('inf')
 
         return mse
     
@@ -221,10 +212,6 @@ class GeneticSingleOptimizer(BaseOptimizer):
             
             # Optimize the best well's parameters
             self._optimize_well_parameters([best_well], current_terrain)
-            
-            # Check if we've exceeded limits
-            if monetaryCost + best_well.monetaryCost() > self.monetaryLimit or timeCost + best_well.time_cost() > self.timeLimit:
-                break
             
             # Add well to list
             wells.append(best_well)

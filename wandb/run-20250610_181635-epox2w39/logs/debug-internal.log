@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:16:35.5152563-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_181635-epox2w39\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:16:35.9345685-07:00","level":"INFO","msg":"stream: created new stream","id":"epox2w39"}
+{"time":"2025-06-10T18:16:35.9352467-07:00","level":"INFO","msg":"stream: started","id":"epox2w39"}
+{"time":"2025-06-10T18:16:35.9352467-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"epox2w39"}
+{"time":"2025-06-10T18:16:35.935754-07:00","level":"INFO","msg":"handler: started","stream_id":"epox2w39"}
+{"time":"2025-06-10T18:16:35.935754-07:00","level":"INFO","msg":"sender: started","stream_id":"epox2w39"}
+{"time":"2025-06-10T18:16:36.0629193-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:16:36.5189886-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:16:36.5189886-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:16:36.7207321-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:16:37.2525605-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:16:37.4402219-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T18:16:37.4472026-07:00","level":"INFO","msg":"stream: closing","id":"epox2w39"}
+{"time":"2025-06-10T18:16:37.4472026-07:00","level":"INFO","msg":"handler: closed","stream_id":"epox2w39"}
+{"time":"2025-06-10T18:16:37.4472026-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"epox2w39"}
+{"time":"2025-06-10T18:16:37.4478812-07:00","level":"INFO","msg":"sender: closed","stream_id":"epox2w39"}
+{"time":"2025-06-10T18:16:37.4478812-07:00","level":"INFO","msg":"stream: closed","id":"epox2w39"}

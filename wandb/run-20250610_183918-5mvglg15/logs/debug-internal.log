@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:39:18.6637124-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_183918-5mvglg15\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:39:18.9716161-07:00","level":"INFO","msg":"stream: created new stream","id":"5mvglg15"}
+{"time":"2025-06-10T18:39:18.9716161-07:00","level":"INFO","msg":"stream: started","id":"5mvglg15"}
+{"time":"2025-06-10T18:39:18.9716161-07:00","level":"INFO","msg":"handler: started","stream_id":"5mvglg15"}
+{"time":"2025-06-10T18:39:18.9721567-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"5mvglg15"}
+{"time":"2025-06-10T18:39:18.9721567-07:00","level":"INFO","msg":"sender: started","stream_id":"5mvglg15"}
+{"time":"2025-06-10T18:39:19.1059631-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:39:19.3745079-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:39:19.3745079-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:39:19.9866231-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:39:20.3803469-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.2725208},{"desc":"uploading config.yaml","runtime_seconds":0.1721847,"progress":"839B/839B"}],"total_operations":2}}
+{"time":"2025-06-10T18:39:20.4437437-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:39:20.5678404-07:00","level":"INFO","msg":"stream: closing","id":"5mvglg15"}
+{"time":"2025-06-10T18:39:20.5678404-07:00","level":"INFO","msg":"handler: closed","stream_id":"5mvglg15"}
+{"time":"2025-06-10T18:39:20.5678404-07:00","level":"INFO","msg":"sender: closed","stream_id":"5mvglg15"}
+{"time":"2025-06-10T18:39:20.5678404-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"5mvglg15"}
+{"time":"2025-06-10T18:39:20.5678404-07:00","level":"INFO","msg":"stream: closed","id":"5mvglg15"}

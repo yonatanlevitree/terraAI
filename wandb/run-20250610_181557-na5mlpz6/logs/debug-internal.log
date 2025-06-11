@@ -1,0 +1,18 @@
+{"time":"2025-06-10T18:15:57.7564636-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_181557-na5mlpz6\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:15:58.0740354-07:00","level":"INFO","msg":"stream: created new stream","id":"na5mlpz6"}
+{"time":"2025-06-10T18:15:58.0740354-07:00","level":"INFO","msg":"stream: started","id":"na5mlpz6"}
+{"time":"2025-06-10T18:15:58.0740354-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"na5mlpz6"}
+{"time":"2025-06-10T18:15:58.0751405-07:00","level":"INFO","msg":"handler: started","stream_id":"na5mlpz6"}
+{"time":"2025-06-10T18:15:58.0751405-07:00","level":"INFO","msg":"sender: started","stream_id":"na5mlpz6"}
+{"time":"2025-06-10T18:15:58.2552234-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:15:58.5401311-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:15:58.5401311-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:15:58.7925653-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:15:59.5480319-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T18:16:28.584661-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-06-10T18:16:31.2616397-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:16:31.4183141-07:00","level":"INFO","msg":"stream: closing","id":"na5mlpz6"}
+{"time":"2025-06-10T18:16:31.4183141-07:00","level":"INFO","msg":"handler: closed","stream_id":"na5mlpz6"}
+{"time":"2025-06-10T18:16:31.4191632-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"na5mlpz6"}
+{"time":"2025-06-10T18:16:31.4191632-07:00","level":"INFO","msg":"sender: closed","stream_id":"na5mlpz6"}
+{"time":"2025-06-10T18:16:31.4196689-07:00","level":"INFO","msg":"stream: closed","id":"na5mlpz6"}

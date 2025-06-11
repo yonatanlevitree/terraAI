@@ -1,4 +1,4 @@
-method: grid
+method: bayes
 program: C:/Users/yonat/OneDrive/Desktop/terraAI/venv/Scripts/python.exe
 command:
   - ${program}
@@ -8,19 +8,15 @@ metric:
   goal: minimize
 parameters:
   algorithm:
-    values: ["genetic", geneticSingle]
+    values: ["genetic", "geneticSingle", "greedy"]
   terrainSize:
     values: [400]
-  noise:
-    values: [0.5]
-  smoothness:
-    values: [0.5]
   maxIterations:
     values: [50]
   depthBounds:
-    values: [[5, 30]]
+    values: [[5, 300]]
   volumeBounds:
-    values: [[10, 500]]
+    values: [[10, 500000]]
   monetaryLimit:
     values: [5000000]
   timeLimit:
@@ -31,12 +27,22 @@ parameters:
     values: [42]
   # Genetic-only parameters
   mutationRate:
-    values: [0.05, 0.1, 0.15]
+    min: 0.05
+    max: 0.2
+    distribution: uniform
   populationSize:
-    values: [20, 50, 100]
+    min: 100
+    max: 250
+    distribution: uniform
   tournamentSize:
-    values: [3, 4, 6]
+    min: 2
+    max: 8
+    distribution: uniform
   eliteSize:
-    values: [2, 3, 4]
+    min: 2
+    max: 6
+    distribution: uniform
   numGenerations:
-    values: [50, 100, 150, 200]
+    min: 100
+    max: 300
+    distribution: uniform

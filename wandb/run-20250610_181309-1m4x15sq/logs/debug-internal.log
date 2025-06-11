@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:13:10.3976091-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_181309-1m4x15sq\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:13:10.7727828-07:00","level":"INFO","msg":"stream: created new stream","id":"1m4x15sq"}
+{"time":"2025-06-10T18:13:10.7727828-07:00","level":"INFO","msg":"stream: started","id":"1m4x15sq"}
+{"time":"2025-06-10T18:13:10.7727828-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"1m4x15sq"}
+{"time":"2025-06-10T18:13:10.7727828-07:00","level":"INFO","msg":"handler: started","stream_id":"1m4x15sq"}
+{"time":"2025-06-10T18:13:10.7745516-07:00","level":"INFO","msg":"sender: started","stream_id":"1m4x15sq"}
+{"time":"2025-06-10T18:13:10.9533216-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:13:11.4597544-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:13:11.4597544-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:13:12.0616727-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:13:12.4721039-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.1900476,"progress":"840B/840B"}],"total_operations":1}}
+{"time":"2025-06-10T18:13:12.5171761-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:13:12.6441798-07:00","level":"INFO","msg":"stream: closing","id":"1m4x15sq"}
+{"time":"2025-06-10T18:13:12.6441798-07:00","level":"INFO","msg":"handler: closed","stream_id":"1m4x15sq"}
+{"time":"2025-06-10T18:13:12.6441798-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"1m4x15sq"}
+{"time":"2025-06-10T18:13:12.6441798-07:00","level":"INFO","msg":"sender: closed","stream_id":"1m4x15sq"}
+{"time":"2025-06-10T18:13:12.6441798-07:00","level":"INFO","msg":"stream: closed","id":"1m4x15sq"}

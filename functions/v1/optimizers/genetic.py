@@ -17,8 +17,6 @@ class GeneticOptimizer(BaseOptimizer):
     
     def __init__(self, 
                  terrainSize: int,
-                 noise: float,
-                 smoothness: float,
                  maxIterations: int,
                  depthBounds: Tuple[float, float],
                  volumeBounds: Tuple[float, float],
@@ -38,8 +36,6 @@ class GeneticOptimizer(BaseOptimizer):
         
         Args:
             terrainSize: Size of the terrain grid
-            noise: Level of noise in terrain generation
-            smoothness: Smoothness factor for terrain
             maxIterations: Maximum number of iterations allowed
             depthBounds: Tuple of (min_depth, max_depth) for wells
             volumeBounds: Tuple of (min_volume, max_volume) for wells
@@ -57,8 +53,6 @@ class GeneticOptimizer(BaseOptimizer):
         """
         super().__init__(
             terrainSize=terrainSize,
-            noise=noise,
-            smoothness=smoothness,
             maxIterations=maxIterations,
             depthBounds=depthBounds,
             volumeBounds=volumeBounds,
@@ -97,7 +91,7 @@ class GeneticOptimizer(BaseOptimizer):
         # Apply all wells in the individual's genome to the terrain
         modified_terrain = self.terrain.apply_wells(individual)
         discrepancy = modified_terrain - self.terrain.goal_terrain
-        overshoot_weight = 3
+        overshoot_weight = 20
         undershoot_weight = 1
 
         loss = torch.where(discrepancy > 0,
@@ -248,7 +242,7 @@ class GeneticOptimizer(BaseOptimizer):
             discrepancy = modified_terrain - self.terrain.goal_terrain
             
             # Define weights for the loss function
-            overshoot_weight = 5  # Higher weight for overshooting
+            overshoot_weight = 20  # Higher weight for overshooting
             undershoot_weight = 1  # Lower weight for undershooting
             
             # Compute the asymmetric loss

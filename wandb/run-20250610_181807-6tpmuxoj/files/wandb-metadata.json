@@ -1,0 +1,16 @@
+{
+  "os":  "Windows-11-10.0.26100-SP0",
+  "python":  "CPython 3.13.3",
+  "startedAt":  "2025-06-11T01:18:08.155103Z",
+  "program":  "C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\sweep_client.py",
+  "codePath":  "sweep_client.py",
+  "git":  {
+    "remote":  "https://github.com/yonatanlevitree/terraAI.git",
+    "commit":  "5ce4bd6b58190acd2c98eb448bb7d281289c7b07"
+  },
+  "email":  "yonatan@levitree.com",
+  "root":  "C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI",
+  "host":  "Yonatan",
+  "executable":  "C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\venv\\Scripts\\python.exe",
+  "codePathLocal":  "sweep_client.py"
+}

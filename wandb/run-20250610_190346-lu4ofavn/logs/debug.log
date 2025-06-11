@@ -1,0 +1,29 @@
+2025-06-10 19:03:46,206 INFO    MainThread:13108 [wandb_setup.py:_flush():81] Current SDK version is 0.20.1
+2025-06-10 19:03:46,206 INFO    MainThread:13108 [wandb_setup.py:_flush():81] Configure stats pid to 13108
+2025-06-10 19:03:46,206 INFO    MainThread:13108 [wandb_setup.py:_flush():81] Loading settings from C:\Users\yonat\.config\wandb\settings
+2025-06-10 19:03:46,206 INFO    MainThread:13108 [wandb_setup.py:_flush():81] Loading settings from C:\Users\yonat\OneDrive\Desktop\terraAI\wandb\settings
+2025-06-10 19:03:46,206 INFO    MainThread:13108 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-06-10 19:03:46,207 INFO    MainThread:13108 [wandb_init.py:setup_run_log_directory():703] Logging user logs to C:\Users\yonat\OneDrive\Desktop\terraAI\wandb\run-20250610_190346-lu4ofavn\logs\debug.log
+2025-06-10 19:03:46,209 INFO    MainThread:13108 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to C:\Users\yonat\OneDrive\Desktop\terraAI\wandb\run-20250610_190346-lu4ofavn\logs\debug-internal.log
+2025-06-10 19:03:46,209 INFO    MainThread:13108 [wandb_init.py:init():831] calling init triggers
+2025-06-10 19:03:46,209 INFO    MainThread:13108 [wandb_init.py:init():836] wandb.init called with sweep_config: {'algorithm': 'genetic', 'depthBounds': [5, 300], 'eliteSize': 4, 'fidelity': 0.95, 'maxIterations': 50, 'monetaryLimit': 5000000, 'mutationRate': 0.0659487630631333, 'noise': 0.5, 'numGenerations': 263, 'populationSize': 75, 'seed': 42, 'smoothness': 0.5, 'terrainSize': 400, 'timeLimit': 500000, 'tournamentSize': 2, 'volumeBounds': [10, 500000]}
+config: {'_wandb': {}}
+2025-06-10 19:03:46,209 INFO    MainThread:13108 [wandb_init.py:init():872] starting backend
+2025-06-10 19:03:46,609 INFO    MainThread:13108 [wandb_init.py:init():875] sending inform_init request
+2025-06-10 19:03:46,742 INFO    MainThread:13108 [wandb_init.py:init():883] backend started and connected
+2025-06-10 19:03:46,743 INFO    MainThread:13108 [wandb_run.py:_config_callback():1358] config_cb None None {'algorithm': 'genetic', 'depthBounds': [5, 300], 'eliteSize': 4, 'fidelity': 0.95, 'maxIterations': 50, 'monetaryLimit': 5000000, 'mutationRate': 0.0659487630631333, 'noise': 0.5, 'numGenerations': 263, 'populationSize': 75, 'seed': 42, 'smoothness': 0.5, 'terrainSize': 400, 'timeLimit': 500000, 'tournamentSize': 2, 'volumeBounds': [10, 500000]}
+2025-06-10 19:03:46,744 INFO    MainThread:13108 [wandb_init.py:init():956] updated telemetry
+2025-06-10 19:03:46,876 INFO    MainThread:13108 [wandb_init.py:init():980] communicating run to backend with 90.0 second timeout
+2025-06-10 19:03:47,284 INFO    MainThread:13108 [wandb_init.py:init():1032] starting run threads in backend
+2025-06-10 19:03:47,631 INFO    MainThread:13108 [wandb_run.py:_console_start():2453] atexit reg
+2025-06-10 19:03:47,632 INFO    MainThread:13108 [wandb_run.py:_redirect():2301] redirect: wrap_raw
+2025-06-10 19:03:47,632 INFO    MainThread:13108 [wandb_run.py:_redirect():2370] Wrapping output streams.
+2025-06-10 19:03:47,632 INFO    MainThread:13108 [wandb_run.py:_redirect():2393] Redirects installed.
+2025-06-10 19:03:47,636 INFO    MainThread:13108 [wandb_init.py:init():1078] run started, returning control to user process
+2025-06-10 19:03:47,648 INFO    MainThread:13108 [wandb_run.py:_finish():2219] finishing run yonatanlevitree-levitree/terraAI-venv_Scripts/lu4ofavn
+2025-06-10 19:03:47,649 INFO    MainThread:13108 [wandb_run.py:_atexit_cleanup():2418] got exitcode: 0
+2025-06-10 19:03:47,649 INFO    MainThread:13108 [wandb_run.py:_restore():2400] restore
+2025-06-10 19:03:47,649 INFO    MainThread:13108 [wandb_run.py:_restore():2406] restore done
+2025-06-10 19:03:48,462 INFO    MainThread:13108 [wandb_run.py:_footer_history_summary_info():4000] rendering history
+2025-06-10 19:03:48,462 INFO    MainThread:13108 [wandb_run.py:_footer_history_summary_info():4032] rendering summary
+2025-06-10 19:03:48,462 INFO    MainThread:13108 [wandb_run.py:_footer_sync_info():3961] logging synced files

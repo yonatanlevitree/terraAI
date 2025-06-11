@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:38:17.7186784-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_193817-1l2xuy02\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:38:21.3588051-07:00","level":"INFO","msg":"stream: created new stream","id":"1l2xuy02"}
+{"time":"2025-06-10T19:38:21.3588051-07:00","level":"INFO","msg":"stream: started","id":"1l2xuy02"}
+{"time":"2025-06-10T19:38:21.3599483-07:00","level":"INFO","msg":"handler: started","stream_id":"1l2xuy02"}
+{"time":"2025-06-10T19:38:21.3599483-07:00","level":"INFO","msg":"sender: started","stream_id":"1l2xuy02"}
+{"time":"2025-06-10T19:38:21.3618603-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"1l2xuy02"}
+{"time":"2025-06-10T19:38:26.3481894-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:38:26.786707-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:38:26.7877817-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:38:27.7589549-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:38:27.88501-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-metadata.json","runtime_seconds":0.975903,"progress":"619B/619B"},{"desc":"uploading requirements.txt","runtime_seconds":0.9052401,"progress":"2.6KB/2.6KB"},{"desc":"updating run metadata","runtime_seconds":0.6562535},{"desc":"uploading summary","runtime_seconds":0.1207162}],"total_operations":4}}
+{"time":"2025-06-10T19:38:29.1356315-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:38:29.8823103-07:00","level":"INFO","msg":"stream: closing","id":"1l2xuy02"}
+{"time":"2025-06-10T19:38:29.8823103-07:00","level":"INFO","msg":"handler: closed","stream_id":"1l2xuy02"}
+{"time":"2025-06-10T19:38:29.8833111-07:00","level":"INFO","msg":"sender: closed","stream_id":"1l2xuy02"}
+{"time":"2025-06-10T19:38:29.8823103-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"1l2xuy02"}
+{"time":"2025-06-10T19:38:29.8833111-07:00","level":"INFO","msg":"stream: closed","id":"1l2xuy02"}

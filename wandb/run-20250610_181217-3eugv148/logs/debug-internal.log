@@ -1,0 +1,18 @@
+{"time":"2025-06-10T18:12:18.5233621-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_181217-3eugv148\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:12:18.9000131-07:00","level":"INFO","msg":"stream: created new stream","id":"3eugv148"}
+{"time":"2025-06-10T18:12:18.9000131-07:00","level":"INFO","msg":"stream: started","id":"3eugv148"}
+{"time":"2025-06-10T18:12:18.9000131-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"3eugv148"}
+{"time":"2025-06-10T18:12:18.9005347-07:00","level":"INFO","msg":"handler: started","stream_id":"3eugv148"}
+{"time":"2025-06-10T18:12:18.9019582-07:00","level":"INFO","msg":"sender: started","stream_id":"3eugv148"}
+{"time":"2025-06-10T18:12:18.9935841-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:12:19.2624518-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:12:19.2624518-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:12:19.4698653-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:12:20.2666007-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"updating run metadata","runtime_seconds":0.8805186}],"total_operations":1}}
+{"time":"2025-06-10T18:12:49.4712941-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-06-10T18:12:52.1283192-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:12:52.6821854-07:00","level":"INFO","msg":"stream: closing","id":"3eugv148"}
+{"time":"2025-06-10T18:12:52.6821854-07:00","level":"INFO","msg":"handler: closed","stream_id":"3eugv148"}
+{"time":"2025-06-10T18:12:52.6821854-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"3eugv148"}
+{"time":"2025-06-10T18:12:52.6821854-07:00","level":"INFO","msg":"sender: closed","stream_id":"3eugv148"}
+{"time":"2025-06-10T18:12:52.6821854-07:00","level":"INFO","msg":"stream: closed","id":"3eugv148"}

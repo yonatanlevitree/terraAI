@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:33:24.3990179-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_193323-oq3cecj9\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:33:24.7968943-07:00","level":"INFO","msg":"stream: created new stream","id":"oq3cecj9"}
+{"time":"2025-06-10T19:33:24.7968943-07:00","level":"INFO","msg":"stream: started","id":"oq3cecj9"}
+{"time":"2025-06-10T19:33:24.7979427-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"oq3cecj9"}
+{"time":"2025-06-10T19:33:24.7984998-07:00","level":"INFO","msg":"handler: started","stream_id":"oq3cecj9"}
+{"time":"2025-06-10T19:33:24.7984998-07:00","level":"INFO","msg":"sender: started","stream_id":"oq3cecj9"}
+{"time":"2025-06-10T19:33:24.9382781-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:33:25.2992657-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:33:25.2992657-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:33:25.5463801-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:33:26.2686494-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:33:26.3177056-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary","runtime_seconds":0.0490562}],"total_operations":1}}
+{"time":"2025-06-10T19:33:26.395478-07:00","level":"INFO","msg":"stream: closing","id":"oq3cecj9"}
+{"time":"2025-06-10T19:33:26.395478-07:00","level":"INFO","msg":"handler: closed","stream_id":"oq3cecj9"}
+{"time":"2025-06-10T19:33:26.395478-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"oq3cecj9"}
+{"time":"2025-06-10T19:33:26.3960188-07:00","level":"INFO","msg":"sender: closed","stream_id":"oq3cecj9"}
+{"time":"2025-06-10T19:33:26.3960188-07:00","level":"INFO","msg":"stream: closed","id":"oq3cecj9"}

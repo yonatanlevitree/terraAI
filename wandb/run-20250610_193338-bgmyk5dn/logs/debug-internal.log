@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:33:39.1794619-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_193338-bgmyk5dn\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:33:39.5168439-07:00","level":"INFO","msg":"stream: created new stream","id":"bgmyk5dn"}
+{"time":"2025-06-10T19:33:39.5168439-07:00","level":"INFO","msg":"stream: started","id":"bgmyk5dn"}
+{"time":"2025-06-10T19:33:39.5190609-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"bgmyk5dn"}
+{"time":"2025-06-10T19:33:39.5190609-07:00","level":"INFO","msg":"sender: started","stream_id":"bgmyk5dn"}
+{"time":"2025-06-10T19:33:39.5195687-07:00","level":"INFO","msg":"handler: started","stream_id":"bgmyk5dn"}
+{"time":"2025-06-10T19:33:39.7192875-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:33:40.0662146-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:33:40.0662146-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:33:40.6889309-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:33:41.0819683-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.110064,"progress":"839B/839B"}],"total_operations":1}}
+{"time":"2025-06-10T19:33:41.2655001-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:33:41.3792027-07:00","level":"INFO","msg":"stream: closing","id":"bgmyk5dn"}
+{"time":"2025-06-10T19:33:41.3792027-07:00","level":"INFO","msg":"handler: closed","stream_id":"bgmyk5dn"}
+{"time":"2025-06-10T19:33:41.3792027-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"bgmyk5dn"}
+{"time":"2025-06-10T19:33:41.3792027-07:00","level":"INFO","msg":"sender: closed","stream_id":"bgmyk5dn"}
+{"time":"2025-06-10T19:33:41.3792027-07:00","level":"INFO","msg":"stream: closed","id":"bgmyk5dn"}

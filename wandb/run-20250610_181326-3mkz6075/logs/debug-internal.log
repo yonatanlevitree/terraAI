@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:13:27.3230147-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_181326-3mkz6075\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:13:27.6671252-07:00","level":"INFO","msg":"stream: created new stream","id":"3mkz6075"}
+{"time":"2025-06-10T18:13:27.667653-07:00","level":"INFO","msg":"stream: started","id":"3mkz6075"}
+{"time":"2025-06-10T18:13:27.667653-07:00","level":"INFO","msg":"handler: started","stream_id":"3mkz6075"}
+{"time":"2025-06-10T18:13:27.667653-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"3mkz6075"}
+{"time":"2025-06-10T18:13:27.667653-07:00","level":"INFO","msg":"sender: started","stream_id":"3mkz6075"}
+{"time":"2025-06-10T18:13:27.7728401-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:13:28.1144043-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:13:28.1144043-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:13:28.6132878-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:13:29.1301802-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.2207989,"progress":"840B/840B"}],"total_operations":1}}
+{"time":"2025-06-10T18:13:29.1432057-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:13:29.3072719-07:00","level":"INFO","msg":"stream: closing","id":"3mkz6075"}
+{"time":"2025-06-10T18:13:29.3072719-07:00","level":"INFO","msg":"handler: closed","stream_id":"3mkz6075"}
+{"time":"2025-06-10T18:13:29.3072719-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"3mkz6075"}
+{"time":"2025-06-10T18:13:29.3072719-07:00","level":"INFO","msg":"sender: closed","stream_id":"3mkz6075"}
+{"time":"2025-06-10T18:13:29.3072719-07:00","level":"INFO","msg":"stream: closed","id":"3mkz6075"}

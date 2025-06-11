@@ -3,8 +3,6 @@ import axios from 'axios';
 
 interface SimulationParameters {
     terrainSize: number;
-    noise: number;
-    smoothness: number;
     maxIterations: number;
     depthBounds: [number, number];
     volumeBounds: [number, number];
@@ -20,8 +18,6 @@ const API_BASE_URL = process.env.REACT_APP_API_URL;
 const SimulationForm: React.FC = () => {
     const [parameters, setParameters] = useState<SimulationParameters>({
         terrainSize: 500,
-        noise: 0.5,
-        smoothness: 0.5,
         maxIterations: 100,
         depthBounds: [0, 100],
         volumeBounds: [0, 1000],
@@ -157,36 +153,6 @@ const SimulationForm: React.FC = () => {
                 </div>
 
                 <div>
-                    <label className="block mb-1">Noise (0-1)</label>
-                    <input
-                        type="number"
-                        name="noise"
-                        value={parameters.noise}
-                        onChange={handleChange}
-                        min="0"
-                        max="1"
-                        step="0.1"
-                        className="w-full p-2 border rounded"
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label className="block mb-1">Smoothness (0-1)</label>
-                    <input
-                        type="number"
-                        name="smoothness"
-                        value={parameters.smoothness}
-                        onChange={handleChange}
-                        min="0"
-                        max="1"
-                        step="0.1"
-                        className="w-full p-2 border rounded"
-                        required
-                    />
-                </div>
-
-                <div>
                     <label className="block mb-1">Name (optional)</label>
                     <input
                         type="text"
@@ -217,8 +183,9 @@ const SimulationForm: React.FC = () => {
                         className="w-full p-2 border rounded"
                         required
                     >
-                        <option value="genetic">Genetic</option>
+                        <option value="genetic">Genetic (Full Solution)</option>
                         <option value="greedy">Greedy</option>
+                        <option value="geneticSingle">Genetic (Single Well)</option>
                     </select>
                 </div>
 

@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:51:29.9662157-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_195129-eokav5v5\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:51:30.3374727-07:00","level":"INFO","msg":"stream: created new stream","id":"eokav5v5"}
+{"time":"2025-06-10T19:51:30.3374727-07:00","level":"INFO","msg":"stream: started","id":"eokav5v5"}
+{"time":"2025-06-10T19:51:30.3374727-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"eokav5v5"}
+{"time":"2025-06-10T19:51:30.3374727-07:00","level":"INFO","msg":"handler: started","stream_id":"eokav5v5"}
+{"time":"2025-06-10T19:51:30.3374727-07:00","level":"INFO","msg":"sender: started","stream_id":"eokav5v5"}
+{"time":"2025-06-10T19:51:30.493992-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:51:30.8225278-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:51:30.8231008-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:51:31.1372233-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:51:31.7692458-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.1958145,"progress":"840B/840B"}],"total_operations":1}}
+{"time":"2025-06-10T19:51:31.7838168-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:51:31.9370477-07:00","level":"INFO","msg":"stream: closing","id":"eokav5v5"}
+{"time":"2025-06-10T19:51:31.9370477-07:00","level":"INFO","msg":"handler: closed","stream_id":"eokav5v5"}
+{"time":"2025-06-10T19:51:31.9370477-07:00","level":"INFO","msg":"sender: closed","stream_id":"eokav5v5"}
+{"time":"2025-06-10T19:51:31.9370477-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"eokav5v5"}
+{"time":"2025-06-10T19:51:31.9370477-07:00","level":"INFO","msg":"stream: closed","id":"eokav5v5"}

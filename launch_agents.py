@@ -5,10 +5,10 @@ import sys
 
 # Set your sweep info here
 ENTITY = "yonatanlevitree-levitree"
-PROJECT = "terraAI"
-SWEEP_ID = "51srywy9"  # <-- Replace with your actual sweep id
+PROJECT = "terraAI-venv_Scripts"
+SWEEP_ID = "0dgin0vn"  # Updated sweep ID
 
-NUM_AGENTS = os.cpu_count()  # Use all logical cores
+NUM_AGENTS = max(1, os.cpu_count() - 3) # Save three logical cores
 VENV_PATH = os.path.join(os.getcwd(), "venv", "Scripts", "activate")  # Adjust if your venv is elsewhere
 
 print(f"Launching {NUM_AGENTS} wandb agents...")

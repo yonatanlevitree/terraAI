@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:47:44.1288087-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_184743-qcawnshb\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:47:44.440177-07:00","level":"INFO","msg":"stream: created new stream","id":"qcawnshb"}
+{"time":"2025-06-10T18:47:44.440732-07:00","level":"INFO","msg":"stream: started","id":"qcawnshb"}
+{"time":"2025-06-10T18:47:44.440732-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"qcawnshb"}
+{"time":"2025-06-10T18:47:44.440732-07:00","level":"INFO","msg":"handler: started","stream_id":"qcawnshb"}
+{"time":"2025-06-10T18:47:44.4415311-07:00","level":"INFO","msg":"sender: started","stream_id":"qcawnshb"}
+{"time":"2025-06-10T18:47:44.6041078-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:47:44.8620658-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:47:44.8620658-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:47:45.6466165-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:47:45.8751856-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-summary.json","runtime_seconds":0.1105782,"progress":"24B/24B"},{"desc":"uploading output.log","runtime_seconds":0.1105782},{"desc":"uploading config.yaml","runtime_seconds":0.0103406,"progress":"834B/834B"}],"total_operations":3}}
+{"time":"2025-06-10T18:47:46.1575694-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:47:46.2749719-07:00","level":"INFO","msg":"stream: closing","id":"qcawnshb"}
+{"time":"2025-06-10T18:47:46.2749719-07:00","level":"INFO","msg":"handler: closed","stream_id":"qcawnshb"}
+{"time":"2025-06-10T18:47:46.2749719-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"qcawnshb"}
+{"time":"2025-06-10T18:47:46.2749719-07:00","level":"INFO","msg":"sender: closed","stream_id":"qcawnshb"}
+{"time":"2025-06-10T18:47:46.2754797-07:00","level":"INFO","msg":"stream: closed","id":"qcawnshb"}

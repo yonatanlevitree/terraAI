@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:19:04.7769865-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_191904-berdtdb8\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:19:05.1558857-07:00","level":"INFO","msg":"stream: created new stream","id":"berdtdb8"}
+{"time":"2025-06-10T19:19:05.1558857-07:00","level":"INFO","msg":"stream: started","id":"berdtdb8"}
+{"time":"2025-06-10T19:19:05.1582959-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"berdtdb8"}
+{"time":"2025-06-10T19:19:05.1593038-07:00","level":"INFO","msg":"handler: started","stream_id":"berdtdb8"}
+{"time":"2025-06-10T19:19:05.1614507-07:00","level":"INFO","msg":"sender: started","stream_id":"berdtdb8"}
+{"time":"2025-06-10T19:19:05.2724014-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:19:05.5089429-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:19:05.5089429-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:19:05.6766977-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:19:06.2113904-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:19:06.3047129-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T19:19:06.3101386-07:00","level":"INFO","msg":"stream: closing","id":"berdtdb8"}
+{"time":"2025-06-10T19:19:06.3101386-07:00","level":"INFO","msg":"handler: closed","stream_id":"berdtdb8"}
+{"time":"2025-06-10T19:19:06.3101386-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"berdtdb8"}
+{"time":"2025-06-10T19:19:06.3101386-07:00","level":"INFO","msg":"sender: closed","stream_id":"berdtdb8"}
+{"time":"2025-06-10T19:19:06.3107079-07:00","level":"INFO","msg":"stream: closed","id":"berdtdb8"}

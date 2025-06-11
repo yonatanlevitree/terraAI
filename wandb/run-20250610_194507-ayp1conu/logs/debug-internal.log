@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:45:08.4061401-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_194507-ayp1conu\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:45:09.1083589-07:00","level":"INFO","msg":"stream: created new stream","id":"ayp1conu"}
+{"time":"2025-06-10T19:45:09.1083589-07:00","level":"INFO","msg":"stream: started","id":"ayp1conu"}
+{"time":"2025-06-10T19:45:09.1105467-07:00","level":"INFO","msg":"handler: started","stream_id":"ayp1conu"}
+{"time":"2025-06-10T19:45:09.1105467-07:00","level":"INFO","msg":"sender: started","stream_id":"ayp1conu"}
+{"time":"2025-06-10T19:45:09.1110533-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"ayp1conu"}
+{"time":"2025-06-10T19:45:09.2678981-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:45:09.6622661-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:45:09.6627795-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:45:10.079984-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:45:10.6526153-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.1622212,"progress":"840B/840B"}],"total_operations":1}}
+{"time":"2025-06-10T19:45:10.7183276-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:45:10.9108853-07:00","level":"INFO","msg":"stream: closing","id":"ayp1conu"}
+{"time":"2025-06-10T19:45:10.9108853-07:00","level":"INFO","msg":"handler: closed","stream_id":"ayp1conu"}
+{"time":"2025-06-10T19:45:10.9108853-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ayp1conu"}
+{"time":"2025-06-10T19:45:10.9120047-07:00","level":"INFO","msg":"sender: closed","stream_id":"ayp1conu"}
+{"time":"2025-06-10T19:45:10.9120047-07:00","level":"INFO","msg":"stream: closed","id":"ayp1conu"}

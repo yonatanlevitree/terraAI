@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:10:22.1710841-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_191021-8bv42met\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:10:22.75307-07:00","level":"INFO","msg":"stream: created new stream","id":"8bv42met"}
+{"time":"2025-06-10T19:10:22.7539296-07:00","level":"INFO","msg":"stream: started","id":"8bv42met"}
+{"time":"2025-06-10T19:10:22.7590294-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"8bv42met"}
+{"time":"2025-06-10T19:10:22.7618307-07:00","level":"INFO","msg":"sender: started","stream_id":"8bv42met"}
+{"time":"2025-06-10T19:10:22.762491-07:00","level":"INFO","msg":"handler: started","stream_id":"8bv42met"}
+{"time":"2025-06-10T19:10:22.8764904-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:10:23.6060699-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:10:23.6065558-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:10:23.813907-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:10:24.6331965-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:10:24.6337199-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary"}],"total_operations":1}}
+{"time":"2025-06-10T19:10:25.1017614-07:00","level":"INFO","msg":"stream: closing","id":"8bv42met"}
+{"time":"2025-06-10T19:10:25.1017614-07:00","level":"INFO","msg":"handler: closed","stream_id":"8bv42met"}
+{"time":"2025-06-10T19:10:25.1017614-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"8bv42met"}
+{"time":"2025-06-10T19:10:25.1021809-07:00","level":"INFO","msg":"sender: closed","stream_id":"8bv42met"}
+{"time":"2025-06-10T19:10:25.1021809-07:00","level":"INFO","msg":"stream: closed","id":"8bv42met"}

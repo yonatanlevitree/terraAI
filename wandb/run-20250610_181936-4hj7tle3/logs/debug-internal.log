@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:19:37.2231886-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_181936-4hj7tle3\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:19:37.566092-07:00","level":"INFO","msg":"stream: created new stream","id":"4hj7tle3"}
+{"time":"2025-06-10T18:19:37.5666819-07:00","level":"INFO","msg":"stream: started","id":"4hj7tle3"}
+{"time":"2025-06-10T18:19:37.5666819-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"4hj7tle3"}
+{"time":"2025-06-10T18:19:37.5672822-07:00","level":"INFO","msg":"handler: started","stream_id":"4hj7tle3"}
+{"time":"2025-06-10T18:19:37.5701347-07:00","level":"INFO","msg":"sender: started","stream_id":"4hj7tle3"}
+{"time":"2025-06-10T18:19:37.6928521-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:19:37.9956874-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:19:37.9956874-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:19:38.4792881-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:19:39.0003497-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.1511324},{"desc":"uploading wandb-summary.json","runtime_seconds":0.1511324,"progress":"24B/24B"},{"desc":"uploading config.yaml","runtime_seconds":0.1352363,"progress":"834B/834B"}],"total_operations":3}}
+{"time":"2025-06-10T18:19:39.1336423-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:19:39.2848497-07:00","level":"INFO","msg":"stream: closing","id":"4hj7tle3"}
+{"time":"2025-06-10T18:19:39.2848497-07:00","level":"INFO","msg":"handler: closed","stream_id":"4hj7tle3"}
+{"time":"2025-06-10T18:19:39.2848497-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"4hj7tle3"}
+{"time":"2025-06-10T18:19:39.2848497-07:00","level":"INFO","msg":"sender: closed","stream_id":"4hj7tle3"}
+{"time":"2025-06-10T18:19:39.2848497-07:00","level":"INFO","msg":"stream: closed","id":"4hj7tle3"}

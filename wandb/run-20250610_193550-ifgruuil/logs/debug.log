@@ -1,0 +1,11 @@
+2025-06-10 19:35:50,898 INFO    MainThread:13932 [wandb_setup.py:_flush():81] Current SDK version is 0.20.1
+2025-06-10 19:35:50,898 INFO    MainThread:13932 [wandb_setup.py:_flush():81] Configure stats pid to 13932
+2025-06-10 19:35:50,898 INFO    MainThread:13932 [wandb_setup.py:_flush():81] Loading settings from C:\Users\yonat\.config\wandb\settings
+2025-06-10 19:35:50,898 INFO    MainThread:13932 [wandb_setup.py:_flush():81] Loading settings from C:\Users\yonat\OneDrive\Desktop\terraAI\wandb\settings
+2025-06-10 19:35:50,898 INFO    MainThread:13932 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-06-10 19:35:50,899 INFO    MainThread:13932 [wandb_init.py:setup_run_log_directory():703] Logging user logs to C:\Users\yonat\OneDrive\Desktop\terraAI\wandb\run-20250610_193550-ifgruuil\logs\debug.log
+2025-06-10 19:35:51,139 INFO    MainThread:13932 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to C:\Users\yonat\OneDrive\Desktop\terraAI\wandb\run-20250610_193550-ifgruuil\logs\debug-internal.log
+2025-06-10 19:35:51,139 INFO    MainThread:13932 [wandb_init.py:init():831] calling init triggers
+2025-06-10 19:35:51,139 INFO    MainThread:13932 [wandb_init.py:init():836] wandb.init called with sweep_config: {'algorithm': 'genetic', 'depthBounds': [5, 300], 'eliteSize': 6, 'fidelity': 0.95, 'maxIterations': 50, 'monetaryLimit': 5000000, 'mutationRate': 0.10805373677250237, 'noise': 0.5, 'numGenerations': 126, 'populationSize': 192, 'seed': 42, 'smoothness': 0.5, 'terrainSize': 400, 'timeLimit': 500000, 'tournamentSize': 8, 'volumeBounds': [10, 500000]}
+config: {'_wandb': {}}
+2025-06-10 19:35:51,139 INFO    MainThread:13932 [wandb_init.py:init():872] starting backend

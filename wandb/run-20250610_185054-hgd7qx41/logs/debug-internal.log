@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:50:54.6395558-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_185054-hgd7qx41\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:50:54.9326688-07:00","level":"INFO","msg":"stream: created new stream","id":"hgd7qx41"}
+{"time":"2025-06-10T18:50:54.9326688-07:00","level":"INFO","msg":"stream: started","id":"hgd7qx41"}
+{"time":"2025-06-10T18:50:54.9326688-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"hgd7qx41"}
+{"time":"2025-06-10T18:50:54.9331973-07:00","level":"INFO","msg":"sender: started","stream_id":"hgd7qx41"}
+{"time":"2025-06-10T18:50:54.9331973-07:00","level":"INFO","msg":"handler: started","stream_id":"hgd7qx41"}
+{"time":"2025-06-10T18:50:55.050263-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:50:55.2958655-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:50:55.2958655-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:50:55.4476982-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:50:56.0484398-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:50:56.1659599-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T18:50:56.1726388-07:00","level":"INFO","msg":"stream: closing","id":"hgd7qx41"}
+{"time":"2025-06-10T18:50:56.1726388-07:00","level":"INFO","msg":"handler: closed","stream_id":"hgd7qx41"}
+{"time":"2025-06-10T18:50:56.1726388-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"hgd7qx41"}
+{"time":"2025-06-10T18:50:56.1726388-07:00","level":"INFO","msg":"sender: closed","stream_id":"hgd7qx41"}
+{"time":"2025-06-10T18:50:56.1726388-07:00","level":"INFO","msg":"stream: closed","id":"hgd7qx41"}

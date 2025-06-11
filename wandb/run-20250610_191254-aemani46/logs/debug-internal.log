@@ -1,0 +1,17 @@
+{"time":"2025-06-10T19:12:56.0564515-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_191254-aemani46\\logs\\debug-core.log"}
+{"time":"2025-06-10T19:12:57.6445843-07:00","level":"INFO","msg":"stream: created new stream","id":"aemani46"}
+{"time":"2025-06-10T19:12:57.645101-07:00","level":"INFO","msg":"stream: started","id":"aemani46"}
+{"time":"2025-06-10T19:12:57.7359528-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"aemani46"}
+{"time":"2025-06-10T19:12:57.7359528-07:00","level":"INFO","msg":"sender: started","stream_id":"aemani46"}
+{"time":"2025-06-10T19:12:57.7359528-07:00","level":"INFO","msg":"handler: started","stream_id":"aemani46"}
+{"time":"2025-06-10T19:12:58.0741955-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T19:13:02.6436298-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T19:13:02.6436298-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T19:13:03.0228499-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T19:13:03.504943-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T19:13:03.6721822-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary","runtime_seconds":0.1672392}],"total_operations":1}}
+{"time":"2025-06-10T19:13:03.7924273-07:00","level":"INFO","msg":"stream: closing","id":"aemani46"}
+{"time":"2025-06-10T19:13:03.7924273-07:00","level":"INFO","msg":"handler: closed","stream_id":"aemani46"}
+{"time":"2025-06-10T19:13:03.7924273-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"aemani46"}
+{"time":"2025-06-10T19:13:03.7924273-07:00","level":"INFO","msg":"sender: closed","stream_id":"aemani46"}
+{"time":"2025-06-10T19:13:03.7924273-07:00","level":"INFO","msg":"stream: closed","id":"aemani46"}

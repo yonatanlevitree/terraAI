@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:47:36.7941763-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_184736-mcrs29qk\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:47:37.1265299-07:00","level":"INFO","msg":"stream: created new stream","id":"mcrs29qk"}
+{"time":"2025-06-10T18:47:37.1265299-07:00","level":"INFO","msg":"stream: started","id":"mcrs29qk"}
+{"time":"2025-06-10T18:47:37.1265299-07:00","level":"INFO","msg":"handler: started","stream_id":"mcrs29qk"}
+{"time":"2025-06-10T18:47:37.1276175-07:00","level":"INFO","msg":"sender: started","stream_id":"mcrs29qk"}
+{"time":"2025-06-10T18:47:37.1312752-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"mcrs29qk"}
+{"time":"2025-06-10T18:47:37.2695621-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:47:37.5008684-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:47:37.5008684-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:47:37.7782163-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:47:38.366829-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:47:38.5179092-07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary","runtime_seconds":0.1510802}],"total_operations":1}}
+{"time":"2025-06-10T18:47:38.541187-07:00","level":"INFO","msg":"stream: closing","id":"mcrs29qk"}
+{"time":"2025-06-10T18:47:38.541187-07:00","level":"INFO","msg":"handler: closed","stream_id":"mcrs29qk"}
+{"time":"2025-06-10T18:47:38.541187-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"mcrs29qk"}
+{"time":"2025-06-10T18:47:38.541187-07:00","level":"INFO","msg":"sender: closed","stream_id":"mcrs29qk"}
+{"time":"2025-06-10T18:47:38.5417157-07:00","level":"INFO","msg":"stream: closed","id":"mcrs29qk"}

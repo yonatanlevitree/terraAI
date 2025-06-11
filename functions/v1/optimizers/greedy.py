@@ -15,8 +15,6 @@ class GreedyOptimizer(BaseOptimizer):
     
     def __init__(self, 
                  terrainSize: int,
-                 noise: float,
-                 smoothness: float,
                  maxIterations: int,
                  depthBounds: Tuple[float, float],
                  volumeBounds: Tuple[float, float],
@@ -28,8 +26,6 @@ class GreedyOptimizer(BaseOptimizer):
                  progress_callback=None):
         super().__init__(
             terrainSize=terrainSize,
-            noise=noise,
-            smoothness=smoothness,
             maxIterations=maxIterations,
             depthBounds=depthBounds,
             volumeBounds=volumeBounds,
@@ -81,10 +77,6 @@ class GreedyOptimizer(BaseOptimizer):
                 # Optimize well parameters
                 self._optimize_well_parameters([well], current_terrain)
             
-                # Check if we've exceeded limits
-                if monetaryCost + well.monetaryCost() > self.monetaryLimit or timeCost + well.time_cost() > self.timeLimit:
-                    break
-                
                 # Add well to list
                 wells.append(well)
                 

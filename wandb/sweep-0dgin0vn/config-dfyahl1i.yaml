@@ -1,0 +1,38 @@
+wandb_version: 1
+
+algorithm:
+  value: geneticSingle
+depthBounds:
+  value:
+  - 5
+  - 300
+eliteSize:
+  value: 2
+fidelity:
+  value: 0.95
+maxIterations:
+  value: 50
+monetaryLimit:
+  value: 5000000
+mutationRate:
+  value: 0.10310050231516422
+noise:
+  value: 0.5
+numGenerations:
+  value: 167
+populationSize:
+  value: 163
+seed:
+  value: 42
+smoothness:
+  value: 0.5
+terrainSize:
+  value: 400
+timeLimit:
+  value: 500000
+tournamentSize:
+  value: 4
+volumeBounds:
+  value:
+  - 10
+  - 500000

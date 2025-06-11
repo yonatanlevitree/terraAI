@@ -1,0 +1,17 @@
+{"time":"2025-06-10T18:43:53.1945808-07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\yonat\\OneDrive\\Desktop\\terraAI\\wandb\\run-20250610_184352-fs3tvtar\\logs\\debug-core.log"}
+{"time":"2025-06-10T18:43:53.5013433-07:00","level":"INFO","msg":"stream: created new stream","id":"fs3tvtar"}
+{"time":"2025-06-10T18:43:53.5013433-07:00","level":"INFO","msg":"stream: started","id":"fs3tvtar"}
+{"time":"2025-06-10T18:43:53.501924-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"fs3tvtar"}
+{"time":"2025-06-10T18:43:53.5030094-07:00","level":"INFO","msg":"handler: started","stream_id":"fs3tvtar"}
+{"time":"2025-06-10T18:43:53.5030094-07:00","level":"INFO","msg":"sender: started","stream_id":"fs3tvtar"}
+{"time":"2025-06-10T18:43:53.6536624-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T18:43:53.9415796-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T18:43:53.9415796-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T18:43:54.1824311-07:00","level":"INFO","msg":"sender: sendAlert: notified scriptable run alert","data":{"notifyScriptableRunAlert":{"success":true}}}
+{"time":"2025-06-10T18:43:54.961799-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-06-10T18:43:55.2902352-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T18:43:55.414305-07:00","level":"INFO","msg":"stream: closing","id":"fs3tvtar"}
+{"time":"2025-06-10T18:43:55.414305-07:00","level":"INFO","msg":"handler: closed","stream_id":"fs3tvtar"}
+{"time":"2025-06-10T18:43:55.414305-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"fs3tvtar"}
+{"time":"2025-06-10T18:43:55.414305-07:00","level":"INFO","msg":"sender: closed","stream_id":"fs3tvtar"}
+{"time":"2025-06-10T18:43:55.4148204-07:00","level":"INFO","msg":"stream: closed","id":"fs3tvtar"}
